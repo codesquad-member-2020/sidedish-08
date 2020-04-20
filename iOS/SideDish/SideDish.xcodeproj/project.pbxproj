@@ -15,7 +15,7 @@
 		8D344A65244D484A004D3962 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D344A63244D484A004D3962 /* LaunchScreen.storyboard */; };
 		8D344A70244D484B004D3962 /* SideDishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D344A6F244D484B004D3962 /* SideDishTests.swift */; };
 		8D344A7F244D8CD1004D3962 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D344A7E244D8CD1004D3962 /* ProductCell.swift */; };
-		8D344A81244D8E54004D3962 /* ProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D344A80244D8E54004D3962 /* ProductTableViewController.swift */; };
+		8D344A81244D8E54004D3962 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D344A80244D8E54004D3962 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +41,7 @@
 		8D344A6F244D484B004D3962 /* SideDishTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideDishTests.swift; sourceTree = "<group>"; };
 		8D344A71244D484B004D3962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D344A7E244D8CD1004D3962 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
-		8D344A80244D8E54004D3962 /* ProductTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewController.swift; sourceTree = "<group>"; };
+		8D344A80244D8E54004D3962 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +83,9 @@
 		8D344A57244D4848004D3962 /* SideDish */ = {
 			isa = PBXGroup;
 			children = (
-				8D344A7E244D8CD1004D3962 /* ProductCell.swift */,
-				8D344A80244D8E54004D3962 /* ProductTableViewController.swift */,
+				8D344A80244D8E54004D3962 /* MainViewController.swift */,
 				8D344A5C244D4848004D3962 /* DetailViewController.swift */,
+				8D344A7E244D8CD1004D3962 /* ProductCell.swift */,
 				8D344A5E244D4848004D3962 /* Main.storyboard */,
 				8D344A61244D484A004D3962 /* Assets.xcassets */,
 				8D344A58244D4848004D3962 /* AppDelegate.swift */,
@@ -210,7 +210,7 @@
 				8D344A7F244D8CD1004D3962 /* ProductCell.swift in Sources */,
 				8D344A59244D4848004D3962 /* AppDelegate.swift in Sources */,
 				8D344A5B244D4848004D3962 /* SceneDelegate.swift in Sources */,
-				8D344A81244D8E54004D3962 /* ProductTableViewController.swift in Sources */,
+				8D344A81244D8E54004D3962 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
