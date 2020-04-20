@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Api(tags = "Dev")
-@RequestMapping("dev-api")
+@RequestMapping("/dev-api")
 public class DevController {
 
   @ApiOperation(value = "", notes = "Test")
-  @GetMapping("test")
+  @GetMapping("/test")
   public ApiResponse test() {
     return new ApiResponse(SuccessMessages.SUCCESS, null);
   }
