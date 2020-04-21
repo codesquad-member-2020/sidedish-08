@@ -1,18 +1,18 @@
 # logging 설정
 logging:
-    level:
-      root: debug
-      sql: trace
-    pattern:
-      file: "%d{dd-MM-yyyy HH:mm:ss.SSS,Asia/Seoul} [%thread] %-5level %logger{36}.%M - %msg%n"
-      console: "%d{dd-MM-yyyy HH:mm:ss.SSS,Asia/Seoul} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n"
-    file:
-      name: logs/dev_log.log
+  level:
+    root: debug
+    sql: trace
+  pattern:
+    file: "%d{dd-MM-yyyy HH:mm:ss.SSS,Asia/Seoul} [%thread] %-5level %logger{36}.%M - %msg%n"
+    console: "%d{dd-MM-yyyy HH:mm:ss.SSS,Asia/Seoul} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n"
+  file:
+    name: logs/dev_log.log
 # datasource
 spring:
   datasource:
     hikari:
-      jdbc-url: jdbc:h2:mem://localhost/~/todo_server;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE
+      jdbc-url: jdbc:h2:mem://localhost/sidedish_db;MVCC=TRUE;DB_CLOSE_ON_EXIT=FALSE
       driver-class-name: org.h2.Driver
       data-username: sa
       data-password:
