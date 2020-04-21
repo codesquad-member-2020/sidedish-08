@@ -1,10 +1,9 @@
 package com.codesquad.sidedish08.bean;
 
 
-import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 
-public class Category implements Serializable {
+public class Category {
 
   @Id
   private Long id;
