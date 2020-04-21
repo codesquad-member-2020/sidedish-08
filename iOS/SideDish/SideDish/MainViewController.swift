@@ -1,14 +1,16 @@
-//
-
 import UIKit
 
 class MainViewController: UIViewController {
-    let cellIdentifier: String = "\(ProductCell.self)"
+    let cellIdentifier: String = "\(ItemCell.self)"
+    let headerIdentifier: String = "\(HeaderCell.self)"
 
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,8 +45,19 @@ extension MainViewController: UITableViewDataSource {
         return 3
     }
 
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return String(section)
+}
+
+extension MainViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableCell(withIdentifier: headerIdentifier)
+        return view
     }
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 80
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
 }

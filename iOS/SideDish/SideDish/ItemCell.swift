@@ -1,8 +1,6 @@
-//
-
 import UIKit
 
-class ProductCell: UITableViewCell {
+class ItemCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
