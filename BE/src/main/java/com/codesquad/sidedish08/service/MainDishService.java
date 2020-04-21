@@ -1,7 +1,8 @@
 package com.codesquad.sidedish08.service;
 
+import static com.codesquad.sidedish08.util.ResponseUtils.getResultMap;
+
 import com.codesquad.sidedish08.msessage.MockMessages;
-import com.codesquad.sidedish08.util.ResponseUtils;
 import java.util.Map;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +10,10 @@ import org.springframework.stereotype.Service;
 public class MainDishService implements BasicService {
 
   public Map<String, ?> dish() {
-    return ResponseUtils.getResultMap("dish", MockMessages.mainDishString);
+    return getResultMap("dish", MockMessages.mainDishString);
   }
 
   public Map<String, ?> detail(String detailHash) {
-    return ResponseUtils.getResultMap("dish", null);
+    return getResultMap("dish", null);
   }
 }

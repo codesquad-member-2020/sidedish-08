@@ -18,5 +18,4 @@ public class DevController {
   public ApiResponse test() {
     return new ApiResponse(SuccessMessages.SUCCESS, null);
   }
-
 }

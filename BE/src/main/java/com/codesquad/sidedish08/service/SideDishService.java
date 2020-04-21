@@ -1,6 +1,7 @@
 package com.codesquad.sidedish08.service;
 
-import com.codesquad.sidedish08.util.ResponseUtils;
+import static com.codesquad.sidedish08.util.ResponseUtils.getResultMap;
+
 import java.util.Map;
 import org.springframework.stereotype.Service;
 
@@ -8,10 +9,10 @@ import org.springframework.stereotype.Service;
 public class SideDishService implements BasicService {
 
   public Map<String, ?> dish() {
-    return ResponseUtils.getResultMap("dish", null);
+    return getResultMap("dish", null);
   }
 
   public Map<String, ?> detail(String detailHash) {
-    return ResponseUtils.getResultMap("dish", null);
+    return getResultMap("dish", null);
   }
 }
