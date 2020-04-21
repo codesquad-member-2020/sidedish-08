@@ -1,10 +1,12 @@
 ## SIDEDISH 프로젝트 - 11팀
 
-- BackEnd: [Dingo](https://github.com/wooody92) ☢️
+- BackEnd: 
+[Dingo](https://github.com/kyungrae) ☢️
 - FrontEnd: 
-[Reese](https://github.com/seungdeng17) 🦄 
+[Reese](https://github.com/reesekimm) 🦄 
 [huey](https://github.com/hu2y)🐱
-- iOS: [H](https://github.com/MagnaPax) 🦊
+- iOS: 
+[H](https://github.com/MagnaPax) 🦊
 
 
 ## Ground Rule
