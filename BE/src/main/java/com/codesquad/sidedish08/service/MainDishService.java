@@ -2,7 +2,7 @@ package com.codesquad.sidedish08.service;
 
 import static com.codesquad.sidedish08.util.ResponseUtils.getResultMap;
 
-import com.codesquad.sidedish08.msessage.MockMessages;
+import com.codesquad.sidedish08.message.MockMessages;
 import java.util.Map;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.codesquad.sidedish08.msessage;
+package com.codesquad.sidedish08.message;
 
 public class MockMessages {
 

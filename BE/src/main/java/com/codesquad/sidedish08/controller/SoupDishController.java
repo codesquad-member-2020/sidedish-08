@@ -1,6 +1,6 @@
 package com.codesquad.sidedish08.controller;
 
-import com.codesquad.sidedish08.msessage.SuccessMessages;
+import com.codesquad.sidedish08.message.SuccessMessages;
 import com.codesquad.sidedish08.response.ApiResponse;
 import com.codesquad.sidedish08.service.BasicService;
 import com.codesquad.sidedish08.service.SoupDishService;
