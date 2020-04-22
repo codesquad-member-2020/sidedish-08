@@ -28,6 +28,6 @@ public class DetailController {
   @GetMapping("/{hash}")
   public ApiResponse detail(@PathVariable String hash) {
     return ApiResponse.ok(
-        SuccessMessages.SUCCESS, getResultMap("dishes", detailService.detail(hash)));
+        SuccessMessages.SUCCESS, getResultMap("data", detailService.detail(hash)));
   }
 }
