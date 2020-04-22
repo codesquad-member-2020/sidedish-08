@@ -1,3 +1,7 @@
+spring:
+  profiles:
+    active: dev
+
 # logging 설정
 logging:
   level:
@@ -8,8 +12,10 @@ logging:
     console: "%d{dd-MM-yyyy HH:mm:ss.SSS,Asia/Seoul} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n"
   file:
     name: logs/dev_log.log
-# datasource
+
+---
 spring:
+  profiles: dev
   datasource:
     hikari:
       jdbc-url: jdbc:h2:mem://localhost/sidedish_db;
@@ -19,3 +25,16 @@ spring:
   h2:
     console:
       enabled: true
+---
+spring:
+  profiles: prod
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sidedish_db?autoReconnect=true&useSSL=false&useUnicode=true&characterEncoding=utf8
+    username: sidedish08
+    password: sidedish08
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+    initialization-mode: always
+    hikari:
+      maximum-pool-size: 10
