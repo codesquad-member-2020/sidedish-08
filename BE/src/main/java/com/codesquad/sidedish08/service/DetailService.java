@@ -1,8 +1,10 @@
 package com.codesquad.sidedish08.service;
 
+import static com.codesquad.sidedish08.model.dto.DetailDto.getDetailDto;
+
 import com.codesquad.sidedish08.dao.DishRepository;
-import com.codesquad.sidedish08.model.Dish;
-import java.util.List;
+import com.codesquad.sidedish08.model.dto.DetailDto;
+import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,7 +17,7 @@ public class DetailService {
     this.dishRepository = dishRepository;
   }
 
-  public List<Dish> detail(String hash) {
-    return dishRepository.findByHash(hash);
+  public DetailDto detail(String hash) {
+    return getDetailDto(dishRepository.findByHash(hash).orElseThrow(NoSuchElementException::new));
   }
 }
