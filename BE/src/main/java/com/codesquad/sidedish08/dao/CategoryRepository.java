@@ -1,4 +1,4 @@
-package com.codesquad.sidedish08.repository;
+package com.codesquad.sidedish08.dao;
 
 
 import com.codesquad.sidedish08.model.Category;
