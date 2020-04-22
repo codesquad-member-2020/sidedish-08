@@ -1,6 +1,6 @@
 package com.codesquad.sidedish08.exception;
 
-import com.codesquad.sidedish08.msessage.ErrorMessages;
+import com.codesquad.sidedish08.message.ErrorMessages;
 import com.codesquad.sidedish08.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
