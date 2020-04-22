@@ -2,7 +2,7 @@ package com.codesquad.sidedish08.service;
 
 import static com.codesquad.sidedish08.util.ResponseUtils.getResultMap;
 
-import com.codesquad.sidedish08.repository.CategoryRepository;
+import com.codesquad.sidedish08.dao.CategoryRepository;
 import java.util.Map;
 import org.springframework.stereotype.Service;
 
