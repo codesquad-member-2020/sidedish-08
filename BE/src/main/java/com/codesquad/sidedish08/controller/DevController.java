@@ -1,8 +1,10 @@
 package com.codesquad.sidedish08.controller;
 
+import com.codesquad.sidedish08.message.DishMessages;
 import com.codesquad.sidedish08.message.SuccessMessages;
 import com.codesquad.sidedish08.response.ApiResponse;
 import com.codesquad.sidedish08.service.DevService;
+import com.codesquad.sidedish08.util.ResponseUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,15 +22,16 @@ public class DevController {
     this.devService = devService;
   }
 
-  @ApiOperation(value = "", notes = "Test")
+  @ApiOperation(value = "", notes = "test")
   @GetMapping("/test")
   public ApiResponse test() {
-    return new ApiResponse(SuccessMessages.SUCCESS, null);
+    return ApiResponse.ok(SuccessMessages.SUCCESS, null);
   }
 
-  @ApiOperation(value = "", notes = "Test")
+  @ApiOperation(value = "", notes = "Category 전부다 가져오기")
   @GetMapping("/category")
   public ApiResponse category() {
-    return new ApiResponse(SuccessMessages.SUCCESS, devService.category());
+    return ApiResponse.ok(
+        SuccessMessages.SUCCESS, ResponseUtils.getResultMap("dish", devService.category()));
   }
 }

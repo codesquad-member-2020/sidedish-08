@@ -1,9 +1,8 @@
 package com.codesquad.sidedish08.service;
 
-import static com.codesquad.sidedish08.util.ResponseUtils.getResultMap;
-
+import com.codesquad.sidedish08.model.Category;
 import com.codesquad.sidedish08.repository.CategoryRepository;
-import java.util.Map;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,7 +15,7 @@ public class DevService {
     this.categoryRepository = categoryRepository;
   }
 
-  public Map<String, ?> category() {
-    return getResultMap("category", categoryRepository.findAll());
+  public List<Category> category() {
+    return categoryRepository.findAll();
   }
 }

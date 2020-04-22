@@ -12,19 +12,19 @@ public class ApiResponse {
     this.contents = contents;
   }
 
-  public String getMessage() {
-    return message;
+  public static ApiResponse ok(String message, Map<String, ?> contents) {
+    return new ApiResponse(message, contents);
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public String getMessage() {
+    return message;
   }
 
   public Map<String, ?> getContents() {
     return contents;
   }
 
-  public void setContents(Map<String, ?> contents) {
-    this.contents = contents;
-  }
+//  public static <T> ApiResult<T> OK(T response) {
+//    return new ApiResult<>(true, response, null);
+//  }
 }
