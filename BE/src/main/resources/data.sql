@@ -15,13 +15,13 @@ VALUES ('HF778', '[소중한식사] 골뱅이무침 195g', '매콤새콤달콤, 
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
 VALUES ('HFB53', '[옹가솜씨] 꽁치간장조림 240g', '생강 향이 산뜻한', 5800, 1, 3);
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
-VALUES ('HBBCC', '[마샐미디쉬] 유자소스 연근무침 250g', '향긋한 유자향과 아삭한 연근', 6500, 4, 0);
+VALUES ('HBBCC', '[마샐미디쉬] 유자소스 연근무침 250g', '향긋한 유자향과 아삭한 연근', 6500, 3, 0);
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
-VALUES ('H1939', '[동네부엌] 쇠고기야채장조림 200g', '부드러운 고기부터 밥비벼먹기 딱좋은 국물까지', 7400, 4, 1);
+VALUES ('H1939', '[동네부엌] 쇠고기야채장조림 200g', '부드러운 고기부터 밥비벼먹기 딱좋은 국물까지', 7400, 3, 1);
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
-VALUES ('H8EA5', '[소중한식사] 도라지초무침 150g', '새콤달콤 입맛 돋우는', 4000, 4, 2);
+VALUES ('H8EA5', '[소중한식사] 도라지초무침 150g', '새콤달콤 입맛 돋우는', 4000, 3, 2);
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
-VALUES ('H602F', '[미노리키친] 일본식 우엉조림(킨피라고보) 80g', '한국식 우엉조림과는 다른 진한 감칠맛', 3300, 4, 3);
+VALUES ('H602F', '[미노리키친] 일본식 우엉조림(킨피라고보) 80g', '한국식 우엉조림과는 다른 진한 감칠맛', 3300, 3, 3);
 
 
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
