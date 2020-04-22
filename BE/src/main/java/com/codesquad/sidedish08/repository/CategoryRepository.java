@@ -1,7 +1,7 @@
 package com.codesquad.sidedish08.repository;
 
 
-import com.codesquad.sidedish08.bean.Category;
+import com.codesquad.sidedish08.model.Category;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
