@@ -23,8 +23,4 @@ public class ApiResponse {
   public Map<String, ?> getContents() {
     return contents;
   }
-
-//  public static <T> ApiResult<T> OK(T response) {
-//    return new ApiResult<>(true, response, null);
-//  }
 }
