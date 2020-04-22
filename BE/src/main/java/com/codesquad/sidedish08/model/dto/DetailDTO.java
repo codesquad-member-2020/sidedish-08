@@ -2,6 +2,7 @@ package com.codesquad.sidedish08.model.dto;
 
 import com.codesquad.sidedish08.model.Dish;
 import com.codesquad.sidedish08.model.Image;
+import com.codesquad.sidedish08.util.DishUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +23,8 @@ public class DetailDTO {
     this.nPrice = dish.getPrice();
     this.description = dish.getDescription();
     this.point = this.nPrice / 100L;
-    this.deliveryInfo = "서울 경기 새벽배송 / 전국택배 (제주 및 도서산간 불가) [월 · 화 · 수 · 목 · 금 · 토] 수령 가능한 상품입니다.";
-    this.deliveryFee = "2,500원 (40,000원 이상 구매 시 무료)";
+    this.deliveryInfo = DishUtils.getDeliveryInfo();
+    this.deliveryFee = DishUtils.getDeliveryFee();
     this.sPrice = this.nPrice;
 
     List<Image> imageList = dish.getImages();
