@@ -1,5 +1,6 @@
 package com.codesquad.sidedish08.controller;
 
+import com.codesquad.sidedish08.message.DishMessages;
 import com.codesquad.sidedish08.message.SuccessMessages;
 import com.codesquad.sidedish08.response.ApiResponse;
 import com.codesquad.sidedish08.service.BasicService;
@@ -22,15 +23,15 @@ public class SideDishController {
     this.sideDishService = sideDishService;
   }
 
-  @ApiOperation(value = "", notes = "밑반찬")
+  @ApiOperation(value = "", notes = DishMessages.SIDE_DISH)
   @GetMapping
   public ApiResponse dish() {
-    return new ApiResponse(SuccessMessages.SUCCESS, sideDishService.dish());
+    return ApiResponse.ok(SuccessMessages.SUCCESS, sideDishService.dish());
   }
 
-  @ApiOperation(value = "", notes = "밑반찬 상세")
+  @ApiOperation(value = "", notes = DishMessages.SIDE_DISH_DETAIL)
   @GetMapping("/{detailHash}")
   public ApiResponse detail(@PathVariable String detailHash) {
-    return new ApiResponse(SuccessMessages.SUCCESS, sideDishService.detail(detailHash));
+    return ApiResponse.ok(SuccessMessages.SUCCESS, sideDishService.detail(detailHash));
   }
 }
