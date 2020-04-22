@@ -2,20 +2,21 @@ package com.codesquad.sidedish08.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class MainResponse {
 
-  private String hash;
-  private String image;
-  private String alt;
-  private List<String> deliveryType;
-  private String title;
-  private String description;
-  private String normalPrice;
-  private String specialPrice;
-  private List<String> badge;
+  private final String hash;
+  private final String image;
+  private final String alt;
+  private final List<String> deliveryType;
+  private final String title;
+  private final String description;
+  private final String normalPrice;
+  private final String specialPrice;
+  private final List<String> badge;
 
   private MainResponse(String hash, String image, String alt,
       List<String> deliveryType, String title, String description, String normalPrice,
@@ -124,8 +125,10 @@ public class MainResponse {
       return this;
     }
 
-    public Builder deliveryType(String deliveryType) {
-      this.deliveryType.add(deliveryType);
+    public Builder deliveryType(List<Delivery> deliveryType) {
+      this.deliveryType = deliveryType.stream()
+          .map(Delivery -> Delivery.getType())
+          .collect(Collectors.toList());
       return this;
     }
 
@@ -149,8 +152,10 @@ public class MainResponse {
       return this;
     }
 
-    public Builder badge(String badge) {
-      this.badge.add(badge);
+    public Builder badge(List<Badge> badge) {
+      this.badge = badge.stream()
+          .map(badgeObject -> badgeObject.getType())
+          .collect(Collectors.toList());
       return this;
     }
 
