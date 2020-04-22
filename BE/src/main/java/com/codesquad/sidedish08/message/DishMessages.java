@@ -15,4 +15,5 @@ public class DishMessages {
   public static final String MAIN_DISH_DETAIL = "든든한반찬 :" + DishMessages.RESPONSE_ONE;
   public static final String SOUP_DISH_DETAIL = "국물요리 :" + DishMessages.RESPONSE_ONE;
   public static final String SIDE_DISH_DETAIL = "밑반찬 :" + DishMessages.RESPONSE_ONE;
+  public static final String DETAIL = "상세 : " + DishMessages.RESPONSE_ONE;
 }
