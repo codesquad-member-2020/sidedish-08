@@ -14,18 +14,49 @@ INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `cat
 VALUES ('HF778', '[소중한식사] 골뱅이무침 195g', '매콤새콤달콤, 반찬으로도 안주로도 좋은', 7000, 1, 2);
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
 VALUES ('HFB53', '[옹가솜씨] 꽁치간장조림 240g', '생강 향이 산뜻한', 5800, 1, 3);
+INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
+VALUES ('HBBCC', '[마샐미디쉬] 유자소스 연근무침 250g', '향긋한 유자향과 아삭한 연근', 6500, 4, 0);
+INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
+VALUES ('H1939', '[동네부엌] 쇠고기야채장조림 200g', '부드러운 고기부터 밥비벼먹기 딱좋은 국물까지', 7400, 4, 1);
+INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
+VALUES ('H8EA5', '[소중한식사] 도라지초무침 150g', '새콤달콤 입맛 돋우는', 4000, 4, 2);
+INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
+VALUES ('H602F', '[미노리키친] 일본식 우엉조림(킨피라고보) 80g', '한국식 우엉조림과는 다른 진한 감칠맛', 3300, 4, 3);
 
 
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
 VALUES ('새벽배송', 1, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
-VALUES ('전국배송', 1, 1);
-
+VALUES ('전국택배', 1, 1);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('새벽배송', 5, 0);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('전국택배', 5, 1);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('새벽배송', 6, 0);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('전국택배', 6, 1);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('새벽배송', 7, 0);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('전국택배', 7, 1);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('새벽배송', 8, 0);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('전국택배', 8, 1);
 
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('이벤트특가', 1, 0);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('론칭특가', 1, 1);
+INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
+VALUES ('론칭특가', 6, 0);
+INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
+VALUES ('이벤트특가', 7, 0);
+INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
+VALUES ('론칭특가', 7, 1);
+INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
+VALUES ('이벤트특가', 8, 0);
 
 
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
@@ -40,6 +71,18 @@ VALUES ('http://public.codesquad.kr/jk/storeapp/data/cad8eee316cf7151e07638aa57b
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
 VALUES ('https://public.codesquad.kr/jk/storeapp/data/b6beada6b89af950289003d929936d9c.jpg',
         'top', 4, 0);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/fdb0d5fcfb86e332505785225a6d9ade.jpg',
+        'top', 5, 0);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/e5646e5fc09a01a9243979b229e0572b.jpg',
+        'top', 6, 0);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/4cfd1954861ebd18b5b53e558a8e902e.jpg',
+        'top', 7, 0);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/422befe07f7e2860b9a83a8d7049ec2e.jpg',
+        'top', 8, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
 VALUES ('https://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/4cce011a4a352c22cd399a60271b4921.jpg',
         'thumb', 1, 1);
