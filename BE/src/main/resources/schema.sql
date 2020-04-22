@@ -15,7 +15,6 @@ CREATE TABLE `dish`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
     `hash`         VARCHAR(45)  NULL,
-    `image_url`    VARCHAR(500) NULL,
     `title`        VARCHAR(100) NULL,
     `description`  VARCHAR(500) NULL,
     `price`        INT          NULL,
@@ -42,12 +41,12 @@ CREATE TABLE `badge`
     PRIMARY KEY (`id`)
 );
 
-
-CREATE TABLE `thumb_image`
+CREATE TABLE `image`
 (
-    `id`        INT          NOT NULL AUTO_INCREMENT,
-    `image_url` VARCHAR(500) NULL,
-    `dish_id`   BIGINT       NOT NULL,
-    `dish_key`  INT,
+    `id`       INT          NOT NULL AUTO_INCREMENT,
+    `url`      VARCHAR(500) NULL,
+    `type`     VARCHAR(45)  NULL,
+    `dish_id`  BIGINT       NOT NULL,
+    `dish_key` INT,
     PRIMARY KEY (`id`)
 );
