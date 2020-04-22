@@ -1,7 +1,7 @@
 package com.codesquad.sidedish08.service;
 
 import com.codesquad.sidedish08.model.Category;
-import com.codesquad.sidedish08.dao.CategoryRepository;
+import com.codesquad.sidedish08.repository.CategoryRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
 

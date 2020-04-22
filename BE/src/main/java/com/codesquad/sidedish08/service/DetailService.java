@@ -2,7 +2,7 @@ package com.codesquad.sidedish08.service;
 
 import static com.codesquad.sidedish08.model.dto.DetailDTO.getDetailDto;
 
-import com.codesquad.sidedish08.dao.DishRepository;
+import com.codesquad.sidedish08.repository.DishRepository;
 import com.codesquad.sidedish08.model.dto.DetailDTO;
 import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;

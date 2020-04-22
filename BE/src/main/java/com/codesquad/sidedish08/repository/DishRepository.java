@@ -1,4 +1,4 @@
-package com.codesquad.sidedish08.dao;
+package com.codesquad.sidedish08.repository;
 
 import com.codesquad.sidedish08.model.Dish;
 import java.util.Optional;
