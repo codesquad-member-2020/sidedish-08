@@ -17,6 +17,12 @@ public class CustomAdvice {
     return ErrorResponse.ok(ErrorMessages.ERROR, e.getMessage());
   }
 
+  @ExceptionHandler(NullPointerException.class)
+  @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+  public ErrorResponse handleNullPointerException(NullPointerException e) {
+    return ErrorResponse.ok(ErrorMessages.NULL_POINTER_EXCEPTION, e.getMessage());
+  }
+
   @ExceptionHandler(NoSuchElementException.class)
   @ResponseStatus(HttpStatus.FORBIDDEN)
   public ErrorResponse handleNoSuchElementException(NoSuchElementException e) {
