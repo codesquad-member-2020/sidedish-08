@@ -1,7 +1,10 @@
 package com.codesquad.sidedish08.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.MappedCollection;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table
@@ -15,11 +18,18 @@ public class Dish {
 
   private String image;
 
+  @MappedCollection(idColumn = "dish_id", keyColumn = "dish_key")
+  private List<Delivery> deliveries = new ArrayList<>();
+
   private String title;
 
   private String description;
 
   private int price;
+
+  @MappedCollection(idColumn = "dish_id", keyColumn = "dish_key")
+  private List<Badge> badges = new ArrayList<>();
+
 
   public Long getId() {
     return id;
@@ -33,6 +43,10 @@ public class Dish {
     return image;
   }
 
+  public List<Delivery> getDeliveries() {
+    return deliveries;
+  }
+
   public String getTitle() {
     return title;
   }
@@ -43,5 +57,9 @@ public class Dish {
 
   public int getPrice() {
     return price;
+  }
+
+  public List<Badge> getBadges() {
+    return badges;
   }
 }
