@@ -16,7 +16,7 @@ public class Dish {
 
   private String hash;
 
-  private String image;
+  private String imageUrl;
 
   @MappedCollection(idColumn = "dish_id", keyColumn = "dish_key")
   private List<Delivery> deliveries = new ArrayList<>();
@@ -30,6 +30,8 @@ public class Dish {
   @MappedCollection(idColumn = "dish_id", keyColumn = "dish_key")
   private List<Badge> badges = new ArrayList<>();
 
+  @MappedCollection(idColumn = "dish_id", keyColumn = "dish_key")
+  private List<ThumbImage> thumbImages = new ArrayList<>();
 
   public Long getId() {
     return id;
@@ -39,8 +41,8 @@ public class Dish {
     return hash;
   }
 
-  public String getImage() {
-    return image;
+  public String getImageUrl() {
+    return imageUrl;
   }
 
   public List<Delivery> getDeliveries() {
@@ -61,5 +63,9 @@ public class Dish {
 
   public List<Badge> getBadges() {
     return badges;
+  }
+
+  public List<ThumbImage> getThumbImages() {
+    return thumbImages;
   }
 }
