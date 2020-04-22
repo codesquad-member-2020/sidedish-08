@@ -8,15 +8,15 @@ CREATE TABLE `category`
     PRIMARY KEY (`id`)
 );
 
-
 CREATE TABLE `dish`
 (
     `id`           BIGINT       NOT NULL AUTO_INCREMENT,
-    `detail_hash`  VARCHAR(45)  NULL,
+    `hash`         VARCHAR(45)  NULL,
+    `image`        VARCHAR(500) NULL,
     `title`        VARCHAR(100) NULL,
     `description`  VARCHAR(500) NULL,
     `price`        INT          NULL,
     `category_id`  BIGINT       NOT NULL REFERENCES category (id),
-    `category_key` int,
+    `category_key` INT,
     PRIMARY KEY (`id`)
-)
+);
