@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import HeaderMain from './components/header/HeaderMain';
 import Carousel from './components/main/Carousel';
+import GrobalStyle from './styles/globalStyles';
 
 function App() {
   return (
@@ -8,8 +9,6 @@ function App() {
       <GrobalStyle />
       <HeaderMain />
       <div className="main">
-        <Carousel />
-        <Carousel />
         <Carousel />
       </div>
     </Fragment>
