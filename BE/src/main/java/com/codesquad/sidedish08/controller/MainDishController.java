@@ -8,6 +8,7 @@ import com.codesquad.sidedish08.response.ApiResponse;
 import com.codesquad.sidedish08.service.MainDishService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +33,11 @@ public class MainDishController {
 
   @ApiOperation(value = "", notes = DishMessages.MAIN_DISH_DETAIL)
   @GetMapping("/{detailHash}")
-  public ApiResponse detail(@PathVariable String detailHash) {
-    return ApiResponse.ok(SuccessMessages.SUCCESS, mainDishService.detail(detailHash));
+  public ApiResponse detail(
+      @PathVariable
+      @ApiParam(value = "example : HBDEF")
+          String detailHash) {
+    return ApiResponse
+        .ok(SuccessMessages.SUCCESS, getResultMap("body", mainDishService.detail(detailHash)));
   }
 }
