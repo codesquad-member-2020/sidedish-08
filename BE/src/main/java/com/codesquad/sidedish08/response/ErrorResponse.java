@@ -10,19 +10,15 @@ public class ErrorResponse {
     this.errorTrace = errorTrace;
   }
 
+  public static ErrorResponse ok(String message, String errorTrace) {
+    return new ErrorResponse(message, errorTrace);
+  }
+
   public String getMessage() {
     return message;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
   public String getErrorTrace() {
     return errorTrace;
-  }
-
-  public void setErrorTrace(String errorTrace) {
-    this.errorTrace = errorTrace;
   }
 }
