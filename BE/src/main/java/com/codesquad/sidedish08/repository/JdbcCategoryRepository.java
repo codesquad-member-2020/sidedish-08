@@ -45,19 +45,23 @@ public class JdbcCategoryRepository {
             + "FROM DISH d "
             + "LEFT JOIN IMAGE g ON d.id = g.dish_id "
             + "WHERE g.type = 'top' AND d.hash =?",
-        new Object[]{hash}, mapper);
+        new Object[]{hash}, mainMapper);
     return main;
   }
 
-  private List<Delivery> findDeliveryByDishId(Long id) {
-    return null;
+  public List<Delivery> findDeliveryByDishId(Long id) {
+    return jdbcTemplate.query(
+        "SELECT d.id, d.type "
+            + "FROM DELIVERY d "
+            + "WHERE d.dish_id =?",
+        new Object[]{id}, deliveryMapper);
   }
 
   private List<Badge> findBadgeByDishId(Long id) {
     return null;
   }
 
-  static RowMapper<Main> mapper = (rs, rowNum) -> new Main.Builder()
+  static RowMapper<Main> mainMapper = (rs, rowNum) -> new Main.Builder()
       .id(rs.getLong("id"))
       .hash(rs.getString("hash"))
       .image(rs.getString("url"))
@@ -66,4 +70,9 @@ public class JdbcCategoryRepository {
       .description(rs.getString("description"))
       .normalPrice(rs.getInt("price"))
       .build();
+
+  static RowMapper<Delivery> deliveryMapper = (rs, rowNum) ->
+      Delivery.of(
+          rs.getLong("id"),
+          rs.getString("type"));
 }
