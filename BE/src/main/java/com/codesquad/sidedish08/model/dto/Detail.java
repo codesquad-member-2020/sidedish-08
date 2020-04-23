@@ -1,10 +1,11 @@
 package com.codesquad.sidedish08.model.dto;
 
+import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Dish;
 import com.codesquad.sidedish08.model.Image;
 import com.codesquad.sidedish08.util.DishUtils;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Detail {
 
@@ -17,6 +18,7 @@ public class Detail {
   private Long point;
   private String deliveryInfo;
   private String deliveryFee;
+  private List<String> badges;
 
   private Detail(Dish dish) {
     this.hash = dish.getHash();
@@ -26,21 +28,30 @@ public class Detail {
     this.deliveryFee = DishUtils.getDeliveryFee(dish.getDeliveries());
     this.salePrice = this.normalPrice + DishUtils.getDiscountPrice(dish.getBadges());
     this.point = this.salePrice / 100L;
-
-    List<Image> imageList = dish.getImages();
-
-    this.topImage = imageList.get(0).getUrl();
-    imageList.remove(0);
-
-    thumbImages = new ArrayList<>();
-
-    for (Image image : imageList) {
-      thumbImages.add(image.getUrl());
-    }
+    this.topImage = getTopImageUrl(dish);
+    this.thumbImages = getThumbImageUrls(dish);
+    this.badges = getBadgesString(dish);
   }
 
   public static Detail getDetailDto(Dish dish) {
     return new Detail(dish);
+  }
+
+  private String getTopImageUrl(Dish dish) {
+    return dish.getImages().get(0).getUrl();
+  }
+
+  private List<String> getThumbImageUrls(Dish dish) {
+    return dish.getImages().stream()
+        .skip(1)
+        .map(Image::getUrl)
+        .collect(Collectors.toList());
+  }
+
+  private List<String> getBadgesString(Dish dish) {
+    return dish.getBadges().stream()
+        .map(Badge::getType)
+        .collect(Collectors.toList());
   }
 
   public String getHash() {
@@ -77,5 +88,9 @@ public class Detail {
 
   public List<String> getThumbImages() {
     return thumbImages;
+  }
+
+  public List<String> getBadges() {
+    return badges;
   }
 }

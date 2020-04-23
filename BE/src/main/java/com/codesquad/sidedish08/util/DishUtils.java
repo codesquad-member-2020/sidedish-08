@@ -14,7 +14,7 @@ public class DishUtils {
       String deliveryType = delivery.getType();
 
       if (deliveryType.equals("새벽배송")) {
-        deliveryFee += 500;
+        deliveryFee += 300;
       }
     }
 
@@ -48,7 +48,7 @@ public class DishUtils {
       String badgeType = badge.getType();
 
       if (badgeType.equals("론칭특가")) {
-        discountAmount -= 500;
+        discountAmount -= 700;
       }
 
       if (badgeType.equals("이벤트특가")) {
