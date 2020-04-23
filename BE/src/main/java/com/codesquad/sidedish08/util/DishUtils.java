@@ -56,4 +56,8 @@ public class DishUtils {
         }
     ).sum();
   }
+
+  public static Long getPoint(int price, long divisor) {
+    return price / divisor;
+  }
 }

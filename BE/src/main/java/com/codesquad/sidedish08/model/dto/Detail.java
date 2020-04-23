@@ -27,7 +27,7 @@ public class Detail {
     this.deliveryInfo = DishUtils.getDeliveryInfo(dish.getDeliveries());
     this.deliveryFee = DishUtils.getDeliveryFee(dish.getDeliveries());
     this.salePrice = this.normalPrice - DishUtils.getDiscountPrice(dish.getBadges());
-    this.point = this.salePrice / 100L;
+    this.point = DishUtils.getPoint(this.salePrice, 100L);
     this.topImage = getTopImageUrl(dish);
     this.thumbImages = getThumbImageUrls(dish);
     this.badges = getBadgesString(dish);
@@ -43,7 +43,7 @@ public class Detail {
 
   private List<String> getThumbImageUrls(Dish dish) {
     return dish.getImages().stream()
-        .skip(1)
+        .filter(image -> image.getType().equals("thumb"))
         .map(Image::getUrl)
         .collect(Collectors.toList());
   }
