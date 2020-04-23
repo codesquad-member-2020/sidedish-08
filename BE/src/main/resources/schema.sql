@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS `category`;
 DROP TABLE IF EXISTS `dish`;
 DROP TABLE IF EXISTS `delivery`;
 DROP TABLE IF EXISTS `badge`;
-DROP TABLE IF EXISTS `thumb_image`;
+DROP TABLE IF EXISTS `image`;
 
 CREATE TABLE `category`
 (
