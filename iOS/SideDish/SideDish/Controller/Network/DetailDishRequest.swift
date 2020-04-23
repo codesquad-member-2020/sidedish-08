@@ -1,13 +1,13 @@
 import Foundation
 
-struct MainDishRequest: APIRequest {
-    typealias RequestDataType = MainWrapper
-    typealias ResponseDataType = MainWrapper
+struct DetailDishRequest: APIRequest {
+    typealias RequestDataType = DetailHash
+    typealias ResponseDataType = DetailDishWrapper
 
-    let pathURL = "main"
+    let pathURL = "detail"
 
     func makeRequest(from data: RequestDataType?) -> URLRequest {
-        let string = [baseURL, pathURL].joined(separator: "/")
+        let string = [baseURL, pathURL, (data ?? "")].joined(separator: "/")
         let url = URL(string: string)!
 
         return URLRequest(url: url)
