@@ -1,11 +1,14 @@
 package com.codesquad.sidedish08.repository;
 
+import com.codesquad.sidedish08.model.Badge;
+import com.codesquad.sidedish08.model.Delivery;
 import com.codesquad.sidedish08.model.Dish;
 import com.codesquad.sidedish08.model.dto.Main;
 import com.codesquad.sidedish08.model.dto.Main.Builder;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -35,4 +38,32 @@ public class JdbcCategoryRepository {
         .build()).collect(Collectors.toList());
     return main;
   }
+
+  public Main findByHash(String hash) {
+    Main main = jdbcTemplate.queryForObject(
+        "SELECT d.id, d.hash, g.url, d.title, d.description, d.price "
+            + "FROM DISH d "
+            + "LEFT JOIN IMAGE g ON d.id = g.dish_id "
+            + "WHERE g.type = 'top' AND d.hash =?",
+        new Object[]{hash}, mapper);
+    return main;
+  }
+
+  private List<Delivery> findDeliveryByDishId(Long id) {
+    return null;
+  }
+
+  private List<Badge> findBadgeByDishId(Long id) {
+    return null;
+  }
+
+  static RowMapper<Main> mapper = (rs, rowNum) -> new Main.Builder()
+      .id(rs.getLong("id"))
+      .hash(rs.getString("hash"))
+      .image(rs.getString("url"))
+      .alt(rs.getString("title"))
+      .title(rs.getString("title"))
+      .description(rs.getString("description"))
+      .normalPrice(rs.getInt("price"))
+      .build();
 }
