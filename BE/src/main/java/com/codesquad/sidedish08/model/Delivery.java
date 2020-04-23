@@ -13,6 +13,14 @@ public class Delivery {
 
   private String type;
 
+  private Delivery(String type) {
+    this.type = type;
+  }
+
+  public static Delivery of(String type) {
+    return new Delivery(type);
+  }
+
   public Long getId() {
     return id;
   }

@@ -13,6 +13,14 @@ public class Badge {
 
   private String type;
 
+  private Badge(String type) {
+    this.type = type;
+  }
+
+  public static Badge of(String type) {
+    return new Badge(type);
+  }
+
   public Long getId() {
     return id;
   }
