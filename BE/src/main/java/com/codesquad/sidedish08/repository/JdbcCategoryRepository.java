@@ -1,8 +1,8 @@
 package com.codesquad.sidedish08.repository;
 
 import com.codesquad.sidedish08.model.Dish;
-import com.codesquad.sidedish08.model.MainResponse;
-import com.codesquad.sidedish08.model.MainResponse.Builder;
+import com.codesquad.sidedish08.model.dto.Main;
+import com.codesquad.sidedish08.model.dto.Main.Builder;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,9 +20,9 @@ public class JdbcCategoryRepository {
     this.categoryRepository = categoryRepository;
   }
 
-  public List<MainResponse> findById() {
+  public List<Main> findById() {
     List<Dish> dishes = categoryRepository.findById(1L).get().getDishes();
-    List<MainResponse> main = dishes.stream().map(dish -> new Builder()
+    List<Main> main = dishes.stream().map(dish -> new Builder()
         .hash(dish.getHash())
         .image(dish.getImages().get(0).getUrl())
         .alt(dish.getTitle())
