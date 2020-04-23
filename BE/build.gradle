@@ -6,9 +6,7 @@ plugins {
 }
 
 bootWar {
-    archiveBaseName = "sidedish08"
     archiveFileName = "sidedish08.war"
-    archiveVersion = "0.0.0"
 }
 
 group = 'com.example'
