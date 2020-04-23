@@ -19,6 +19,9 @@
 		8D344A87244DDD53004D3962 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D344A86244DDD53004D3962 /* HeaderCell.swift */; };
 		8D4E960F244F340C00197621 /* RequestLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4E960E244F340C00197621 /* RequestLoader.swift */; };
 		8D4E9611244F343E00197621 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4E9610244F343E00197621 /* APIRequest.swift */; };
+		8DC914AA245011C000421B20 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914A9245011C000421B20 /* Model.swift */; };
+		8DC914AC2450271F00421B20 /* APIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914AB2450271F00421B20 /* APIRequestTests.swift */; };
+		8DD1B1AB2450B27700C9601C /* MainDishRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1AA2450B27700C9601C /* MainDishRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		8D344A86244DDD53004D3962 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		8D4E960E244F340C00197621 /* RequestLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLoader.swift; sourceTree = "<group>"; };
 		8D4E9610244F343E00197621 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		8DC914A9245011C000421B20 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		8DC914AB2450271F00421B20 /* APIRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestTests.swift; sourceTree = "<group>"; };
+		8DD1B1AA2450B27700C9601C /* MainDishRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDishRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,7 @@
 		8D344A57244D4848004D3962 /* SideDish */ = {
 			isa = PBXGroup;
 			children = (
+				8DC914A9245011C000421B20 /* Model.swift */,
 				8D4E9615244F3F9200197621 /* Controller */,
 				8D4E960D244F32BC00197621 /* View */,
 				8D344A5E244D4848004D3962 /* Main.storyboard */,
@@ -105,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				8D344A6F244D484B004D3962 /* SideDishTests.swift */,
+				8DC914AB2450271F00421B20 /* APIRequestTests.swift */,
 				8D344A71244D484B004D3962 /* Info.plist */,
 			);
 			path = SideDishTests;
@@ -133,6 +141,7 @@
 			children = (
 				8D4E9610244F343E00197621 /* APIRequest.swift */,
 				8D4E960E244F340C00197621 /* RequestLoader.swift */,
+				8DD1B1AA2450B27700C9601C /* MainDishRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -247,7 +256,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC914AA245011C000421B20 /* Model.swift in Sources */,
 				8D344A5D244D4848004D3962 /* DetailViewController.swift in Sources */,
+				8DD1B1AB2450B27700C9601C /* MainDishRequest.swift in Sources */,
 				8D344A87244DDD53004D3962 /* HeaderCell.swift in Sources */,
 				8D344A7F244D8CD1004D3962 /* ItemCell.swift in Sources */,
 				8D4E960F244F340C00197621 /* RequestLoader.swift in Sources */,
@@ -262,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DC914AC2450271F00421B20 /* APIRequestTests.swift in Sources */,
 				8D344A70244D484B004D3962 /* SideDishTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,6 @@
 import UIKit
 
-class HeaderCell: UITableViewCell {
+final class HeaderCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -1,8 +1,9 @@
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     let cellIdentifier: String = "\(ItemCell.self)"
     let headerIdentifier: String = "\(HeaderCell.self)"
+    var loader: RequestLoader<MainDishRequest>!
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -11,6 +12,8 @@ class MainViewController: UIViewController {
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
+
+        loadMainDish()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -24,6 +27,7 @@ class MainViewController: UIViewController {
     }
 }
 
+// TODO: 별도 클래스로 분리
 extension MainViewController: UITableViewDataSource {
     // MARK: Rows and Cells
 
@@ -47,6 +51,7 @@ extension MainViewController: UITableViewDataSource {
 
 }
 
+// TODO: 별도 클래스로 분리
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableCell(withIdentifier: headerIdentifier)
@@ -61,3 +66,20 @@ extension MainViewController: UITableViewDelegate {
         return 130
     }
 }
+
+private extension MainViewController {
+    // TODO: 구현할 것
+    func loadMainDish() {
+        self.loader = RequestLoader(apiRequest: MainDishRequest())
+
+        loader.load(with: nil) { (result) in
+            switch result {
+            case .success(let data):
+                debugPrint(data)
+            case .failure(let error):
+                debugPrint(error)
+            }
+        }
+    }
+}
+

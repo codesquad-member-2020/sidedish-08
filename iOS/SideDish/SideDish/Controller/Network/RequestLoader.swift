@@ -1,6 +1,6 @@
 import Foundation
 
-class RequestLoader<T: APIRequest> {
+final class RequestLoader<T: APIRequest> {
     let apiRequest: T
     let urlSession: URLSession
 
@@ -9,7 +9,7 @@ class RequestLoader<T: APIRequest> {
         self.urlSession = urlSession
     }
 
-    func load(with requestData: T.RequestDataType, completion: @escaping (Result<T.ResponseDataType, HTTPError>) -> Void) {
+    func load(with requestData: T.RequestDataType?, completion: @escaping (Result<T.ResponseDataType, APIError>) -> Void) {
         let request = self.apiRequest.makeRequest(from: requestData)
 
         urlSession.dataTask(with: request) { [weak self] (data, response, error) in
@@ -24,13 +24,13 @@ class RequestLoader<T: APIRequest> {
             guard let model = self?.apiRequest.parseResponse(data: data) else {
                 return completion(.failure(.response))
             }
-
             completion(.success(model))
+
         }.resume()
     }
 }
 
-enum HTTPError: Error {
+enum APIError: Error {
     case request(Error)
     case data
     case response
