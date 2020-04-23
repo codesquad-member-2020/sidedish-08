@@ -1,8 +1,6 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    let cellIdentifier: String = "\(ItemCell.self)"
-    let headerIdentifier: String = "\(HeaderCell.self)"
     var loader: RequestLoader<MainDishRequest>!
 
     @IBOutlet weak var tableView: UITableView!
@@ -27,6 +25,8 @@ final class MainViewController: UIViewController {
     }
 }
 
+// MARK: - TableView DataSource
+
 // TODO: 별도 클래스로 분리
 extension MainViewController: UITableViewDataSource {
     // MARK: Rows and Cells
@@ -36,9 +36,7 @@ extension MainViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.reuseIdentifier, for: indexPath)
 
         return cell
     }
@@ -51,10 +49,12 @@ extension MainViewController: UITableViewDataSource {
 
 }
 
+// MARK: - TableView Delegate
+
 // TODO: 별도 클래스로 분리
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableCell(withIdentifier: headerIdentifier)
+        let view = tableView.dequeueReusableCell(withIdentifier: HeaderCell.reuseIdentifier)
         return view
     }
 
@@ -66,6 +66,8 @@ extension MainViewController: UITableViewDelegate {
         return 130
     }
 }
+
+// MARK: - HTTP Requests
 
 private extension MainViewController {
     // TODO: 구현할 것

@@ -22,6 +22,7 @@
 		8DC914AA245011C000421B20 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914A9245011C000421B20 /* Model.swift */; };
 		8DC914AC2450271F00421B20 /* APIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914AB2450271F00421B20 /* APIRequestTests.swift */; };
 		8DD1B1AB2450B27700C9601C /* MainDishRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1AA2450B27700C9601C /* MainDishRequest.swift */; };
+		8DD1B1AD24512D4300C9601C /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1AC24512D4300C9601C /* ReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		8DC914A9245011C000421B20 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		8DC914AB2450271F00421B20 /* APIRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestTests.swift; sourceTree = "<group>"; };
 		8DD1B1AA2450B27700C9601C /* MainDishRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDishRequest.swift; sourceTree = "<group>"; };
+		8DD1B1AC24512D4300C9601C /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			children = (
 				8D344A86244DDD53004D3962 /* HeaderCell.swift */,
 				8D344A7E244D8CD1004D3962 /* ItemCell.swift */,
+				8DD1B1AC24512D4300C9601C /* ReusableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				8D344A5D244D4848004D3962 /* DetailViewController.swift in Sources */,
 				8DD1B1AB2450B27700C9601C /* MainDishRequest.swift in Sources */,
 				8D344A87244DDD53004D3962 /* HeaderCell.swift in Sources */,
+				8DD1B1AD24512D4300C9601C /* ReusableView.swift in Sources */,
 				8D344A7F244D8CD1004D3962 /* ItemCell.swift in Sources */,
 				8D4E960F244F340C00197621 /* RequestLoader.swift in Sources */,
 				8D344A59244D4848004D3962 /* AppDelegate.swift in Sources */,
