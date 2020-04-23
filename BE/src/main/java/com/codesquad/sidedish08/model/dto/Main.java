@@ -2,6 +2,7 @@ package com.codesquad.sidedish08.model.dto;
 
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,19 +11,22 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class Main {
 
+  @JsonIgnore
+  private final Long id;
   private final String hash;
   private final String image;
   private final String alt;
   private final List<String> deliveryType;
   private final String title;
   private final String description;
-  private final String normalPrice;
-  private final String salePrice;
+  private final Integer normalPrice;
+  private final Integer salePrice;
   private final List<String> badge;
 
-  private Main(String hash, String image, String alt,
-      List<String> deliveryType, String title, String description, String normalPrice,
-      String salePrice, List<String> badge) {
+  private Main(Long id, String hash, String image, String alt,
+      List<String> deliveryType, String title, String description, Integer normalPrice,
+      Integer salePrice, List<String> badge) {
+    this.id = id;
     this.hash = hash;
     this.image = image;
     this.alt = alt;
@@ -32,6 +36,10 @@ public class Main {
     this.normalPrice = normalPrice;
     this.salePrice = salePrice;
     this.badge = badge;
+  }
+
+  public Long getId() {
+    return id;
   }
 
   public String getHash() {
@@ -58,11 +66,11 @@ public class Main {
     return description;
   }
 
-  public String getNormalPrice() {
+  public Integer getNormalPrice() {
     return normalPrice;
   }
 
-  public String getSalePrice() {
+  public Integer getSalePrice() {
     return salePrice;
   }
 
@@ -73,6 +81,7 @@ public class Main {
   @Override
   public String toString() {
     return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+        .append("id", id)
         .append("hash", hash)
         .append("image", image)
         .append("alt", alt)
@@ -87,20 +96,22 @@ public class Main {
 
   public static class Builder {
 
+    private Long id;
     private String hash;
     private String image;
     private String alt;
     private List<String> deliveryType = new ArrayList<>();
     private String title;
     private String description;
-    private String normalPrice;
-    private String specialPrice;
+    private Integer normalPrice;
+    private Integer specialPrice;
     private List<String> badge = new ArrayList<>();
 
     public Builder() {
     }
 
     public Builder(Main response) {
+      this.id = response.id;
       this.hash = response.hash;
       this.image = response.image;
       this.alt = response.alt;
@@ -110,6 +121,11 @@ public class Main {
       this.normalPrice = response.normalPrice;
       this.specialPrice = response.salePrice;
       this.badge = response.badge;
+    }
+
+    public Builder id(Long id) {
+      this.id = id;
+      return this;
     }
 
     public Builder hash(String hash) {
@@ -144,13 +160,13 @@ public class Main {
       return this;
     }
 
-    public Builder normalPrice(String normalPrice) {
-      this.normalPrice = normalPrice;
+    public Builder normalPrice(int normalPrice) {
+      this.normalPrice = Integer.valueOf(normalPrice);
       return this;
     }
 
-    public Builder specialPrice(String specialPrice) {
-      this.specialPrice = specialPrice;
+    public Builder specialPrice(int specialPrice) {
+      this.specialPrice = Integer.valueOf(specialPrice);
       return this;
     }
 
@@ -162,7 +178,7 @@ public class Main {
     }
 
     public Main build() {
-      return new Main(hash, image, alt, deliveryType, title, description, normalPrice,
+      return new Main(id, hash, image, alt, deliveryType, title, description, normalPrice,
           specialPrice, badge);
     }
   }
