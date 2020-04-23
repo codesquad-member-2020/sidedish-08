@@ -26,7 +26,7 @@ public class Detail {
     this.description = dish.getDescription();
     this.deliveryInfo = DishUtils.getDeliveryInfo(dish.getDeliveries());
     this.deliveryFee = DishUtils.getDeliveryFee(dish.getDeliveries());
-    this.salePrice = this.normalPrice + DishUtils.getDiscountPrice(dish.getBadges());
+    this.salePrice = this.normalPrice - DishUtils.getDiscountPrice(dish.getBadges());
     this.point = this.salePrice / 100L;
     this.topImage = getTopImageUrl(dish);
     this.thumbImages = getThumbImageUrls(dish);
