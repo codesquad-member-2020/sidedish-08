@@ -2,7 +2,9 @@ package com.codesquad.sidedish08.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.codesquad.sidedish08.model.Delivery;
 import com.codesquad.sidedish08.model.dto.Main;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,5 +25,13 @@ class JdbcCategoryRepositoryTest {
     Main main = jdbcCategoryRepository.findByHash(hash);
     assertThat(main).isNotNull();
     logger.debug("Main : {}", main);
+  }
+
+  @Test
+  void findDeliveryByDishId() {
+    Long id = 1L;
+    List<Delivery> deliveryList = jdbcCategoryRepository.findDeliveryByDishId(id);
+    assertThat(deliveryList.size()).isEqualTo(2);
+    logger.debug("Delivery : {}", deliveryList);
   }
 }
