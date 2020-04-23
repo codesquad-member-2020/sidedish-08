@@ -6,7 +6,7 @@ import com.codesquad.sidedish08.util.DishUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailDTO {
+public class Detail {
 
   private String hash;
   private String topImage;
@@ -18,7 +18,7 @@ public class DetailDTO {
   private String deliveryInfo;
   private String deliveryFee;
 
-  private DetailDTO(Dish dish) {
+  private Detail(Dish dish) {
     this.hash = dish.getHash();
     this.nPrice = dish.getPrice();
     this.description = dish.getDescription();
@@ -39,8 +39,8 @@ public class DetailDTO {
     }
   }
 
-  public static DetailDTO getDetailDto(Dish dish) {
-    return new DetailDTO(dish);
+  public static Detail getDetailDto(Dish dish) {
+    return new Detail(dish);
   }
 
   public String getHash() {
