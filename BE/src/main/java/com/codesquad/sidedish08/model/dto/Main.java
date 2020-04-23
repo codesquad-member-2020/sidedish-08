@@ -2,6 +2,7 @@ package com.codesquad.sidedish08.model.dto;
 
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,6 +11,8 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class Main {
 
+  @JsonIgnore
+  private final Long id;
   private final String hash;
   private final String image;
   private final String alt;
@@ -20,9 +23,10 @@ public class Main {
   private final Integer salePrice;
   private final List<String> badge;
 
-  private Main(String hash, String image, String alt,
+  private Main(Long id, String hash, String image, String alt,
       List<String> deliveryType, String title, String description, Integer normalPrice,
       Integer salePrice, List<String> badge) {
+    this.id = id;
     this.hash = hash;
     this.image = image;
     this.alt = alt;
@@ -32,6 +36,10 @@ public class Main {
     this.normalPrice = normalPrice;
     this.salePrice = salePrice;
     this.badge = badge;
+  }
+
+  public Long getId() {
+    return id;
   }
 
   public String getHash() {
@@ -73,6 +81,7 @@ public class Main {
   @Override
   public String toString() {
     return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+        .append("id", id)
         .append("hash", hash)
         .append("image", image)
         .append("alt", alt)
@@ -87,6 +96,7 @@ public class Main {
 
   public static class Builder {
 
+    private Long id;
     private String hash;
     private String image;
     private String alt;
@@ -101,6 +111,7 @@ public class Main {
     }
 
     public Builder(Main response) {
+      this.id = response.id;
       this.hash = response.hash;
       this.image = response.image;
       this.alt = response.alt;
@@ -110,6 +121,11 @@ public class Main {
       this.normalPrice = response.normalPrice;
       this.specialPrice = response.salePrice;
       this.badge = response.badge;
+    }
+
+    public Builder id(Long id) {
+      this.id = id;
+      return this;
     }
 
     public Builder hash(String hash) {
@@ -162,7 +178,7 @@ public class Main {
     }
 
     public Main build() {
-      return new Main(hash, image, alt, deliveryType, title, description, normalPrice,
+      return new Main(id, hash, image, alt, deliveryType, title, description, normalPrice,
           specialPrice, badge);
     }
   }
