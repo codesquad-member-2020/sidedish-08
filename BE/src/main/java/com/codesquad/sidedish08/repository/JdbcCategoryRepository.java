@@ -29,8 +29,8 @@ public class JdbcCategoryRepository {
         .deliveryType(dish.getDeliveries())
         .title(dish.getTitle())
         .description(dish.getDescription())
-        .normalPrice(String.valueOf(dish.getPrice()))
-        .specialPrice(String.valueOf(dish.getPrice()))
+        .normalPrice(dish.getPrice())
+        .specialPrice(dish.getPrice())
         .badge(dish.getBadges())
         .build()).collect(Collectors.toList());
     return main;

@@ -16,13 +16,13 @@ public class Main {
   private final List<String> deliveryType;
   private final String title;
   private final String description;
-  private final String normalPrice;
-  private final String salePrice;
+  private final Integer normalPrice;
+  private final Integer salePrice;
   private final List<String> badge;
 
   private Main(String hash, String image, String alt,
-      List<String> deliveryType, String title, String description, String normalPrice,
-      String salePrice, List<String> badge) {
+      List<String> deliveryType, String title, String description, Integer normalPrice,
+      Integer salePrice, List<String> badge) {
     this.hash = hash;
     this.image = image;
     this.alt = alt;
@@ -58,11 +58,11 @@ public class Main {
     return description;
   }
 
-  public String getNormalPrice() {
+  public Integer getNormalPrice() {
     return normalPrice;
   }
 
-  public String getSalePrice() {
+  public Integer getSalePrice() {
     return salePrice;
   }
 
@@ -93,8 +93,8 @@ public class Main {
     private List<String> deliveryType = new ArrayList<>();
     private String title;
     private String description;
-    private String normalPrice;
-    private String specialPrice;
+    private Integer normalPrice;
+    private Integer specialPrice;
     private List<String> badge = new ArrayList<>();
 
     public Builder() {
@@ -144,13 +144,13 @@ public class Main {
       return this;
     }
 
-    public Builder normalPrice(String normalPrice) {
-      this.normalPrice = normalPrice;
+    public Builder normalPrice(int normalPrice) {
+      this.normalPrice = Integer.valueOf(normalPrice);
       return this;
     }
 
-    public Builder specialPrice(String specialPrice) {
-      this.specialPrice = specialPrice;
+    public Builder specialPrice(int specialPrice) {
+      this.specialPrice = Integer.valueOf(specialPrice);
       return this;
     }
 
