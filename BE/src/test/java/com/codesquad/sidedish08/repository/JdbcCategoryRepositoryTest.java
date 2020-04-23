@@ -2,6 +2,7 @@ package com.codesquad.sidedish08.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
 import com.codesquad.sidedish08.model.dto.Main;
 import java.util.List;
@@ -33,5 +34,13 @@ class JdbcCategoryRepositoryTest {
     List<Delivery> deliveryList = jdbcCategoryRepository.findDeliveryByDishId(id);
     assertThat(deliveryList.size()).isEqualTo(2);
     logger.debug("Delivery : {}", deliveryList);
+  }
+
+  @Test
+  void findBadgeByDishId() {
+    Long id = 1L;
+    List<Badge> badges = jdbcCategoryRepository.findBadgeByDishId(id);
+    assertThat(badges.size()).isEqualTo(2);
+    logger.debug("badges : {}", badges);
   }
 }
