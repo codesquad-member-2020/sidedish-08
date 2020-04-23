@@ -22,10 +22,10 @@ public class Detail {
     this.hash = dish.getHash();
     this.normalPrice = dish.getPrice();
     this.description = dish.getDescription();
-    this.point = this.normalPrice / 100L;
-    this.deliveryInfo = DishUtils.getDeliveryInfo();
-    this.deliveryFee = DishUtils.getDeliveryFee();
-    this.salePrice = DishUtils.getSalePrice(this.normalPrice, null);
+    this.deliveryInfo = DishUtils.getDeliveryInfo(dish.getDeliveries());
+    this.deliveryFee = DishUtils.getDeliveryFee(dish.getDeliveries());
+    this.salePrice = this.normalPrice + DishUtils.getDiscountPrice(dish.getBadges());
+    this.point = this.salePrice / 100L;
 
     List<Image> imageList = dish.getImages();
 
