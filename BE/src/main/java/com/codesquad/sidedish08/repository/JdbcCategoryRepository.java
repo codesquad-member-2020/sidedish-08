@@ -20,8 +20,8 @@ public class JdbcCategoryRepository {
     this.categoryRepository = categoryRepository;
   }
 
-  public List<Main> findById() {
-    List<Dish> dishes = categoryRepository.findById(1L).get().getDishes();
+  public List<Main> findById(Long id) {
+    List<Dish> dishes = categoryRepository.findById(id).get().getDishes();
     List<Main> main = dishes.stream().map(dish -> new Builder()
         .hash(dish.getHash())
         .image(dish.getImages().get(0).getUrl())
