@@ -11,8 +11,8 @@ public class Detail {
   private String hash;
   private String topImage;
   private List<String> thumbImages;
-  private int nPrice;
-  private int sPrice;
+  private Integer normalPrice;
+  private Integer salePrice;
   private String description;
   private Long point;
   private String deliveryInfo;
@@ -20,12 +20,12 @@ public class Detail {
 
   private Detail(Dish dish) {
     this.hash = dish.getHash();
-    this.nPrice = dish.getPrice();
+    this.normalPrice = dish.getPrice();
     this.description = dish.getDescription();
-    this.point = this.nPrice / 100L;
+    this.point = this.normalPrice / 100L;
     this.deliveryInfo = DishUtils.getDeliveryInfo();
     this.deliveryFee = DishUtils.getDeliveryFee();
-    this.sPrice = this.nPrice;
+    this.salePrice = DishUtils.getSalePrice(this.normalPrice, null);
 
     List<Image> imageList = dish.getImages();
 
@@ -47,12 +47,12 @@ public class Detail {
     return hash;
   }
 
-  public int getnPrice() {
-    return nPrice;
+  public int getNormalPrice() {
+    return normalPrice;
   }
 
-  public int getsPrice() {
-    return sPrice;
+  public int getSalePrice() {
+    return salePrice;
   }
 
   public String getDescription() {

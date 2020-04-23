@@ -1,12 +1,14 @@
-package com.codesquad.sidedish08.model;
+package com.codesquad.sidedish08.model.dto;
 
+import com.codesquad.sidedish08.model.Badge;
+import com.codesquad.sidedish08.model.Delivery;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-public class MainResponse {
+public class Main {
 
   private final String hash;
   private final String image;
@@ -15,12 +17,12 @@ public class MainResponse {
   private final String title;
   private final String description;
   private final String normalPrice;
-  private final String specialPrice;
+  private final String salePrice;
   private final List<String> badge;
 
-  private MainResponse(String hash, String image, String alt,
+  private Main(String hash, String image, String alt,
       List<String> deliveryType, String title, String description, String normalPrice,
-      String specialPrice, List<String> badge) {
+      String salePrice, List<String> badge) {
     this.hash = hash;
     this.image = image;
     this.alt = alt;
@@ -28,7 +30,7 @@ public class MainResponse {
     this.title = title;
     this.description = description;
     this.normalPrice = normalPrice;
-    this.specialPrice = specialPrice;
+    this.salePrice = salePrice;
     this.badge = badge;
   }
 
@@ -60,8 +62,8 @@ public class MainResponse {
     return normalPrice;
   }
 
-  public String getSpecialPrice() {
-    return specialPrice;
+  public String getSalePrice() {
+    return salePrice;
   }
 
   public List<String> getBadge() {
@@ -78,7 +80,7 @@ public class MainResponse {
         .append("title", title)
         .append("description", description)
         .append("normalPrice", normalPrice)
-        .append("specialPrice", specialPrice)
+        .append("specialPrice", salePrice)
         .append("badge", badge)
         .toString();
   }
@@ -98,7 +100,7 @@ public class MainResponse {
     public Builder() {
     }
 
-    public Builder(MainResponse response) {
+    public Builder(Main response) {
       this.hash = response.hash;
       this.image = response.image;
       this.alt = response.alt;
@@ -106,7 +108,7 @@ public class MainResponse {
       this.title = response.title;
       this.description = response.description;
       this.normalPrice = response.normalPrice;
-      this.specialPrice = response.specialPrice;
+      this.specialPrice = response.salePrice;
       this.badge = response.badge;
     }
 
@@ -159,8 +161,8 @@ public class MainResponse {
       return this;
     }
 
-    public MainResponse build() {
-      return new MainResponse(hash, image, alt, deliveryType, title, description, normalPrice,
+    public Main build() {
+      return new Main(hash, image, alt, deliveryType, title, description, normalPrice,
           specialPrice, badge);
     }
   }
