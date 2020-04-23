@@ -1,6 +1,6 @@
 import Foundation
 
-final class RequestLoader<T: APIRequest> {
+final class RequestLoader<T: NetworkRequest> {
     let apiRequest: T
     let urlSession: URLSession
 

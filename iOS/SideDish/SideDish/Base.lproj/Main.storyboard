@@ -380,35 +380,11 @@
                         <viewLayoutGuide key="safeArea" id="oEc-4A-O2D"/>
                     </view>
                     <navigationItem key="navigationItem" id="rkv-JK-LZ8"/>
+                    <connections>
+                        <outlet property="topImageView" destination="XcD-rY-52v" id="Bq6-DL-dKV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTv-1Y-ols" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="qjd-na-YjY">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="26.5"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="적립금" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEi-Po-PVG">
-                            <rect key="frame" x="15" y="3" width="44.5" height="20.5"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DP-kF-2VL">
-                            <rect key="frame" x="89.5" y="6" width="31" height="14.5"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="xEi-Po-PVG" secondAttribute="bottom" constant="3" id="5jv-Lm-0qH"/>
-                        <constraint firstItem="xEi-Po-PVG" firstAttribute="leading" secondItem="qjd-na-YjY" secondAttribute="leading" constant="15" id="ALy-A6-8ws"/>
-                        <constraint firstItem="3DP-kF-2VL" firstAttribute="leading" secondItem="xEi-Po-PVG" secondAttribute="trailing" constant="30" id="Enc-oi-qr5"/>
-                        <constraint firstItem="3DP-kF-2VL" firstAttribute="centerY" secondItem="xEi-Po-PVG" secondAttribute="centerY" id="Fi5-u1-FPV"/>
-                        <constraint firstItem="xEi-Po-PVG" firstAttribute="top" secondItem="qjd-na-YjY" secondAttribute="top" constant="3" id="lEn-81-gCj"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="hRq-1n-Zxd"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="2540.579710144928" y="-3.3482142857142856"/>
         </scene>

@@ -28,6 +28,20 @@ class APIRequestTests: XCTestCase {
         XCTAssertEqual(urlRequest.url, URL(string: urlString))
         XCTAssertNotNil(object)
     }
+
+    func testImageRequest() {
+        let string = "http://public.codesquad.kr/jk/storeapp/data/2d3f99a9a35601f4e98837bc4d39b2c8.jpg"
+        let url = URL(string: string)!
+        let request = ImageRequest()
+        let image = UIImage(named: "default-image")
+        let data = image?.jpegData(compressionQuality: 1)
+
+        let urlRequest = request.makeRequest(from: url)
+        let object = request.parseResponse(data: data!)
+
+        XCTAssertNoThrow(urlRequest)
+        XCTAssertNotNil(object)
+    }
 }
 
 enum TestData {

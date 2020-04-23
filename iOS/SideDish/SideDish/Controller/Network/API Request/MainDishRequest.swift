@@ -12,10 +12,4 @@ struct MainDishRequest: APIRequest {
 
         return URLRequest(url: url)
     }
-
-    func parseResponse(data: Data) -> ResponseDataType? {
-        let object = try? JSONDecoder().decode(ResponseDataType.self, from: data)
-
-        return object
-    }
 }
