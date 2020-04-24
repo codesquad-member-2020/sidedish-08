@@ -36,7 +36,7 @@ public class DishUtils {
         .append(DishMessages.DELIVERY_FEE2).toString();
   }
 
-  public static String getDeliveryInfo(List<Delivery> deliveries) {
+  public static String calcDeliveryInfo(List<Delivery> deliveries) {
     return new StringBuilder()
         .append(DishMessages.DELIVERY_INFO1)
         .append(deliveries.stream()
@@ -47,7 +47,7 @@ public class DishUtils {
         .append(DishMessages.DELIVERY_INFO3).toString();
   }
 
-  public static int getDiscountPrice(List<Badge> badges) {
+  private static int calcDiscountPrice(List<Badge> badges) {
     return badges.stream().map(Badge::getType).mapToInt(type -> {
           switch (type) {
             case "론칭특가":
@@ -61,11 +61,11 @@ public class DishUtils {
     ).sum();
   }
 
-  public static long getPoint(int price, long divisor) {
+  public static long calcPoint(int price, long divisor) {
     return price / divisor;
   }
 
-  public static int getSalePrice(int normalPrice, int discountPrice) {
-    return normalPrice - discountPrice;
+  public static int getSalePrice(int normalPrice, List<Badge> badges) {
+    return normalPrice - calcDiscountPrice(badges);
   }
 }

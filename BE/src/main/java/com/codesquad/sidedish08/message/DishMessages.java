@@ -7,6 +7,7 @@ public class DishMessages {
   public static final String DELIVERY_FEE1 = "원 (";
   public static final Integer MINIMUM_AMOUNT_OF_DELIVERY_FREE = 40000;
   public static final String DELIVERY_FEE2 = "원 이상 구매 시 무료)";
+
   public static final String DELIVERY_INFO1 = "서울 경기 ";
   public static final String DELIVERY_INFO2 = "(제주 및 도서산간 불가) [";
   public static final String DELIVERY_INFO3 = "] 수령 가능한 상품입니다.";
