@@ -15,6 +15,7 @@ public class Detail {
   private String hash;
   private String topImage;
   private List<String> thumbImages;
+  private List<String> detailImages;
   private Integer normalPrice;
   private Integer salePrice;
   private String description;
@@ -33,6 +34,7 @@ public class Detail {
     this.point = calcPoint(this.salePrice, 100L);
     this.topImage = getTopImageUrl(dish);
     this.thumbImages = getThumbImageUrls(dish);
+    this.detailImages = getDetailImageUrls(dish);
     this.badges = getBadgesString(dish);
   }
 
@@ -47,6 +49,13 @@ public class Detail {
   private List<String> getThumbImageUrls(Dish dish) {
     return dish.getImages().stream()
         .filter(image -> image.getType().equals("thumb"))
+        .map(Image::getUrl)
+        .collect(Collectors.toList());
+  }
+
+  private List<String> getDetailImageUrls(Dish dish) {
+    return dish.getImages().stream()
+        .filter(image -> image.getType().equals("detail"))
         .map(Image::getUrl)
         .collect(Collectors.toList());
   }
@@ -92,6 +101,10 @@ public class Detail {
 
   public List<String> getThumbImages() {
     return thumbImages;
+  }
+
+  public List<String> getDetailImages() {
+    return detailImages;
   }
 
   public List<String> getBadges() {
