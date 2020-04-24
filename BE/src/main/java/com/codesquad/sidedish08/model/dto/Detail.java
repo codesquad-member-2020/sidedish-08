@@ -1,5 +1,6 @@
 package com.codesquad.sidedish08.model.dto;
 
+import static com.codesquad.sidedish08.message.BadgePrice.valueOf;
 import static com.codesquad.sidedish08.util.DishUtils.calcDeliveryInfo;
 import static com.codesquad.sidedish08.util.DishUtils.calcPoint;
 
@@ -63,7 +64,7 @@ public class Detail {
   private List<String> getBadgesString(Dish dish) {
     return dish.getBadges().stream()
         .map(Badge::getType)
-//        .map(badge -> valueOf(badge.getType()).getName())
+        .map(badge -> valueOf(badge).getName())
         .collect(Collectors.toList());
   }
 
