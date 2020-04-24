@@ -1,8 +1,7 @@
 import UIKit
 
-class MainViewController: UIViewController {
-    let cellIdentifier: String = "\(ItemCell.self)"
-    let headerIdentifier: String = "\(HeaderCell.self)"
+final class MainViewController: UIViewController {
+    var loader: RequestLoader<MainDishRequest>!
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -11,6 +10,8 @@ class MainViewController: UIViewController {
 
         self.tableView.dataSource = self
         self.tableView.delegate = self
+
+        loadMainDish()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -24,6 +25,9 @@ class MainViewController: UIViewController {
     }
 }
 
+// MARK: - TableView DataSource
+
+// TODO: 별도 클래스로 분리
 extension MainViewController: UITableViewDataSource {
     // MARK: Rows and Cells
 
@@ -32,9 +36,7 @@ extension MainViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.reuseIdentifier, for: indexPath)
 
         return cell
     }
@@ -47,9 +49,12 @@ extension MainViewController: UITableViewDataSource {
 
 }
 
+// MARK: - TableView Delegate
+
+// TODO: 별도 클래스로 분리
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableCell(withIdentifier: headerIdentifier)
+        let view = tableView.dequeueReusableCell(withIdentifier: HeaderCell.reuseIdentifier)
         return view
     }
 
@@ -61,3 +66,22 @@ extension MainViewController: UITableViewDelegate {
         return 130
     }
 }
+
+// MARK: - HTTP Requests
+
+private extension MainViewController {
+    // TODO: 구현할 것
+    func loadMainDish() {
+        self.loader = RequestLoader(apiRequest: MainDishRequest())
+
+        loader.load(with: nil) { (result) in
+            switch result {
+            case .success(let data):
+                debugPrint(data)
+            case .failure(let error):
+                debugPrint(error)
+            }
+        }
+    }
+}
+
