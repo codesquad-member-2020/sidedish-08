@@ -1,18 +1,18 @@
 import Foundation
 
-final class RequestLoader<T: APIRequest> {
-    let apiRequest: T
+final class RequestLoader<T: NetworkRequest> {
+    let networkRequest: T
     let urlSession: URLSession
 
     init(apiRequest: T, urlSession: URLSession = .shared ) {
-        self.apiRequest = apiRequest
+        self.networkRequest = apiRequest
         self.urlSession = urlSession
     }
 
     func load(with requestData: T.RequestDataType?, completion: @escaping (Result<T.ResponseDataType, APIError>) -> Void) {
-        let request = self.apiRequest.makeRequest(from: requestData)
+        let request = self.networkRequest.makeRequest(from: requestData)
 
-        urlSession.dataTask(with: request) { [weak self] (data, response, error) in
+        urlSession.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 return completion(.failure(.request(error)))
             }
@@ -21,8 +21,8 @@ final class RequestLoader<T: APIRequest> {
                 return completion(.failure(.data))
             }
 
-            guard let model = self?.apiRequest.parseResponse(data: data) else {
-                return completion(.failure(.response))
+            guard let model = self.networkRequest.parseResponse(data: data) else {
+                return completion(.failure(.response(response)))
             }
             completion(.success(model))
 
@@ -33,5 +33,5 @@ final class RequestLoader<T: APIRequest> {
 enum APIError: Error {
     case request(Error)
     case data
-    case response
+    case response(URLResponse?)
 }
