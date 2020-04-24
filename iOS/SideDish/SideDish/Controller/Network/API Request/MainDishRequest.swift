@@ -1,8 +1,8 @@
 import Foundation
 
 struct MainDishRequest: APIRequest {
-    typealias RequestDataType = MainWrapper
-    typealias ResponseDataType = MainWrapper
+    typealias RequestDataType = MainDishWrapper
+    typealias ResponseDataType = MainDishWrapper
 
     let pathURL = "main"
 

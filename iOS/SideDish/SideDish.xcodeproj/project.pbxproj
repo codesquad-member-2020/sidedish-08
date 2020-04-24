@@ -19,6 +19,9 @@
 		8D344A87244DDD53004D3962 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D344A86244DDD53004D3962 /* HeaderCell.swift */; };
 		8D4E960F244F340C00197621 /* RequestLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4E960E244F340C00197621 /* RequestLoader.swift */; };
 		8D4E9611244F343E00197621 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4E9610244F343E00197621 /* APIRequest.swift */; };
+		8D71CF08245349EF00427572 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E4777245342AA00A25875 /* ItemViewModel.swift */; };
+		8D9E4778245342AA00A25875 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E4777245342AA00A25875 /* ItemViewModel.swift */; };
+		8DA5EF282452E46500CE5E94 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA5EF272452E46500CE5E94 /* DetailView.swift */; };
 		8DC914AA245011C000421B20 /* MainDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914A9245011C000421B20 /* MainDish.swift */; };
 		8DC914AC2450271F00421B20 /* APIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914AB2450271F00421B20 /* APIRequestTests.swift */; };
 		8DD1B1AB2450B27700C9601C /* MainDishRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1AA2450B27700C9601C /* MainDishRequest.swift */; };
@@ -69,6 +72,8 @@
 		8D344A86244DDD53004D3962 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		8D4E960E244F340C00197621 /* RequestLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLoader.swift; sourceTree = "<group>"; };
 		8D4E9610244F343E00197621 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		8D9E4777245342AA00A25875 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		8DA5EF272452E46500CE5E94 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8DC914A9245011C000421B20 /* MainDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDish.swift; sourceTree = "<group>"; };
 		8DC914AB2450271F00421B20 /* APIRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestTests.swift; sourceTree = "<group>"; };
 		8DD1B1AA2450B27700C9601C /* MainDishRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDishRequest.swift; sourceTree = "<group>"; };
@@ -121,6 +126,7 @@
 				8DD1B1B0245169DB00C9601C /* Model */,
 				8D4E9615244F3F9200197621 /* Controller */,
 				8D4E960D244F32BC00197621 /* View */,
+				8D9E47762453428000A25875 /* View Model */,
 				8D344A5E244D4848004D3962 /* Main.storyboard */,
 				8D344A61244D484A004D3962 /* Assets.xcassets */,
 				8D344A58244D4848004D3962 /* AppDelegate.swift */,
@@ -156,6 +162,7 @@
 				8D344A86244DDD53004D3962 /* HeaderCell.swift */,
 				8D344A7E244D8CD1004D3962 /* ItemCell.swift */,
 				8DD1B1AC24512D4300C9601C /* ReusableView.swift */,
+				8DA5EF272452E46500CE5E94 /* DetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -177,6 +184,14 @@
 				8D4E9614244F34C100197621 /* Network */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		8D9E47762453428000A25875 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D9E4777245342AA00A25875 /* ItemViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		8DD1B1B0245169DB00C9601C /* Model */ = {
@@ -302,6 +317,7 @@
 			files = (
 				8DC914AA245011C000421B20 /* MainDish.swift in Sources */,
 				8D344A5D244D4848004D3962 /* DetailViewController.swift in Sources */,
+				8D9E4778245342AA00A25875 /* ItemViewModel.swift in Sources */,
 				8DD1B1AB2450B27700C9601C /* MainDishRequest.swift in Sources */,
 				8D344A87244DDD53004D3962 /* HeaderCell.swift in Sources */,
 				8DD1B1C9245197C100C9601C /* ImageRequest.swift in Sources */,
@@ -309,6 +325,7 @@
 				8D344A7F244D8CD1004D3962 /* ItemCell.swift in Sources */,
 				8DD1B1C2245190D500C9601C /* Common.swift in Sources */,
 				8D4E960F244F340C00197621 /* RequestLoader.swift in Sources */,
+				8DA5EF282452E46500CE5E94 /* DetailView.swift in Sources */,
 				8D344A59244D4848004D3962 /* AppDelegate.swift in Sources */,
 				8D344A5B244D4848004D3962 /* SceneDelegate.swift in Sources */,
 				8D344A81244D8E54004D3962 /* MainViewController.swift in Sources */,
@@ -331,6 +348,7 @@
 				8DD1B1B924518A4B00C9601C /* DetailViewController.swift in Sources */,
 				8DD1B1C3245190D500C9601C /* Common.swift in Sources */,
 				8D344A70244D484B004D3962 /* SideDishTests.swift in Sources */,
+				8D71CF08245349EF00427572 /* ItemViewModel.swift in Sources */,
 				8DD1B1C024518A5E00C9601C /* ReusableView.swift in Sources */,
 				8DD1B1BB24518A5000C9601C /* MainDishRequest.swift in Sources */,
 				8DD1B1BF24518A5B00C9601C /* ItemCell.swift in Sources */,

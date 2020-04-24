@@ -12,7 +12,7 @@ protocol APIRequest: NetworkRequest where RequestDataType: Encodable, ResponseDa
 
 extension APIRequest {
     var baseURL: String {
-        "https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan"
+        "http://13.125.127.249:8080/sidedish08/api"
     }
 
     func parseResponse(data: Data) -> ResponseDataType? {

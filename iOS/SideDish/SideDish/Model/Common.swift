@@ -1,7 +1,8 @@
 import Foundation
 
 typealias ImageURL = URL
-typealias Price = String
+typealias Price = Int
+typealias Badge = SingleValue<String>
 
 struct SingleValue<T>: Codable where T: Codable {
     var value: T
