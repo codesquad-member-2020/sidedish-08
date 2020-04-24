@@ -1,7 +1,7 @@
 package com.codesquad.sidedish08.exception;
 
 import com.codesquad.sidedish08.message.ErrorMessages;
-import com.codesquad.sidedish08.response.ErrorResponse;
+import com.codesquad.sidedish08.model.response.ApiResponse;
 import java.util.NoSuchElementException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,13 +13,13 @@ public class CustomAdvice {
 
   @ExceptionHandler(Exception.class)
   @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-  public ErrorResponse handleException(Exception e) {
-    return ErrorResponse.ok(ErrorMessages.ERROR, e.getMessage());
+  public ApiResponse handleException(Exception e) {
+    return ApiResponse.error(ErrorMessages.ERROR, e.getMessage());
   }
 
   @ExceptionHandler(NoSuchElementException.class)
   @ResponseStatus(HttpStatus.FORBIDDEN)
-  public ErrorResponse handleNoSuchElementException(NoSuchElementException e) {
-    return ErrorResponse.ok(ErrorMessages.NO_SUCH_ELEMENT_EXCEPTION, e.getMessage());
+  public ApiResponse handleNoSuchElementException(NoSuchElementException e) {
+    return ApiResponse.error(ErrorMessages.NO_SUCH_ELEMENT_EXCEPTION, e.getMessage());
   }
 }
