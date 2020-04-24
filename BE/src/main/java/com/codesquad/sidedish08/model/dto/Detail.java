@@ -26,7 +26,8 @@ public class Detail {
     this.description = dish.getDescription();
     this.deliveryInfo = DishUtils.getDeliveryInfo(dish.getDeliveries());
     this.deliveryFee = DishUtils.getDeliveryFee(dish.getDeliveries());
-    this.salePrice = this.normalPrice - DishUtils.getDiscountPrice(dish.getBadges());
+    this.salePrice = DishUtils
+        .getSalePrice(this.normalPrice, DishUtils.getDiscountPrice(dish.getBadges()));
     this.point = DishUtils.getPoint(this.salePrice, 100L);
     this.topImage = getTopImageUrl(dish);
     this.thumbImages = getThumbImageUrls(dish);
@@ -51,6 +52,7 @@ public class Detail {
   private List<String> getBadgesString(Dish dish) {
     return dish.getBadges().stream()
         .map(Badge::getType)
+//        .map(badge -> valueOf(badge.getType()).getName())
         .collect(Collectors.toList());
   }
 
@@ -58,11 +60,11 @@ public class Detail {
     return hash;
   }
 
-  public int getNormalPrice() {
+  public Integer getNormalPrice() {
     return normalPrice;
   }
 
-  public int getSalePrice() {
+  public Integer getSalePrice() {
     return salePrice;
   }
 
