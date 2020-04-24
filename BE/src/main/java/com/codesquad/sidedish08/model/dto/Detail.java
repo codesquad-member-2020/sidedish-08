@@ -12,16 +12,17 @@ import java.util.stream.Collectors;
 
 public class Detail {
 
-  private String hash;
-  private String topImage;
-  private List<String> thumbImages;
-  private Integer normalPrice;
-  private Integer salePrice;
-  private String description;
-  private Long point;
-  private String deliveryInfo;
-  private String deliveryFee;
-  private List<String> badges;
+  private final String hash;
+  private final String topImage;
+  private final List<String> thumbImages;
+  private final List<String> detailImages;
+  private final Integer normalPrice;
+  private final Integer salePrice;
+  private final String description;
+  private final Long point;
+  private final String deliveryInfo;
+  private final String deliveryFee;
+  private final List<String> badges;
 
   private Detail(Dish dish) {
     this.hash = dish.getHash();
@@ -33,6 +34,7 @@ public class Detail {
     this.point = calcPoint(this.salePrice, 100L);
     this.topImage = getTopImageUrl(dish);
     this.thumbImages = getThumbImageUrls(dish);
+    this.detailImages = getDetailImageUrls(dish);
     this.badges = getBadgesString(dish);
   }
 
@@ -47,6 +49,13 @@ public class Detail {
   private List<String> getThumbImageUrls(Dish dish) {
     return dish.getImages().stream()
         .filter(image -> image.getType().equals("thumb"))
+        .map(Image::getUrl)
+        .collect(Collectors.toList());
+  }
+
+  private List<String> getDetailImageUrls(Dish dish) {
+    return dish.getImages().stream()
+        .filter(image -> image.getType().equals("detail"))
         .map(Image::getUrl)
         .collect(Collectors.toList());
   }
@@ -92,6 +101,10 @@ public class Detail {
 
   public List<String> getThumbImages() {
     return thumbImages;
+  }
+
+  public List<String> getDetailImages() {
+    return detailImages;
   }
 
   public List<String> getBadges() {

@@ -95,3 +95,21 @@ VALUES ('https://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/8744504ff3bc3
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
 VALUES ('https://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/e30bd6de9340fc05db3cd1d1329b2c56.jpg',
         'thumb', 2, 2);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/a8c434715709fe855f3ea1554ec362b6.jpg',
+        'detail', 1, 1);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/b2b3d0d2107ab91b16e0eb804cd84bc9.jpg',
+        'detail', 1, 2);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/c0dd6887c9d9368604fc70d7fc3c4598.jpg',
+        'detail', 1, 3);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/d2e3274c95c832bc9bfbcebbd548f61b.jpg',
+        'detail', 2, 1);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/d9e4fa00652483d74b46317d38159a2f.jpg',
+        'detail', 2, 2);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/d7799b67683128642453f9e2b4c8ce84.jpg',
+        'detail', 2, 3);
