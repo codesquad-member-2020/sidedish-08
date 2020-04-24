@@ -1,11 +1,13 @@
 package com.codesquad.sidedish08.controller;
 
 import com.codesquad.sidedish08.message.AuthMessages;
-import com.codesquad.sidedish08.message.SuccessMessages;
-import com.codesquad.sidedish08.model.response.ApiResponse;
 import com.codesquad.sidedish08.service.AuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import javax.websocket.server.PathParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/auth")
 public class AuthController {
 
+  private static final Logger log = LoggerFactory.getLogger(AuthController.class);
   private final AuthService authService;
 
   public AuthController(AuthService authService) {
@@ -22,8 +25,16 @@ public class AuthController {
   }
 
   @ApiOperation(value = "", notes = AuthMessages.LOGIN)
-  @GetMapping("login")
-  public ApiResponse login() {
-    return ApiResponse.ok(SuccessMessages.SUCCESS, authService.login());
+  @GetMapping("/login")
+  public ResponseEntity<String> login() {
+    return authService.login();
+  }
+
+  @ApiOperation(value = "", notes = AuthMessages.CALLBACK)
+  @GetMapping("/callback")
+  public Object callback(@PathParam("code") String code) {
+    log.debug("### code : {}", code);
+
+    return authService.callback(code);
   }
 }
