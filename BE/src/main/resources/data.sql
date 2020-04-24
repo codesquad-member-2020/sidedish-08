@@ -29,6 +29,18 @@ VALUES ('EARLY_MORNING', 1, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
 VALUES ('NATIONAL', 1, 1);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('EARLY_MORNING', 2, 0);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('NATIONAL', 2, 1);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('EARLY_MORNING', 3, 0);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('NATIONAL', 3, 1);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('EARLY_MORNING', 4, 0);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('NATIONAL', 4, 1);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
 VALUES ('EARLY_MORNING', 5, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
 VALUES ('NATIONAL', 5, 1);
@@ -49,6 +61,10 @@ INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('EVENT', 1, 0);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('LAUNCHING', 1, 1);
+INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
+VALUES ('EVENT', 3, 0);
+INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
+VALUES ('LAUNCHING', 4, 0);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('LAUNCHING', 6, 0);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)

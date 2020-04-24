@@ -34,10 +34,8 @@ public class MainDishController {
   @ApiOperation(value = "", notes = DishMessages.MAIN_DISH_DETAIL)
   @GetMapping("/{detailHash}")
   public ApiResponse detail(
-      @PathVariable
-      @ApiParam(value = "example : HBDEF")
-          String detailHash) {
-    return ApiResponse
-        .ok(SuccessMessages.SUCCESS, getResultMap("body", mainDishService.detail(detailHash)));
+      @PathVariable @ApiParam(value = "example : HBDEF") String detailHash) {
+    return ApiResponse.ok(
+        SuccessMessages.SUCCESS, getResultMap("body", mainDishService.detail(detailHash)));
   }
 }

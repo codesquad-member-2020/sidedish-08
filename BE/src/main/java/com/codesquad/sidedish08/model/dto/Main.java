@@ -1,5 +1,7 @@
 package com.codesquad.sidedish08.model.dto;
 
+import com.codesquad.sidedish08.message.BadgePrice;
+import com.codesquad.sidedish08.message.DeliveryPrice;
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -145,7 +147,7 @@ public class Main {
 
     public Builder deliveryType(List<Delivery> deliveryType) {
       this.deliveryType = deliveryType.stream()
-          .map(Delivery -> Delivery.getType())
+          .map(Delivery -> DeliveryPrice.valueOf(Delivery.getType()).getName())
           .collect(Collectors.toList());
       return this;
     }
@@ -170,9 +172,9 @@ public class Main {
       return this;
     }
 
-    public Builder badge(List<Badge> badge) {
-      this.badge = badge.stream()
-          .map(badgeObject -> badgeObject.getType())
+    public Builder badge(List<Badge> badges) {
+      this.badge = badges.stream()
+          .map(badge -> BadgePrice.valueOf(badge.getType()).getName())
           .collect(Collectors.toList());
       return this;
     }
