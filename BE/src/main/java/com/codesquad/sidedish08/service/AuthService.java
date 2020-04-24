@@ -45,10 +45,10 @@ public class AuthService {
         builder.toUriString(), HttpMethod.GET, new HttpEntity<String>(headers), String.class);
   }
 
-  public Object callback(String code) {
+  public HttpEntity<String> callback(String code) {
     MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
     Map<String, String> header = new HashMap<>();
-    header.put("Accept", "application/json"); //json 형식으로 응답 받음
+    header.put("Accept", "application/json");
     headers.setAll(header);
 
     MultiValueMap<String, String> requestPayloads = new LinkedMultiValueMap<>();
@@ -62,19 +62,20 @@ public class AuthService {
     ResponseEntity<?> response = new RestTemplate()
         .postForEntity(ACCESS_TOKEN_URL, request, HashMap.class);
 
-    log.debug("### response.getBody().getClass() : {}", response.getBody().getClass());
     Map<String, String> map = (Map<String, String>) response.getBody();
     String accessToken = map.get("access_token");
 
     return getEmails(accessToken);
   }
 
-  private Object getEmails(String accessToken) {
+  private HttpEntity<String> getEmails(String accessToken) {
     RestTemplate restTemplate = new RestTemplate();
+
     HttpHeaders headers = new HttpHeaders();
     headers.setContentType(
         new MediaType("application", "json", StandardCharsets.UTF_8));
     headers.add("Authorization", "bearer " + accessToken);
+
     UriComponents builder = UriComponentsBuilder
         .fromHttpUrl(USER_EMAIL)
         .build(false);
