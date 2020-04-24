@@ -1,5 +1,7 @@
 package com.codesquad.sidedish08.repository;
 
+import static com.codesquad.sidedish08.util.DishUtils.getSalePrice;
+
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
 import com.codesquad.sidedish08.model.Dish;
@@ -7,12 +9,16 @@ import com.codesquad.sidedish08.model.dto.Main;
 import com.codesquad.sidedish08.model.dto.Main.Builder;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class JdbcCategoryRepository {
+
+  private final Logger logger = LoggerFactory.getLogger(JdbcCategoryRepository.class);
 
   private final JdbcTemplate jdbcTemplate;
   private final CategoryRepository categoryRepository;
@@ -33,9 +39,10 @@ public class JdbcCategoryRepository {
         .title(dish.getTitle())
         .description(dish.getDescription())
         .normalPrice(dish.getPrice())
-        .specialPrice(dish.getPrice())
+        .specialPrice(getSalePrice(dish.getPrice(), dish.getBadges()))
         .badge(dish.getBadges())
         .build()).collect(Collectors.toList());
+
     return main;
   }
 
