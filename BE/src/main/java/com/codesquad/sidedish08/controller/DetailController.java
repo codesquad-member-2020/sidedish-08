@@ -4,7 +4,7 @@ import static com.codesquad.sidedish08.util.ResponseUtils.getResultMap;
 
 import com.codesquad.sidedish08.message.DishMessages;
 import com.codesquad.sidedish08.message.SuccessMessages;
-import com.codesquad.sidedish08.response.ApiResponse;
+import com.codesquad.sidedish08.model.response.ApiResponse;
 import com.codesquad.sidedish08.service.DetailService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
