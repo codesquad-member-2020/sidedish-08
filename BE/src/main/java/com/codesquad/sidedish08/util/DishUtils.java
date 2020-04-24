@@ -1,12 +1,13 @@
 package com.codesquad.sidedish08.util;
 
+import static com.codesquad.sidedish08.message.BadgePrice.EVENT;
+import static com.codesquad.sidedish08.message.BadgePrice.LAUNCHING;
 import static com.codesquad.sidedish08.message.DeliveryPrice.BASE;
 import static com.codesquad.sidedish08.message.DeliveryPrice.EARLY_MORNING;
 import static com.codesquad.sidedish08.message.DeliveryPrice.NATIONAL;
-import static com.codesquad.sidedish08.message.DeliveryPrice.valueOf;
 
-import com.codesquad.sidedish08.message.BadgeName;
 import com.codesquad.sidedish08.message.BadgePrice;
+import com.codesquad.sidedish08.message.DeliveryPrice;
 import com.codesquad.sidedish08.message.DishMessages;
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
@@ -21,7 +22,7 @@ public class DishUtils {
 
   private static int calcDeliveryFee(List<Delivery> deliveries) {
     return deliveries.stream().map(Delivery::getType).mapToInt(type -> {
-          switch (valueOf(type)) {
+          switch (DeliveryPrice.valueOf(type)) {
             case EARLY_MORNING:
               return EARLY_MORNING.getValue();
             case NATIONAL:
@@ -45,7 +46,7 @@ public class DishUtils {
     return new StringBuilder()
         .append(DishMessages.DELIVERY_INFO1)
         .append(deliveries.stream()
-            .map(delivery -> valueOf(delivery.getType()).getName())
+            .map(delivery -> DeliveryPrice.valueOf(delivery.getType()).getName())
             .collect(Collectors.joining("/")))
         .append(DishMessages.DELIVERY_INFO2)
         .append("월, 화, 수, 목, 금, 토, 일")
@@ -54,11 +55,11 @@ public class DishUtils {
 
   private static int calcDiscountPrice(List<Badge> badges) {
     return badges.stream().map(Badge::getType).mapToInt(type -> {
-          switch (BadgeName.valueOf(type)) {
+          switch (BadgePrice.valueOf(type)) {
             case LAUNCHING:
-              return BadgePrice.LAUNCHING_PRICE;
+              return LAUNCHING.getValue();
             case EVENT:
-              return BadgePrice.EVENT_PRICE;
+              return EVENT.getValue();
             default:
               return 0;
           }
