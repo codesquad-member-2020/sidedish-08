@@ -1,5 +1,7 @@
 package com.codesquad.sidedish08.model.dto;
 
+import static com.codesquad.sidedish08.message.DeliveryPrice.valueOf;
+
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -145,7 +147,7 @@ public class Main {
 
     public Builder deliveryType(List<Delivery> deliveryType) {
       this.deliveryType = deliveryType.stream()
-          .map(Delivery -> Delivery.getType())
+          .map(Delivery -> valueOf(Delivery.getType()).getName())
           .collect(Collectors.toList());
       return this;
     }
