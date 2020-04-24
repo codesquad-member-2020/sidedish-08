@@ -2,7 +2,7 @@ package com.codesquad.sidedish08.controller;
 
 import com.codesquad.sidedish08.message.DishMessages;
 import com.codesquad.sidedish08.message.SuccessMessages;
-import com.codesquad.sidedish08.model.response.ApiResponse;
+import com.codesquad.sidedish08.response.ApiResponse;
 import com.codesquad.sidedish08.service.BasicService;
 import com.codesquad.sidedish08.service.SoupDishService;
 import io.swagger.annotations.Api;

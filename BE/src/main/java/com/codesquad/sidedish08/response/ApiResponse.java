@@ -1,6 +1,4 @@
-package com.codesquad.sidedish08.model.response;
-
-import static com.codesquad.sidedish08.util.ResponseUtils.getResultMap;
+package com.codesquad.sidedish08.response;
 
 import java.util.Map;
 
@@ -16,10 +14,6 @@ public class ApiResponse {
 
   public static ApiResponse ok(String message, Map<String, ?> contents) {
     return new ApiResponse(message, contents);
-  }
-
-  public static ApiResponse error(String message, String errorTrace) {
-    return new ApiResponse(message, getResultMap("errorTrace", errorTrace));
   }
 
   public String getMessage() {
