@@ -1,5 +1,8 @@
 package com.codesquad.sidedish08.model.dto;
 
+import static com.codesquad.sidedish08.util.DishUtils.calcDeliveryInfo;
+import static com.codesquad.sidedish08.util.DishUtils.calcPoint;
+
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Dish;
 import com.codesquad.sidedish08.model.Image;
@@ -24,10 +27,10 @@ public class Detail {
     this.hash = dish.getHash();
     this.normalPrice = dish.getPrice();
     this.description = dish.getDescription();
-    this.deliveryInfo = DishUtils.getDeliveryInfo(dish.getDeliveries());
+    this.deliveryInfo = calcDeliveryInfo(dish.getDeliveries());
     this.deliveryFee = DishUtils.getDeliveryFee(dish.getDeliveries());
-    this.salePrice = this.normalPrice - DishUtils.getDiscountPrice(dish.getBadges());
-    this.point = DishUtils.getPoint(this.salePrice, 100L);
+    this.salePrice = DishUtils.getSalePrice(this.normalPrice, dish.getBadges());
+    this.point = calcPoint(this.salePrice, 100L);
     this.topImage = getTopImageUrl(dish);
     this.thumbImages = getThumbImageUrls(dish);
     this.badges = getBadgesString(dish);
@@ -51,6 +54,7 @@ public class Detail {
   private List<String> getBadgesString(Dish dish) {
     return dish.getBadges().stream()
         .map(Badge::getType)
+//        .map(badge -> valueOf(badge.getType()).getName())
         .collect(Collectors.toList());
   }
 
@@ -58,11 +62,11 @@ public class Detail {
     return hash;
   }
 
-  public int getNormalPrice() {
+  public Integer getNormalPrice() {
     return normalPrice;
   }
 
-  public int getSalePrice() {
+  public Integer getSalePrice() {
     return salePrice;
   }
 

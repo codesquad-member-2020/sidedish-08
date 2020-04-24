@@ -1,8 +1,24 @@
 package com.codesquad.sidedish08.message;
 
-public class DeliveryPrice {
+public enum DeliveryPrice {
 
-  public static final int BASE = 2000;
-  public static final int EARLY_MORNING = 300;
-  public static final int NATIONAL = 500;
+  BASE("기본가", 2000),
+  EARLY_MORNING("새벽배송", 300),
+  NATIONAL("전국택배", 500);
+
+  private int value;
+  private String name;
+
+  private DeliveryPrice(String name, int value) {
+    this.name = name;
+    this.value = value;
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public int getValue() {
+    return this.value;
+  }
 }

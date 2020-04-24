@@ -25,38 +25,38 @@ VALUES ('H602F', '[미노리키친] 일본식 우엉조림(킨피라고보) 80g'
 
 
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
-VALUES ('새벽배송', 1, 0);
+VALUES ('EARLY_MORNING', 1, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
-VALUES ('전국택배', 1, 1);
+VALUES ('NATIONAL', 1, 1);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
-VALUES ('새벽배송', 5, 0);
+VALUES ('EARLY_MORNING', 5, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
-VALUES ('전국택배', 5, 1);
+VALUES ('NATIONAL', 5, 1);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
-VALUES ('새벽배송', 6, 0);
+VALUES ('EARLY_MORNING', 6, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
-VALUES ('전국택배', 6, 1);
+VALUES ('NATIONAL', 6, 1);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
-VALUES ('새벽배송', 7, 0);
+VALUES ('EARLY_MORNING', 7, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
-VALUES ('전국택배', 7, 1);
+VALUES ('NATIONAL', 7, 1);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
-VALUES ('새벽배송', 8, 0);
+VALUES ('EARLY_MORNING', 8, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
-VALUES ('전국택배', 8, 1);
+VALUES ('NATIONAL', 8, 1);
 
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
-VALUES ('이벤트특가', 1, 0);
+VALUES ('EVENT', 1, 0);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
-VALUES ('론칭특가', 1, 1);
+VALUES ('LAUNCHING', 1, 1);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
-VALUES ('론칭특가', 6, 0);
+VALUES ('LAUNCHING', 6, 0);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
-VALUES ('이벤트특가', 7, 0);
+VALUES ('EVENT', 7, 0);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
-VALUES ('론칭특가', 7, 1);
+VALUES ('LAUNCHING', 7, 1);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
-VALUES ('이벤트특가', 8, 0);
+VALUES ('EVENT', 8, 0);
 
 
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
