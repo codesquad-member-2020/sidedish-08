@@ -1,7 +1,7 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    var loader: RequestLoader<MainDishRequest>?
+    var loader: AnyObject?
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -72,9 +72,10 @@ extension MainViewController: UITableViewDelegate {
 private extension MainViewController {
     // TODO: 구현할 것
     func loadMainDish() {
-        self.loader = RequestLoader(apiRequest: MainDishRequest())
+        let loader = RequestLoader(apiRequest: MainDishRequest())
+        self.loader = loader
 
-        loader?.load(with: nil) { (result) in
+        loader.load(with: nil) { [weak self] (result) in
             switch result {
             case .success(let data):
                 debugPrint(data)
@@ -85,4 +86,3 @@ private extension MainViewController {
     }
 
 }
-
