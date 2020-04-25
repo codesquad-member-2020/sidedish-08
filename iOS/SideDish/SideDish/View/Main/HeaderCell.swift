@@ -1,5 +1,6 @@
 import UIKit
 
+// TODO: 카운트 표시 필요
 final class HeaderCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!

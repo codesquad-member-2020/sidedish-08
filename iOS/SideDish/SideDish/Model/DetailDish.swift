@@ -13,14 +13,20 @@ struct DetailDishWrapper: Codable {
 
 struct DetailDish: Codable {
     let hash: DetailHash
+
+    // Top Images
     let topImage: ImageURL
     let thumbImages: [ImageURL]
-    let detailImages: [ImageURL]
+
+    // Descriptions
+    let description: String
     let normalPrice: Price
     let salePrice: Price
-    let description: String
     let point: Int
     let deliveryInfo: String
     let deliveryFee: String
     let badges: [Badge]
+
+    // Detail Images
+    let detailImages: [ImageURL]
 }

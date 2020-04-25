@@ -24,6 +24,8 @@
 		8D71CF0B2454425200427572 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF092454421500427572 /* Configurable.swift */; };
 		8D71CF0D2454438D00427572 /* MainDishHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF0C2454438D00427572 /* MainDishHeader.swift */; };
 		8D71CF0F2454444100427572 /* HeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF0E2454444100427572 /* HeaderCellViewModel.swift */; };
+		8D71CF1124544B5500427572 /* DetailTopImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF1024544B5500427572 /* DetailTopImagesView.swift */; };
+		8D71CF1324544B8600427572 /* DetailDescriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF1224544B8600427572 /* DetailDescriptionsView.swift */; };
 		8D9E4778245342AA00A25875 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */; };
 		8DA5EF282452E46500CE5E94 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA5EF272452E46500CE5E94 /* DetailView.swift */; };
 		8DC914AA245011C000421B20 /* MainDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914A9245011C000421B20 /* MainDish.swift */; };
@@ -79,6 +81,8 @@
 		8D71CF092454421500427572 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
 		8D71CF0C2454438D00427572 /* MainDishHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDishHeader.swift; sourceTree = "<group>"; };
 		8D71CF0E2454444100427572 /* HeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellViewModel.swift; sourceTree = "<group>"; };
+		8D71CF1024544B5500427572 /* DetailTopImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTopImagesView.swift; sourceTree = "<group>"; };
+		8D71CF1224544B8600427572 /* DetailDescriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescriptionsView.swift; sourceTree = "<group>"; };
 		8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
 		8DA5EF272452E46500CE5E94 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8DC914A9245011C000421B20 /* MainDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDish.swift; sourceTree = "<group>"; };
@@ -168,9 +172,8 @@
 			children = (
 				8DD1B1AC24512D4300C9601C /* ReusableView.swift */,
 				8D71CF092454421500427572 /* Configurable.swift */,
-				8D344A86244DDD53004D3962 /* HeaderCell.swift */,
-				8D344A7E244D8CD1004D3962 /* ItemCell.swift */,
-				8DA5EF272452E46500CE5E94 /* DetailView.swift */,
+				8D71CF1424544B9200427572 /* Main */,
+				8D71CF1524544B9A00427572 /* Detail */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +195,25 @@
 				8D4E9614244F34C100197621 /* Network */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		8D71CF1424544B9200427572 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				8D344A86244DDD53004D3962 /* HeaderCell.swift */,
+				8D344A7E244D8CD1004D3962 /* ItemCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		8D71CF1524544B9A00427572 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8DA5EF272452E46500CE5E94 /* DetailView.swift */,
+				8D71CF1024544B5500427572 /* DetailTopImagesView.swift */,
+				8D71CF1224544B8600427572 /* DetailDescriptionsView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		8D9E47762453428000A25875 /* View Model */ = {
@@ -334,9 +356,11 @@
 				8D344A87244DDD53004D3962 /* HeaderCell.swift in Sources */,
 				8DD1B1C9245197C100C9601C /* ImageRequest.swift in Sources */,
 				8DD1B1AD24512D4300C9601C /* ReusableView.swift in Sources */,
+				8D71CF1324544B8600427572 /* DetailDescriptionsView.swift in Sources */,
 				8D344A7F244D8CD1004D3962 /* ItemCell.swift in Sources */,
 				8DD1B1C2245190D500C9601C /* Common.swift in Sources */,
 				8D4E960F244F340C00197621 /* RequestLoader.swift in Sources */,
+				8D71CF1124544B5500427572 /* DetailTopImagesView.swift in Sources */,
 				8DA5EF282452E46500CE5E94 /* DetailView.swift in Sources */,
 				8D344A59244D4848004D3962 /* AppDelegate.swift in Sources */,
 				8D344A5B244D4848004D3962 /* SceneDelegate.swift in Sources */,
