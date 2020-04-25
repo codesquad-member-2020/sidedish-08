@@ -19,8 +19,12 @@
 		8D344A87244DDD53004D3962 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D344A86244DDD53004D3962 /* HeaderCell.swift */; };
 		8D4E960F244F340C00197621 /* RequestLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4E960E244F340C00197621 /* RequestLoader.swift */; };
 		8D4E9611244F343E00197621 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4E9610244F343E00197621 /* APIRequest.swift */; };
-		8D71CF08245349EF00427572 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E4777245342AA00A25875 /* ItemViewModel.swift */; };
-		8D9E4778245342AA00A25875 /* ItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E4777245342AA00A25875 /* ItemViewModel.swift */; };
+		8D71CF08245349EF00427572 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */; };
+		8D71CF0A2454421500427572 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF092454421500427572 /* Configurable.swift */; };
+		8D71CF0B2454425200427572 /* Configurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF092454421500427572 /* Configurable.swift */; };
+		8D71CF0D2454438D00427572 /* MainDishHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF0C2454438D00427572 /* MainDishHeader.swift */; };
+		8D71CF0F2454444100427572 /* HeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF0E2454444100427572 /* HeaderCellViewModel.swift */; };
+		8D9E4778245342AA00A25875 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */; };
 		8DA5EF282452E46500CE5E94 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA5EF272452E46500CE5E94 /* DetailView.swift */; };
 		8DC914AA245011C000421B20 /* MainDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914A9245011C000421B20 /* MainDish.swift */; };
 		8DC914AC2450271F00421B20 /* APIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914AB2450271F00421B20 /* APIRequestTests.swift */; };
@@ -72,7 +76,10 @@
 		8D344A86244DDD53004D3962 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		8D4E960E244F340C00197621 /* RequestLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestLoader.swift; sourceTree = "<group>"; };
 		8D4E9610244F343E00197621 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
-		8D9E4777245342AA00A25875 /* ItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewModel.swift; sourceTree = "<group>"; };
+		8D71CF092454421500427572 /* Configurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurable.swift; sourceTree = "<group>"; };
+		8D71CF0C2454438D00427572 /* MainDishHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDishHeader.swift; sourceTree = "<group>"; };
+		8D71CF0E2454444100427572 /* HeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellViewModel.swift; sourceTree = "<group>"; };
+		8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
 		8DA5EF272452E46500CE5E94 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8DC914A9245011C000421B20 /* MainDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDish.swift; sourceTree = "<group>"; };
 		8DC914AB2450271F00421B20 /* APIRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestTests.swift; sourceTree = "<group>"; };
@@ -159,9 +166,10 @@
 		8D4E960D244F32BC00197621 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8DD1B1AC24512D4300C9601C /* ReusableView.swift */,
+				8D71CF092454421500427572 /* Configurable.swift */,
 				8D344A86244DDD53004D3962 /* HeaderCell.swift */,
 				8D344A7E244D8CD1004D3962 /* ItemCell.swift */,
-				8DD1B1AC24512D4300C9601C /* ReusableView.swift */,
 				8DA5EF272452E46500CE5E94 /* DetailView.swift */,
 			);
 			path = View;
@@ -189,7 +197,8 @@
 		8D9E47762453428000A25875 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				8D9E4777245342AA00A25875 /* ItemViewModel.swift */,
+				8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */,
+				8D71CF0E2454444100427572 /* HeaderCellViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -200,6 +209,7 @@
 				8DD1B1C1245190D500C9601C /* Common.swift */,
 				8DC914A9245011C000421B20 /* MainDish.swift */,
 				8DD1B1B1245169F100C9601C /* DetailDish.swift */,
+				8D71CF0C2454438D00427572 /* MainDishHeader.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,8 +326,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC914AA245011C000421B20 /* MainDish.swift in Sources */,
+				8D71CF0D2454438D00427572 /* MainDishHeader.swift in Sources */,
 				8D344A5D244D4848004D3962 /* DetailViewController.swift in Sources */,
-				8D9E4778245342AA00A25875 /* ItemViewModel.swift in Sources */,
+				8D9E4778245342AA00A25875 /* ItemCellViewModel.swift in Sources */,
+				8D71CF0A2454421500427572 /* Configurable.swift in Sources */,
 				8DD1B1AB2450B27700C9601C /* MainDishRequest.swift in Sources */,
 				8D344A87244DDD53004D3962 /* HeaderCell.swift in Sources */,
 				8DD1B1C9245197C100C9601C /* ImageRequest.swift in Sources */,
@@ -330,6 +342,7 @@
 				8D344A5B244D4848004D3962 /* SceneDelegate.swift in Sources */,
 				8D344A81244D8E54004D3962 /* MainViewController.swift in Sources */,
 				8DD1B1AF2451698B00C9601C /* DetailDishRequest.swift in Sources */,
+				8D71CF0F2454444100427572 /* HeaderCellViewModel.swift in Sources */,
 				8D4E9611244F343E00197621 /* APIRequest.swift in Sources */,
 				8DD1B1B2245169F100C9601C /* DetailDish.swift in Sources */,
 			);
@@ -341,6 +354,7 @@
 			files = (
 				8DD1B1B624518A4300C9601C /* MainDish.swift in Sources */,
 				8DD1B1BA24518A4D00C9601C /* APIRequest.swift in Sources */,
+				8D71CF0B2454425200427572 /* Configurable.swift in Sources */,
 				8DC914AC2450271F00421B20 /* APIRequestTests.swift in Sources */,
 				8DD1B1BC24518A5200C9601C /* RequestLoader.swift in Sources */,
 				8DD1B1CA245197C100C9601C /* ImageRequest.swift in Sources */,
@@ -348,7 +362,7 @@
 				8DD1B1B924518A4B00C9601C /* DetailViewController.swift in Sources */,
 				8DD1B1C3245190D500C9601C /* Common.swift in Sources */,
 				8D344A70244D484B004D3962 /* SideDishTests.swift in Sources */,
-				8D71CF08245349EF00427572 /* ItemViewModel.swift in Sources */,
+				8D71CF08245349EF00427572 /* ItemCellViewModel.swift in Sources */,
 				8DD1B1C024518A5E00C9601C /* ReusableView.swift in Sources */,
 				8DD1B1BB24518A5000C9601C /* MainDishRequest.swift in Sources */,
 				8DD1B1BF24518A5B00C9601C /* ItemCell.swift in Sources */,
