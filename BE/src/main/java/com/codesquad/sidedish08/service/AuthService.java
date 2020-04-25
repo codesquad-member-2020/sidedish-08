@@ -4,7 +4,7 @@ import static com.codesquad.sidedish08.message.AuthMessages.ACCESS_TOKEN_URL;
 import static com.codesquad.sidedish08.message.AuthMessages.AUTHORIZE_URL;
 import static com.codesquad.sidedish08.message.AuthMessages.CLIENT_ID;
 import static com.codesquad.sidedish08.message.AuthMessages.CLIENT_SECRET;
-import static com.codesquad.sidedish08.message.AuthMessages.USER_EMAIL;
+import static com.codesquad.sidedish08.message.AuthMessages.USER_EMAIL_URL;
 
 import com.codesquad.sidedish08.message.ErrorMessages;
 import com.codesquad.sidedish08.util.TokenUtil;
@@ -85,7 +85,7 @@ public class AuthService {
     headers.add("Authorization", "bearer " + accessToken);
 
     ResponseEntity<List> response = new RestTemplate().exchange(
-        USER_EMAIL, HttpMethod.GET, new HttpEntity<String>(headers), List.class);
+        USER_EMAIL_URL, HttpMethod.GET, new HttpEntity<String>(headers), List.class);
 
     return response.getBody();
   }
