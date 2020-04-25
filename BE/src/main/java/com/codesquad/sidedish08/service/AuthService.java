@@ -6,12 +6,14 @@ import static com.codesquad.sidedish08.message.AuthMessages.CLIENT_ID;
 import static com.codesquad.sidedish08.message.AuthMessages.CLIENT_SECRET;
 import static com.codesquad.sidedish08.message.AuthMessages.USER_EMAIL;
 
+import com.codesquad.sidedish08.message.ErrorMessages;
 import com.codesquad.sidedish08.util.TokenUtil;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
@@ -32,8 +34,6 @@ public class AuthService {
   private static final Logger log = LoggerFactory.getLogger(AuthService.class);
 
   public ResponseEntity<String> login() {
-    RestTemplate restTemplate = new RestTemplate();
-
     HttpHeaders headers = new HttpHeaders();
     headers.setContentType(
         new MediaType("application", "json", StandardCharsets.UTF_8));
@@ -44,13 +44,14 @@ public class AuthService {
         .queryParam("scope", "user")
         .build(false);
 
-    return restTemplate.exchange(
+    return new RestTemplate().exchange(
         builder.toUriString(), HttpMethod.GET, new HttpEntity<String>(headers), String.class);
   }
 
   public String callback(String authorizationCode) {
     String accessToken = getAccessToken(authorizationCode);
     List<LinkedHashMap<String, String>> emails = getEmails(accessToken);
+
     return TokenUtil.create(emails.get(0));
   }
 
@@ -67,28 +68,24 @@ public class AuthService {
     requestPayload.put("code", authorizationCode);
     requestPayloads.setAll(requestPayload);
 
-    HttpEntity<?> request = new HttpEntity<>(requestPayloads, headers);
-    ResponseEntity<?> response = new RestTemplate()
+    HttpEntity<MultiValueMap> request = new HttpEntity<>(requestPayloads, headers);
+    ResponseEntity<HashMap> response = new RestTemplate()
         .postForEntity(ACCESS_TOKEN_URL, request, HashMap.class);
 
     Map<String, String> map = (Map<String, String>) response.getBody();
-    return map.get("access_token");
+
+    return Optional.of(map.get("access_token"))
+        .orElseThrow(() -> new RuntimeException(ErrorMessages.FAILED_MAKE_JWT));
   }
 
-  private List<LinkedHashMap<String, String>> getEmails(String accessToken) {
-    RestTemplate restTemplate = new RestTemplate();
-
+  private List getEmails(String accessToken) {
     HttpHeaders headers = new HttpHeaders();
     headers.setContentType(
         new MediaType("application", "json", StandardCharsets.UTF_8));
     headers.add("Authorization", "bearer " + accessToken);
 
-    UriComponents builder = UriComponentsBuilder
-        .fromHttpUrl(USER_EMAIL)
-        .build(false);
-
-    ResponseEntity<List> response = restTemplate.exchange(
-        builder.toUriString(), HttpMethod.GET, new HttpEntity<String>(headers), List.class);
+    ResponseEntity<List> response = new RestTemplate().exchange(
+        USER_EMAIL, HttpMethod.GET, new HttpEntity<String>(headers), List.class);
 
     return response.getBody();
   }
