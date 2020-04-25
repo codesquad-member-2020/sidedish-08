@@ -1,6 +1,6 @@
 import UIKit
 
-struct ImageRequest: NetworkRequest {
+struct ImageRequest: APIRequest {
     typealias RequestDataType = URL
     typealias ResponseDataType = UIImage
 

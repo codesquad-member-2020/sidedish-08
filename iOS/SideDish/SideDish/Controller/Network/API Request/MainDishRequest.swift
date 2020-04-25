@@ -1,6 +1,6 @@
 import Foundation
 
-struct MainDishRequest: APIRequest {
+struct MainDishRequest: JSONRequest {
     typealias RequestDataType = MainDishWrapper
     typealias ResponseDataType = MainDishWrapper
 

@@ -1,6 +1,6 @@
 import Foundation
 
-protocol NetworkRequest {
+protocol APIRequest {
     associatedtype RequestDataType
     associatedtype ResponseDataType
 
@@ -8,9 +8,9 @@ protocol NetworkRequest {
     func parseResponse(data: Data) -> ResponseDataType?
 }
 
-protocol APIRequest: NetworkRequest where RequestDataType: Encodable, ResponseDataType: Decodable { }
+protocol JSONRequest: APIRequest where RequestDataType: Encodable, ResponseDataType: Decodable { }
 
-extension APIRequest {
+extension JSONRequest {
     var baseURL: String {
         "http://13.125.127.249:8080/sidedish08/api"
     }

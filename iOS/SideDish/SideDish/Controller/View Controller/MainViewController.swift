@@ -1,7 +1,7 @@
 import UIKit
 
 final class MainViewController: UIViewController {
-    var loader: AnyObject?
+    let network: NetworkController = .init()
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -11,7 +11,15 @@ final class MainViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
 
-        loadMainDish()
+        let network = NetworkController()
+        network.loadMainDish(onSuccess: configureMainDish(_:))
+    }
+
+    func configureMainDish(_ entity: MainDishWrapper?) {
+        print(entity?.message)
+        let firstMainDish = entity?.contents.body.first!
+        print(firstMainDish)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -65,24 +73,4 @@ extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
-}
-
-// MARK: - HTTP Requests
-
-private extension MainViewController {
-    // TODO: 구현할 것
-    func loadMainDish() {
-        let loader = RequestLoader(apiRequest: MainDishRequest())
-        self.loader = loader
-
-        loader.load(with: nil) { [weak self] (result) in
-            switch result {
-            case .success(let data):
-                debugPrint(data)
-            case .failure(let error):
-                debugPrint(error)
-            }
-        }
-    }
-
 }

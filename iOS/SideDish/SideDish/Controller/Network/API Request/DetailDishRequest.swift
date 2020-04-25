@@ -1,6 +1,6 @@
 import Foundation
 
-struct DetailDishRequest: APIRequest {
+struct DetailDishRequest: JSONRequest {
     typealias RequestDataType = DetailHash
     typealias ResponseDataType = DetailDishWrapper
 
