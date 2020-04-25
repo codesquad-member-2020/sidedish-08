@@ -10,4 +10,5 @@ public class AuthMessages {
   public static final String USER_EMAIL = "https://api.github.com/user/emails";
   public static final String CLIENT_ID = "31ae5169a7dc37e19605";
   public static final String CLIENT_SECRET = "43debfbf5b584d5a0c7b58d215c5462a29ecd5e1";
+  public static final String SALT = "sidedish08SecreatKey";
 }

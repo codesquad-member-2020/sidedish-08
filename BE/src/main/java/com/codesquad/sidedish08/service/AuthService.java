@@ -6,8 +6,11 @@ import static com.codesquad.sidedish08.message.AuthMessages.CLIENT_ID;
 import static com.codesquad.sidedish08.message.AuthMessages.CLIENT_SECRET;
 import static com.codesquad.sidedish08.message.AuthMessages.USER_EMAIL;
 
+import com.codesquad.sidedish08.util.TokenUtil;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +48,7 @@ public class AuthService {
         builder.toUriString(), HttpMethod.GET, new HttpEntity<String>(headers), String.class);
   }
 
-  public HttpEntity<String> callback(String code) {
+  public String callback(String code) {
     MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
     Map<String, String> header = new HashMap<>();
     header.put("Accept", "application/json");
@@ -65,10 +68,18 @@ public class AuthService {
     Map<String, String> map = (Map<String, String>) response.getBody();
     String accessToken = map.get("access_token");
 
-    return getEmails(accessToken);
+    Map<String, String> claims = new HashMap<>();
+//    claims.put("email", getEmails(accessToken));
+
+    log.debug("##### email : {}", getEmails(accessToken));
+
+    List<LinkedHashMap<String, String>> emails = getEmails(accessToken);
+
+    String token = TokenUtil.create(emails.get(0));
+    return token;
   }
 
-  private HttpEntity<String> getEmails(String accessToken) {
+  private List<LinkedHashMap<String, String>> getEmails(String accessToken) {
     RestTemplate restTemplate = new RestTemplate();
 
     HttpHeaders headers = new HttpHeaders();
@@ -80,7 +91,9 @@ public class AuthService {
         .fromHttpUrl(USER_EMAIL)
         .build(false);
 
-    return restTemplate.exchange(
-        builder.toUriString(), HttpMethod.GET, new HttpEntity<String>(headers), String.class);
+    ResponseEntity<List> response = restTemplate.exchange(
+        builder.toUriString(), HttpMethod.GET, new HttpEntity<String>(headers), List.class);
+
+    return response.getBody();
   }
 }
