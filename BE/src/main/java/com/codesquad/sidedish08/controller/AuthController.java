@@ -37,8 +37,6 @@ public class AuthController {
   @ApiOperation(value = "", notes = AuthMessages.CALLBACK)
   @GetMapping("/callback")
   public ApiResponse callback(@PathParam("code") String code) {
-    log.debug("### code : {}", code);
-
     return ApiResponse.ok(
         SuccessMessages.SUCCESS, getResultMap("body", authService.callback(code)));
   }

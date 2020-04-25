@@ -48,7 +48,13 @@ public class AuthService {
         builder.toUriString(), HttpMethod.GET, new HttpEntity<String>(headers), String.class);
   }
 
-  public String callback(String code) {
+  public String callback(String authorizationCode) {
+    String accessToken = getAccessToken(authorizationCode);
+    List<LinkedHashMap<String, String>> emails = getEmails(accessToken);
+    return TokenUtil.create(emails.get(0));
+  }
+
+  private String getAccessToken(String authorizationCode) {
     MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
     Map<String, String> header = new HashMap<>();
     header.put("Accept", "application/json");
@@ -58,7 +64,7 @@ public class AuthService {
     Map<String, String> requestPayload = new HashMap<>();
     requestPayload.put("client_id", CLIENT_ID);
     requestPayload.put("client_secret", CLIENT_SECRET);
-    requestPayload.put("code", code);
+    requestPayload.put("code", authorizationCode);
     requestPayloads.setAll(requestPayload);
 
     HttpEntity<?> request = new HttpEntity<>(requestPayloads, headers);
@@ -66,17 +72,7 @@ public class AuthService {
         .postForEntity(ACCESS_TOKEN_URL, request, HashMap.class);
 
     Map<String, String> map = (Map<String, String>) response.getBody();
-    String accessToken = map.get("access_token");
-
-    Map<String, String> claims = new HashMap<>();
-//    claims.put("email", getEmails(accessToken));
-
-    log.debug("##### email : {}", getEmails(accessToken));
-
-    List<LinkedHashMap<String, String>> emails = getEmails(accessToken);
-
-    String token = TokenUtil.create(emails.get(0));
-    return token;
+    return map.get("access_token");
   }
 
   private List<LinkedHashMap<String, String>> getEmails(String accessToken) {
