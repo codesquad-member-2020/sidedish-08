@@ -351,6 +351,12 @@
                                                     </view>
                                                 </subviews>
                                                 <connections>
+                                                    <outlet property="deliveryFeeLabel" destination="YcQ-PU-heh" id="OTp-Mh-YO8"/>
+                                                    <outlet property="deliveryInfoLabel" destination="CcJ-iq-CMY" id="7qv-Ph-dfy"/>
+                                                    <outlet property="normalPriceLabel" destination="Q4Q-UK-oUc" id="1dH-d9-TtF"/>
+                                                    <outlet property="pointLabel" destination="PJH-6r-oJa" id="Wpx-V8-Le3"/>
+                                                    <outlet property="salePriceLabel" destination="B5n-v7-48X" id="u5p-uJ-sLL"/>
+                                                    <outlet property="subTitleLabel" destination="umN-hs-VzG" id="Bw8-OX-kwm"/>
                                                     <outlet property="titleLabel" destination="raB-o5-mVQ" id="hh5-zZ-4n9"/>
                                                 </connections>
                                             </stackView>

@@ -19,3 +19,13 @@ protocol Configurable: class {
 protocol Observer: class {
     func updateChanges()
 }
+
+extension UILabel {
+    func setStrikethrough() {
+        guard let string = self.text else { return }
+
+        let attributeString: NSMutableAttributedString = .init(string: string)
+        attributeString.addAttribute(.strikethroughStyle, value: 2, range: .init(location: 0, length: string.count))
+        self.attributedText = attributeString
+    }
+}

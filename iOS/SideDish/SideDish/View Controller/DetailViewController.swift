@@ -22,7 +22,7 @@ final class DetailViewController: UIViewController {
         let detailHash: DetailHash = "HBDEF"
         network.loadDetailDish(at: detailHash) { dish in
             DispatchQueue.main.async {
-                self.descriptionsView.viewModel = DetailDescriptionViewModel(model: dish)
+                self.descriptionsView.viewModel = DescriptionViewModel(model: dish)
 
                 self.topImagesView.viewModel = TopImagesViewModel(model: dish)
                 self.topImagesView.configure()

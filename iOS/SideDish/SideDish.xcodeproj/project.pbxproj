@@ -25,7 +25,6 @@
 		8D4E9611244F343E00197621 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4E9610244F343E00197621 /* APIRequest.swift */; };
 		8D71CF08245349EF00427572 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */; };
 		8D71CF0A2454421500427572 /* ImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF092454421500427572 /* ImagesViewModel.swift */; };
-		8D71CF0B2454425200427572 /* ImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF092454421500427572 /* ImagesViewModel.swift */; };
 		8D71CF0D2454438D00427572 /* MainDishHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF0C2454438D00427572 /* MainDishHeader.swift */; };
 		8D71CF0F2454444100427572 /* HeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF0E2454444100427572 /* HeaderCellViewModel.swift */; };
 		8D71CF1124544B5500427572 /* ImagesStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF1024544B5500427572 /* ImagesStackView.swift */; };
@@ -54,6 +53,7 @@
 		8DD1B1C3245190D500C9601C /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1C1245190D500C9601C /* Common.swift */; };
 		8DD1B1C9245197C100C9601C /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1C8245197C100C9601C /* ImageRequest.swift */; };
 		8DD1B1CA245197C100C9601C /* ImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1C8245197C100C9601C /* ImageRequest.swift */; };
+		8DF0E1FE2455BFE300132BB1 /* DescriptionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DF0E1FD2455BFE300132BB1 /* DescriptionsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +100,7 @@
 		8DD1B1B1245169F100C9601C /* DetailDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDish.swift; sourceTree = "<group>"; };
 		8DD1B1C1245190D500C9601C /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		8DD1B1C8245197C100C9601C /* ImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequest.swift; sourceTree = "<group>"; };
+		8DF0E1FD2455BFE300132BB1 /* DescriptionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +133,10 @@
 		8D20B4C92454C3F800E72C98 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				8D71CF092454421500427572 /* ImagesViewModel.swift */,
 				8D20B4C42454AAA200E72C98 /* TopImagesViewModel.swift */,
 				8DCFC1F52455B60F0082212B /* BottomImagesViewModel.swift */,
+				8DF0E1FD2455BFE300132BB1 /* DescriptionsViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -235,7 +238,6 @@
 		8D9E47762453428000A25875 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				8D71CF092454421500427572 /* ImagesViewModel.swift */,
 				8D20B4C82454C3F100E72C98 /* Main */,
 				8D20B4C92454C3F800E72C98 /* Detail */,
 			);
@@ -387,6 +389,7 @@
 				8DD1B1AF2451698B00C9601C /* DetailDishRequest.swift in Sources */,
 				8D71CF0F2454444100427572 /* HeaderCellViewModel.swift in Sources */,
 				8D4E9611244F343E00197621 /* APIRequest.swift in Sources */,
+				8DF0E1FE2455BFE300132BB1 /* DescriptionsViewModel.swift in Sources */,
 				8DD1B1B2245169F100C9601C /* DetailDish.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,7 +401,6 @@
 				8DD1B1B624518A4300C9601C /* MainDish.swift in Sources */,
 				8D20B4C124545F2000E72C98 /* NetworkController.swift in Sources */,
 				8DD1B1BA24518A4D00C9601C /* APIRequest.swift in Sources */,
-				8D71CF0B2454425200427572 /* ImagesViewModel.swift in Sources */,
 				8DC914AC2450271F00421B20 /* APIRequestTests.swift in Sources */,
 				8D20B4C224545F2A00E72C98 /* MainDishHeader.swift in Sources */,
 				8DD1B1BC24518A5200C9601C /* RequestLoader.swift in Sources */,
