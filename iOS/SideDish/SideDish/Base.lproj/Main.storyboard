@@ -156,12 +156,12 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Z4H-oR-iGS" userLabel="Detail View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1363"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1353"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9wd-sr-1uv">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="245.5"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5ZQ-Et-zbm" userLabel="Top Images View" customClass="DetailTopImagesView" customModule="SideDish" customModuleProvider="target">
+                                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5ZQ-Et-zbm" userLabel="Top Images View" customClass="TopImagesView" customModule="SideDish" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="1656" height="245.5"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-image" translatesAutoresizingMaskIntoConstraints="NO" id="XcD-rY-52v">
@@ -182,7 +182,7 @@
                                                             </imageView>
                                                         </subviews>
                                                         <connections>
-                                                            <outlet property="scrollViewLayoutGuide" destination="9wd-sr-1uv" id="Tgs-oF-na1"/>
+                                                            <outlet property="rootViewSafeArea" destination="cPw-Dq-PAa" id="RHk-Qw-2YY"/>
                                                         </connections>
                                                     </stackView>
                                                 </subviews>
@@ -197,7 +197,7 @@
                                                 <viewLayoutGuide key="contentLayoutGuide" id="EjY-Zf-2np"/>
                                                 <viewLayoutGuide key="frameLayoutGuide" id="6LE-pZ-eRm"/>
                                             </scrollView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cmM-PH-zY4" userLabel="Descriptions View" customClass="DetailDescriptionsView" customModule="SideDish" customModuleProvider="target">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cmM-PH-zY4" userLabel="Descriptions View" customClass="DescriptionsView" customModule="SideDish" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="250.5" width="414" height="197.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iMa-43-EDz">
@@ -354,21 +354,24 @@
                                                     <outlet property="titleLabel" destination="raB-o5-mVQ" id="hh5-zZ-4n9"/>
                                                 </connections>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6CH-Y1-Hkr" customClass="DetailBottomImagesView" customModule="SideDish" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="453" width="414" height="910"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="6CH-Y1-Hkr" userLabel="Bottom Images View" customClass="BottomImagesView" customModule="SideDish" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="453" width="414" height="900"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-image" translatesAutoresizingMaskIntoConstraints="NO" id="gl1-dP-Ope">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-image" translatesAutoresizingMaskIntoConstraints="NO" id="lRb-RD-cEW">
-                                                        <rect key="frame" x="0.0" y="305" width="414" height="300"/>
+                                                        <rect key="frame" x="0.0" y="300" width="414" height="300"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-image" translatesAutoresizingMaskIntoConstraints="NO" id="nKE-bd-FdS">
-                                                        <rect key="frame" x="0.0" y="610" width="414" height="300"/>
+                                                        <rect key="frame" x="0.0" y="600" width="414" height="300"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="6CH-Y1-Hkr" secondAttribute="bottom" id="avz-w9-MLd"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -406,9 +409,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="rkv-JK-LZ8"/>
                     <connections>
-                        <outlet property="detailDescriptionsView" destination="cmM-PH-zY4" id="hKZ-NG-t2x"/>
-                        <outlet property="detailTopImagesView" destination="5ZQ-Et-zbm" id="tWn-9V-CpX"/>
-                        <outlet property="detailView" destination="Z4H-oR-iGS" id="gAS-Fa-pWS"/>
+                        <outlet property="bottomImagesView" destination="6CH-Y1-Hkr" id="47l-75-PTY"/>
+                        <outlet property="descriptionsView" destination="cmM-PH-zY4" id="hKZ-NG-t2x"/>
+                        <outlet property="topImagesView" destination="5ZQ-Et-zbm" id="tWn-9V-CpX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sTv-1Y-ols" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -1,9 +1,9 @@
 import UIKit
 
 final class DetailViewController: UIViewController {
-    @IBOutlet weak var detailView: DetailBottomImagesView!
-    @IBOutlet weak var detailTopImagesView: DetailTopImagesView!
-    @IBOutlet weak var detailDescriptionsView: DetailDescriptionsView!
+    @IBOutlet weak var topImagesView: TopImagesView!
+    @IBOutlet weak var descriptionsView: DescriptionsView!
+    @IBOutlet weak var bottomImagesView: BottomImagesView!
 
     let network: NetworkController = .init()
 
@@ -22,14 +22,15 @@ final class DetailViewController: UIViewController {
         let detailHash: DetailHash = "HBDEF"
         network.loadDetailDish(at: detailHash) { dish in
             DispatchQueue.main.async {
-                self.detailDescriptionsView.viewModel = DetailDescriptionViewModel(model: dish)
+                self.descriptionsView.viewModel = DetailDescriptionViewModel(model: dish)
 
-                self.detailTopImagesView.viewModel = DetailTopImagesViewModel(model: dish)
+                self.topImagesView.viewModel = TopImagesViewModel(model: dish)
+                self.topImagesView.configure()
+
+                self.bottomImagesView.viewModel = TopImagesViewModel(model: dish)
+                self.bottomImagesView.configure()
             }
         }
-
-        detailTopImagesView.configure()
-
 
         //        let url = URL(string: "https://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/4cce011a4a352c22cd399a60271b4921.jpg")!
         //

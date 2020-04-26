@@ -1,6 +1,6 @@
 import UIKit
 
-class DetailDescriptionsView: UIStackView {
+class DescriptionsView: UIStackView {
     @IBOutlet weak var titleLabel: UILabel!
 
     var viewModel: DetailDescriptionViewModel? {
@@ -8,7 +8,7 @@ class DetailDescriptionsView: UIStackView {
     }
 }
 
-extension DetailDescriptionsView: Configurable {
+extension DescriptionsView: Configurable {
     func configure() {
         titleLabel.text = viewModel?.title
     }
