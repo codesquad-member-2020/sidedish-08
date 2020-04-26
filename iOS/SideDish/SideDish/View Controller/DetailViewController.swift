@@ -31,13 +31,5 @@ final class DetailViewController: UIViewController {
                 self.bottomImagesView.configure()
             }
         }
-
-        //        let url = URL(string: "https://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/4cce011a4a352c22cd399a60271b4921.jpg")!
-        //
-        //        network.loadImage(url: url) { [weak self] result in
-        //            DispatchQueue.main.async() {
-        //                self?.topImageView.image = result
-        //            }
-        //        }
     }
 }
