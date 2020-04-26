@@ -2,10 +2,9 @@ package com.codesquad.sidedish08.service;
 
 import static com.codesquad.sidedish08.message.AuthMessages.ACCESS_TOKEN_URL;
 import static com.codesquad.sidedish08.message.AuthMessages.AUTHORIZE_URL;
-import static com.codesquad.sidedish08.message.AuthMessages.CLIENT_ID;
-import static com.codesquad.sidedish08.message.AuthMessages.CLIENT_SECRET;
 import static com.codesquad.sidedish08.message.AuthMessages.USER_EMAIL_URL;
 
+import com.codesquad.sidedish08.config.AuthProperties;
 import com.codesquad.sidedish08.message.ErrorMessages;
 import com.codesquad.sidedish08.util.TokenUtil;
 import java.nio.charset.StandardCharsets;
@@ -32,6 +31,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class AuthService {
 
   private static final Logger log = LoggerFactory.getLogger(AuthService.class);
+  private final AuthProperties authProperties;
+
+  public AuthService(AuthProperties authProperties) {
+    this.authProperties = authProperties;
+  }
 
   public ResponseEntity<String> login() {
     HttpHeaders headers = new HttpHeaders();
@@ -40,7 +44,7 @@ public class AuthService {
 
     UriComponents builder = UriComponentsBuilder
         .fromHttpUrl(AUTHORIZE_URL)
-        .queryParam("client_id", CLIENT_ID)
+        .queryParam("client_id", authProperties.getClientId())
         .queryParam("scope", "user")
         .build(false);
 
@@ -63,8 +67,8 @@ public class AuthService {
 
     MultiValueMap<String, String> requestPayloads = new LinkedMultiValueMap<>();
     Map<String, String> requestPayload = new HashMap<>();
-    requestPayload.put("client_id", CLIENT_ID);
-    requestPayload.put("client_secret", CLIENT_SECRET);
+    requestPayload.put("client_id", authProperties.getClientId());
+    requestPayload.put("client_secret", authProperties.getClientSecret());
     requestPayload.put("code", authorizationCode);
     requestPayloads.setAll(requestPayload);
 

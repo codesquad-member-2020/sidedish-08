@@ -3,7 +3,7 @@ package com.codesquad.sidedish08.util;
 
 import static com.codesquad.sidedish08.message.AuthMessages.EXPIRED_TIME;
 
-import com.codesquad.sidedish08.message.AuthMessages;
+import com.codesquad.sidedish08.config.JwtProperties;
 import com.codesquad.sidedish08.message.ErrorMessages;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
@@ -20,8 +20,7 @@ public class TokenUtil {
           .setHeaderParam("typ", "JWT")
           .setIssuer("Dan")
           .setIssuedAt(new Date(System.currentTimeMillis()))
-          .setExpiration(new Date(System.currentTimeMillis() + EXPIRED_TIME))
-          .setSubject("loginToken");
+          .setExpiration(new Date(System.currentTimeMillis() + EXPIRED_TIME));
       for (String key : claims.keySet()) {
         jwt.claim(key, claims.get(key));
       }
@@ -33,6 +32,6 @@ public class TokenUtil {
   }
 
   private static byte[] generateKey() {
-    return AuthMessages.SALT.getBytes(StandardCharsets.UTF_8);
+    return new JwtProperties().getSalt().getBytes(StandardCharsets.UTF_8);
   }
 }
