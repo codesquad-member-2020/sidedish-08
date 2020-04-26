@@ -13,15 +13,21 @@ logging:
   file:
     name: logs/dev_log.log
 
+auth:
+  client-id: 31ae5169a7dc37e19605
+  client-secret: 43debfbf5b584d5a0c7b58d215c5462a29ecd5e1
+
+jwt:
+  salt: sidedish08SecreatKey
+
 ---
 spring:
   profiles: dev
   datasource:
-    hikari:
-      jdbc-url: jdbc:h2:mem://localhost/sidedish_db;
-      driver-class-name: org.h2.Driver
-      username: sa
-      password:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem://localhost/sidedish_db;
+    username: sa
+    password:
   h2:
     console:
       enabled: true
