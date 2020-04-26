@@ -12,13 +12,19 @@ extension ReusableView {
 
 extension UITableViewCell: ReusableView {}
 
+// MARK: -
+
 protocol Configurable: class {
     func configure()
 }
 
+// MARK: -
+
 protocol Observer: class {
     func updateChanges()
 }
+
+// MARK: -
 
 extension UILabel {
     func setStrikethrough() {

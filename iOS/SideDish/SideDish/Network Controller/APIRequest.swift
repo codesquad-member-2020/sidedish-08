@@ -8,6 +8,8 @@ protocol APIRequest {
     func parseResponse(data: Data) -> ResponseDataType?
 }
 
+// MARK: -
+
 protocol JSONRequest: APIRequest where RequestDataType: Encodable, ResponseDataType: Decodable { }
 
 extension JSONRequest {

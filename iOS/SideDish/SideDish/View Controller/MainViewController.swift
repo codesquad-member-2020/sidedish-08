@@ -7,20 +7,15 @@ final class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    // MARK: - View Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.dataSource = self.dataSource
         self.tableView.delegate = self.delegate
 
-        network.loadMainDish(onSuccess: configureView(_:))
-    }
-
-    func configureView(_ mainDish: [MainDish]) {
-        dataSource.mainDishes = mainDish
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        network.loadMainDish(onSuccess: setupViews(mainDish:))
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,4 +27,14 @@ final class MainViewController: UIViewController {
             self.tableView.deselectRow(at: indexPath, animated: animated)
         }
     }
+
+    // MARK: - Private
+
+    private func setupViews(mainDish: [MainDish]) {
+        dataSource.mainDishes = mainDish
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+
 }

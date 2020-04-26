@@ -1,6 +1,6 @@
 import UIKit
 
-final class ItemCell: UITableViewCell, Configurable {
+final class ItemCell: UITableViewCell {
     @IBOutlet weak var ThumbImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
@@ -10,7 +10,9 @@ final class ItemCell: UITableViewCell, Configurable {
     var viewModel: ItemCellViewModel? {
         didSet { configure() }
     }
+}
 
+extension ItemCell: Configurable {
     func configure() {
         titleLabel.text = viewModel?.title
         subTitleLabel.text = viewModel?.description

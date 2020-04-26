@@ -25,4 +25,3 @@ class MainViewDataSource: NSObject, UITableViewDataSource {
     }
 
 }
-

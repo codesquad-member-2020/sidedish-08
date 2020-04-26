@@ -25,8 +25,10 @@ final class RequestLoader<T: APIRequest> {
             }
         }
     }
+}
 
-    private func request(with requestData: T.RequestDataType?, completion: @escaping Handler) {
+private extension RequestLoader {
+    func request(with requestData: T.RequestDataType?, completion: @escaping Handler) {
         let request = self.networkRequest.makeRequest(from: requestData)
 
         urlSession.dataTask(with: request) { (data, response, error) in

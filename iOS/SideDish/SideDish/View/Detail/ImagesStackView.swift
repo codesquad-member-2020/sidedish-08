@@ -1,13 +1,41 @@
 import UIKit
 
-class ImagesStackView: UIStackView, Configurable, Observer {
+class ImagesStackView: UIStackView {
     var viewModel: ImagesViewModel?
 
+    func adjust(subView view: UIImageView) {
+        // Do nothing
+    }
+}
+
+private extension ImagesStackView {
+    func resetSubviews() {
+        if arrangedSubviews.isEmpty { return }
+        arrangedSubviews.forEach { $0.removeFromSuperview() }
+    }
+
+    func addImageView(image: UIImage) {
+        let view = makeImageView(image: image)
+        addArrangedSubview(view)
+        adjust(subView: view)
+    }
+
+    func makeImageView(image: UIImage?) -> UIImageView {
+        let view = UIImageView(image: image)
+        view.contentMode = .scaleAspectFill
+
+        return view
+    }
+}
+
+extension ImagesStackView: Configurable {
     func configure() {
         viewModel?.addObserver(self)
         resetSubviews()
     }
+}
 
+extension ImagesStackView: Observer {
     final func updateChanges() {
         DispatchQueue.main.async {
             self.resetSubviews()
@@ -16,29 +44,9 @@ class ImagesStackView: UIStackView, Configurable, Observer {
             }
         }
     }
-
-    private func resetSubviews() {
-        if arrangedSubviews.isEmpty { return }
-        arrangedSubviews.forEach { $0.removeFromSuperview() }
-    }
-
-    private func addImageView(image: UIImage) {
-        let view = makeImageView(image: image)
-        addArrangedSubview(view)
-        adjust(subView: view)
-    }
-
-    private func makeImageView(image: UIImage?) -> UIImageView {
-        let view = UIImageView(image: image)
-        view.contentMode = .scaleAspectFill
-
-        return view
-    }
-
-    func adjust(subView view: UIImageView) {
-        // Do nothing
-    }
 }
+
+// MARK: - Subclasses
 
 class TopImagesView: ImagesStackView {
     @IBOutlet weak var rootViewSafeArea: UILayoutGuide!

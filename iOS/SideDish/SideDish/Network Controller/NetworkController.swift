@@ -25,7 +25,7 @@ class NetworkController {
     }
 }
 
-// MARK: 사용하지 않음
+// MARK: - 사용하지 않음
 
 // NetworkController를 개별 클래스로 분리하고 추상화하고 싶었지만 실패.
 protocol Fetcher {

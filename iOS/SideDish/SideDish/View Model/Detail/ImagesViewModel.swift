@@ -18,6 +18,8 @@ extension ImagesViewModel {
     }
 }
 
+// MARK: -
+
 protocol Observable: class {
     var observers: [Observer?] { get set }
 
@@ -26,7 +28,8 @@ protocol Observable: class {
 
 extension Observable {
     func addObserver(_ observer: Observer) {
-        weak var observer = observer // 순환참조를 방지하기 위한 것인데, 의도대로 작동하는 지 궁금함
+        // 순환참조를 방지하기 위한 것인데, 의도대로 작동하는 지 궁금함
+        weak var observer = observer
         observers.append(observer)
     }
 }
