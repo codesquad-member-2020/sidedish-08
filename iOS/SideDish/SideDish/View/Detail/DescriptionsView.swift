@@ -15,6 +15,10 @@ class DescriptionsView: UIStackView {
 }
 
 extension DescriptionsView: Configurable {
+    func setup() {
+        configure()
+    }
+
     func configure() {
         titleLabel.text = viewModel?.title
         subTitleLabel.text = viewModel?.subTitle

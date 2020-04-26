@@ -14,6 +14,7 @@ class MainViewDataSource: NSObject, UITableViewDataSource {
 
         let mainDish = mainDishes[indexPath.row]
         cell.viewModel = ItemCellViewModel(model: mainDish)
+        cell.setup()
 
         return cell
     }

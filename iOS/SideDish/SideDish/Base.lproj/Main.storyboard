@@ -15,12 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2eF-WS-5bM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2eF-WS-5bM">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="80" id="3Rh-Cq-n0p" customClass="HeaderCell" customModule="SideDish" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Rh-Cq-n0p" id="fAY-Py-vHA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -39,7 +38,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <color key="backgroundColor" red="0.94117647058823528" green="0.97254901960784312" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="P2a-y6-B3M" firstAttribute="centerX" secondItem="fAY-Py-vHA" secondAttribute="centerX" id="37f-94-taA"/>
                                                 <constraint firstItem="P2a-y6-B3M" firstAttribute="top" secondItem="wHN-wf-D7T" secondAttribute="bottom" constant="10" id="pZ2-KC-zhl"/>
@@ -53,7 +52,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="130" id="sSb-8h-Lf6" customClass="ItemCell" customModule="SideDish" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="135.5" width="414" height="130"/>
+                                        <rect key="frame" x="0.0" y="108" width="414" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sSb-8h-Lf6" id="Yum-Ro-K5A">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>

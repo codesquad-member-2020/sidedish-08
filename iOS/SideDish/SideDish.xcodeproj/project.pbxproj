@@ -128,7 +128,6 @@
 		8D20B4C82454C3F100E72C98 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8DF0E1FF2455CD9F00132BB1 /* MainViewDataSource.swift */,
 				8D71CF0E2454444100427572 /* HeaderCellViewModel.swift */,
 				8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */,
 			);
@@ -196,8 +195,9 @@
 			isa = PBXGroup;
 			children = (
 				8D344A80244D8E54004D3962 /* MainViewController.swift */,
-				8D344A5C244D4848004D3962 /* DetailViewController.swift */,
+				8DF0E1FF2455CD9F00132BB1 /* MainViewDataSource.swift */,
 				8DF0E2012455CE5300132BB1 /* MainViewDelegate.swift */,
+				8D344A5C244D4848004D3962 /* DetailViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";

@@ -8,6 +8,28 @@ class ImagesStackView: UIStackView {
     }
 }
 
+extension ImagesStackView: Configurable {
+    func setup() {
+        viewModel?.addObserver(self)
+        configure()
+    }
+
+    func configure() {
+        updateChanges()
+    }
+}
+
+extension ImagesStackView: Observer {
+    final func updateChanges() {
+        DispatchQueue.main.async {
+            self.resetSubviews()
+            self.viewModel?.images.forEach { image in
+                self.addImageView(image: image)
+            }
+        }
+    }
+}
+
 private extension ImagesStackView {
     func resetSubviews() {
         if arrangedSubviews.isEmpty { return }
@@ -25,24 +47,6 @@ private extension ImagesStackView {
         view.contentMode = .scaleAspectFill
 
         return view
-    }
-}
-
-extension ImagesStackView: Configurable {
-    func configure() {
-        viewModel?.addObserver(self)
-        resetSubviews()
-    }
-}
-
-extension ImagesStackView: Observer {
-    final func updateChanges() {
-        DispatchQueue.main.async {
-            self.resetSubviews()
-            self.viewModel?.images.forEach { image in
-                self.addImageView(image: image)
-            }
-        }
     }
 }
 

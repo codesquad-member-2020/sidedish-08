@@ -15,6 +15,7 @@ extension UITableViewCell: ReusableView {}
 // MARK: -
 
 protocol Configurable: class {
+    func setup()
     func configure()
 }
 

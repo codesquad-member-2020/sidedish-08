@@ -13,6 +13,10 @@ final class ItemCell: UITableViewCell {
 }
 
 extension ItemCell: Configurable {
+    func setup() {
+        configure()
+    }
+
     func configure() {
         titleLabel.text = viewModel?.title
         subTitleLabel.text = viewModel?.description

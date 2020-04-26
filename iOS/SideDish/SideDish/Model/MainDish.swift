@@ -11,7 +11,7 @@ struct MainDishWrapper: Codable {
     }
 }
 
-struct MainDish: Codable {
+struct MainDish {
     typealias DeliveryType = SingleValue<String>
 
     let hash: DetailHash
@@ -23,7 +23,9 @@ struct MainDish: Codable {
     let normalPrice: Price
     let salePrice: Price
     let badges: [Badge]
+}
 
+extension MainDish: Codable {
     enum CodingKeys: String, CodingKey {
         case hash
         case imageURL = "image"
