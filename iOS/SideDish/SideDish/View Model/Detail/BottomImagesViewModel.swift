@@ -1,6 +1,6 @@
 import UIKit
 
-class TopImagesViewModel: ImagesViewModel {
+class BottomImagesViewModel: ImagesViewModel {
     var images: [UIImage] = [] {
         didSet { observers?.forEach { $0.updateChanges() } }
     }
@@ -12,7 +12,7 @@ class TopImagesViewModel: ImagesViewModel {
     var observers: [Observer]? = []
 
     init(model: DetailDish?) {
-        self.imageURLs = ([model?.topImage] + (model?.thumbImages ?? [])).compactMap { $0 }
+        self.imageURLs = model?.detailImages ?? []
         fetchImages()
     }
 }

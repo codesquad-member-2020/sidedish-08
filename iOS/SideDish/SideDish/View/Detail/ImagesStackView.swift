@@ -1,6 +1,6 @@
 import UIKit
 
-class ImagesStackView: UIStackView, Configurable, ObservableView {
+class ImagesStackView: UIStackView, Configurable, Observer {
     var viewModel: ImagesViewModel?
 
     func configure() {

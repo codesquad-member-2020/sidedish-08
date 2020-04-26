@@ -11,3 +11,11 @@ extension ReusableView {
 }
 
 extension UITableViewCell: ReusableView {}
+
+protocol Configurable: class {
+    func configure()
+}
+
+protocol Observer: class {
+    func updateChanges()
+}

@@ -27,7 +27,7 @@ final class DetailViewController: UIViewController {
                 self.topImagesView.viewModel = TopImagesViewModel(model: dish)
                 self.topImagesView.configure()
 
-                self.bottomImagesView.viewModel = TopImagesViewModel(model: dish)
+                self.bottomImagesView.viewModel = BottomImagesViewModel(model: dish)
                 self.bottomImagesView.configure()
             }
         }
