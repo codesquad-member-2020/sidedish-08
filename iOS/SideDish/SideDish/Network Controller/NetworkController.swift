@@ -4,9 +4,12 @@ import UIKit
 typealias OnFailure = (Error) -> Void
 
 class NetworkController {
-    func loadMainDish(onFailure: OnFailure? = nil, onSuccess: @escaping (MainDishWrapper?) -> Void) {
+    func loadMainDish(onFailure: OnFailure? = nil, onSuccess: @escaping ([MainDish]) -> Void) {
         let loader = RequestLoader(networkRequest: MainDishRequest())
-        loader.execute(with: nil, onFailure: onFailure, onSuccess: onSuccess)
+        loader.execute(with: nil, onFailure: onFailure, onSuccess: { result in
+            let mainDishes = result.contents.body
+            onSuccess(mainDishes)
+        })
     }
 
     func loadDetailDish(at detailHash: DetailHash, onFailure: OnFailure? = nil, onSuccess: @escaping (DetailDish?) -> Void) {

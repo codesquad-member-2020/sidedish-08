@@ -13,15 +13,14 @@ final class MainViewController: UIViewController {
         self.tableView.dataSource = self.dataSource
         self.tableView.delegate = self.delegate
 
-        let network = NetworkController()
         network.loadMainDish(onSuccess: configureView(_:))
     }
 
-    func configureView(_ mainDish: MainDishWrapper?) {
-        print(mainDish?.message)
-        let firstMainDish = mainDish?.contents.body.first!
-        print(firstMainDish)
-
+    func configureView(_ mainDish: [MainDish]) {
+        dataSource.mainDishes = mainDish
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

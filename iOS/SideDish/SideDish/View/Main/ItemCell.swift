@@ -16,5 +16,7 @@ final class ItemCell: UITableViewCell, Configurable {
         subTitleLabel.text = viewModel?.description
         normalPriceLabel.text = viewModel?.normalPrice
         salePriceLabel.text = viewModel?.salePrice
+
+        normalPriceLabel.setStrikethrough()
     }
 }
