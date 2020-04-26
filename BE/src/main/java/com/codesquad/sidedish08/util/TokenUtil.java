@@ -4,6 +4,7 @@ package com.codesquad.sidedish08.util;
 import static com.codesquad.sidedish08.message.AuthMessages.EXPIRED_TIME;
 
 import com.codesquad.sidedish08.config.JwtProperties;
+import com.codesquad.sidedish08.controller.AuthController;
 import com.codesquad.sidedish08.message.ErrorMessages;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
@@ -11,8 +12,21 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 import java.util.Map;
+import javax.annotation.PostConstruct;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TokenUtil {
+
+  private static final Logger log = LoggerFactory.getLogger(AuthController.class);
+  private static JwtProperties staticJwtProperties;
+  private final JwtProperties jwtProperties;
+
+  public TokenUtil(JwtProperties jwtProperties) {
+    this.jwtProperties = jwtProperties;
+  }
 
   public static String create(Map<String, String> claims) {
     try {
@@ -32,6 +46,11 @@ public class TokenUtil {
   }
 
   private static byte[] generateKey() {
-    return new JwtProperties().getSalt().getBytes(StandardCharsets.UTF_8);
+    return staticJwtProperties.getSalt().getBytes(StandardCharsets.UTF_8);
+  }
+
+  @PostConstruct
+  private void initStaticJwtProperties() {
+    staticJwtProperties = this.jwtProperties;
   }
 }

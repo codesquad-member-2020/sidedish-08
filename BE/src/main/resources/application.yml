@@ -12,14 +12,6 @@ logging:
     console: "%d{dd-MM-yyyy HH:mm:ss.SSS,Asia/Seoul} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n"
   file:
     name: logs/dev_log.log
-
-auth:
-  client-id: 31ae5169a7dc37e19605
-  client-secret: 43debfbf5b584d5a0c7b58d215c5462a29ecd5e1
-
-jwt:
-  salt: sidedish08SecreatKey
-
 ---
 spring:
   profiles: dev
@@ -31,6 +23,11 @@ spring:
   h2:
     console:
       enabled: true
+auth:
+  client-id: 31ae5169a7dc37e19605
+  client-secret: 43debfbf5b584d5a0c7b58d215c5462a29ecd5e1
+jwt:
+  salt: sidedish08SecreatKey
 ---
 spring:
   profiles: prod
