@@ -9,9 +9,11 @@ class NetworkController {
         loader.execute(with: nil, onFailure: onFailure, onSuccess: onSuccess)
     }
 
-    func loadDetailDish(at detailHash: DetailHash, onFailure: OnFailure? = nil, onSuccess: @escaping (DetailDishWrapper?) -> Void) {
+    func loadDetailDish(at detailHash: DetailHash, onFailure: OnFailure? = nil, onSuccess: @escaping (DetailDish?) -> Void) {
         let loader = RequestLoader(networkRequest: DetailDishRequest())
-        loader.execute(with: detailHash, onFailure: onFailure, onSuccess: onSuccess)
+        loader.execute(with: detailHash, onFailure: onFailure, onSuccess: { result in
+            onSuccess(result.contents.data)
+        })
     }
 
     func loadImage(url: URL, onFailure: OnFailure? = nil, onSuccess: @escaping (UIImage?) -> Void) {

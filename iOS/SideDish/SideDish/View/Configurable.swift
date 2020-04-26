@@ -1,5 +1,5 @@
 import Foundation
 
-protocol Configurable {
+protocol Configurable: class {
     func configure()
 }
