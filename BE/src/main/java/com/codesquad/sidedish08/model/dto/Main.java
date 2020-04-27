@@ -106,7 +106,7 @@ public class Main {
     private String title;
     private String description;
     private Integer normalPrice;
-    private Integer specialPrice;
+    private Integer salePrice;
     private List<String> badge = new ArrayList<>();
 
     public Builder() {
@@ -121,7 +121,7 @@ public class Main {
       this.title = response.title;
       this.description = response.description;
       this.normalPrice = response.normalPrice;
-      this.specialPrice = response.salePrice;
+      this.salePrice = response.salePrice;
       this.badge = response.badge;
     }
 
@@ -163,12 +163,12 @@ public class Main {
     }
 
     public Builder normalPrice(int normalPrice) {
-      this.normalPrice = Integer.valueOf(normalPrice);
+      this.normalPrice = normalPrice;
       return this;
     }
 
-    public Builder specialPrice(int specialPrice) {
-      this.specialPrice = Integer.valueOf(specialPrice);
+    public Builder salePrice(int specialPrice) {
+      this.salePrice = specialPrice;
       return this;
     }
 
@@ -181,7 +181,7 @@ public class Main {
 
     public Main build() {
       return new Main(id, hash, image, alt, deliveryType, title, description, normalPrice,
-          specialPrice, badge);
+          salePrice, badge);
     }
   }
 }
