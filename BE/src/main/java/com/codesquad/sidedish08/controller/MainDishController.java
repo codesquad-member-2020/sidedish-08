@@ -19,23 +19,24 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/main")
 public class MainDishController {
 
-  private final MainDishService mainDishService;
+  private final MainDishService service;
 
   public MainDishController(MainDishService mainDishService) {
-    this.mainDishService = mainDishService;
+    this.service = mainDishService;
   }
 
   @ApiOperation(value = "", notes = DishMessages.MAIN_DISH)
   @GetMapping
   public ApiResponse dish() {
-    return ApiResponse.ok(SuccessMessages.SUCCESS, getResultMap("body", mainDishService.dish()));
+    return ApiResponse.ok(
+        SuccessMessages.SUCCESS, getResultMap("data", service.mainDish()));
   }
 
   @ApiOperation(value = "", notes = DishMessages.MAIN_DISH_DETAIL)
-  @GetMapping("/{detailHash}")
+  @GetMapping("/{hash}")
   public ApiResponse detail(
-      @PathVariable @ApiParam(value = "example : HBDEF") String detailHash) {
+      @PathVariable @ApiParam(value = "example : HBDEF") String hash) {
     return ApiResponse.ok(
-        SuccessMessages.SUCCESS, getResultMap("body", mainDishService.detail(detailHash)));
+        SuccessMessages.SUCCESS, getResultMap("data", service.detail(hash)));
   }
 }
