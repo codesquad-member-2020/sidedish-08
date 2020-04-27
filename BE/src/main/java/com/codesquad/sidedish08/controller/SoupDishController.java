@@ -32,7 +32,7 @@ public class SoupDishController {
   }
 
   @ApiOperation(value = "", notes = DishMessages.SOUP_DISH_DETAIL)
-  @GetMapping("/{detailHash}")
+  @GetMapping("/{hash}")
   public ApiResponse detail(
       @PathVariable @ApiParam(value = "example : H72C3") String detailHash) {
     return ApiResponse.ok(

@@ -32,7 +32,7 @@ public class SideDishController {
   }
 
   @ApiOperation(value = "", notes = DishMessages.SIDE_DISH_DETAIL)
-  @GetMapping("/{detailHash}")
+  @GetMapping("/{hash}")
   public ApiResponse detail(
       @PathVariable @ApiParam(value = "example : HBBCC") String detailHash) {
     return ApiResponse.ok(
