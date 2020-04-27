@@ -6,8 +6,8 @@ struct HeaderCellViewModel {
 }
 
 extension HeaderCellViewModel {
-    init(model: MainDishHeader) {
+    init(model: Category) {
         self.title = model.title
-        self.subTitle = model.description
+        self.subTitle = model.subTitle
     }
 }

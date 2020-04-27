@@ -1,8 +1,19 @@
 import UIKit
 
 class MainViewDelegate: NSObject, UITableViewDelegate {
+    var categories: [Category]
+
+    init(categories: [Category]) {
+        self.categories = categories
+    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableCell(withIdentifier: HeaderCell.reuseIdentifier)
+        let view = tableView.dequeueReusableCell(withIdentifier: HeaderCell.reuseIdentifier) as! HeaderCell
+
+        let category = categories[section]
+        view.viewModel = HeaderCellViewModel(model: category)
+        view.setup()
+
         return view
     }
 

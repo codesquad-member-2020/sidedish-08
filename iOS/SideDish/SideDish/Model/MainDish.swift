@@ -7,7 +7,7 @@ struct MainDishWrapper: Codable {
     let contents: Contents
 
     struct Contents: Codable {
-        let body: [MainDish]
+        let data: [MainDish]
     }
 }
 

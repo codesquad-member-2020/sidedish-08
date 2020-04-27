@@ -7,7 +7,7 @@ class NetworkController {
     func loadMainDish(onFailure: OnFailure? = nil, onSuccess: @escaping ([MainDish]) -> Void) {
         let loader = RequestLoader(networkRequest: MainDishRequest())
         loader.execute(with: nil, onFailure: onFailure, onSuccess: { result in
-            let mainDishes = result.contents.body
+            let mainDishes = result.contents.data
             onSuccess(mainDishes)
         })
     }

@@ -2,7 +2,10 @@ import UIKit
 
 class TopImagesViewModel: ImagesViewModel {
     var images: [UIImage] = [] {
-        didSet { observers.forEach { $0?.updateChanges() } }
+        didSet { observers.forEach {
+            $0?.updateChanges()
+            }
+        }
     }
 
     var imageURLs: [ImageURL] = [] {

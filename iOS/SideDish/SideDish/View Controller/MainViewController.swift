@@ -2,8 +2,9 @@ import UIKit
 
 final class MainViewController: UIViewController {
     let network: NetworkController = .init()
-    let dataSource: MainViewDataSource = .init()
-    let delegate: MainViewDelegate = .init()
+    let modelController: ModelController = .init()
+    let dataSource: MainViewDataSource = .init(dishes: [])
+    let delegate: MainViewDelegate = .init(categories: [])
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -12,10 +13,11 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableView.dataSource = self.dataSource
-        self.tableView.delegate = self.delegate
-
+        delegate.categories = modelController.categories
         network.loadMainDish(onSuccess: setupViews(mainDish:))
+
+        tableView.dataSource = dataSource
+        tableView.delegate = delegate
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -31,7 +33,7 @@ final class MainViewController: UIViewController {
     // MARK: - Private
 
     private func setupViews(mainDish: [MainDish]) {
-        dataSource.mainDishes = mainDish
+        dataSource.dishes = mainDish
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
