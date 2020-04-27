@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: prod
 
 # logging 설정
 logging:
@@ -12,19 +12,22 @@ logging:
     console: "%d{dd-MM-yyyy HH:mm:ss.SSS,Asia/Seoul} %magenta([%thread]) %highlight(%-5level) %logger.%M - %msg%n"
   file:
     name: logs/dev_log.log
-
 ---
 spring:
   profiles: dev
   datasource:
-    hikari:
-      jdbc-url: jdbc:h2:mem://localhost/sidedish_db;
-      driver-class-name: org.h2.Driver
-      username: sa
-      password:
+    driverClassName: org.h2.Driver
+    url: jdbc:h2:mem://localhost/sidedish_db;
+    username: sa
+    password:
   h2:
     console:
       enabled: true
+auth:
+  client-id: 31ae5169a7dc37e19605
+  client-secret: 43debfbf5b584d5a0c7b58d215c5462a29ecd5e1
+jwt:
+  salt: sidedish08SecreatKey
 ---
 spring:
   profiles: prod
@@ -38,3 +41,8 @@ spring:
     initialization-mode: always
     hikari:
       maximum-pool-size: 10
+auth:
+  client-id: 2807fe374c60994c1363
+  client-secret: 62a3b5b1616f5982f56c3a0eb4f7f9bac54081f3
+jwt:
+  salt: sidedish08SecreatKey
