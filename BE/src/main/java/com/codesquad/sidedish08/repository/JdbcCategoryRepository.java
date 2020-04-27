@@ -13,6 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -49,12 +50,18 @@ public class JdbcCategoryRepository {
   }
 
   public Main findByHash(Long id, String hash) {
-    Main main = jdbcTemplate.queryForObject(
-        "SELECT d.id, d.hash, g.url, d.title, d.description, d.price "
-            + "FROM DISH d "
-            + "LEFT JOIN IMAGE g ON d.id = g.dish_id "
-            + "WHERE g.type = 'top' AND d.category_id=? AND d.hash =?",
-        new Object[]{id, hash}, mainMapper);
+    Main main;
+
+    try {
+      main = jdbcTemplate.queryForObject(
+          "SELECT d.id, d.hash, g.url, d.title, d.description, d.price "
+              + "FROM DISH d "
+              + "LEFT JOIN IMAGE g ON d.id = g.dish_id "
+              + "WHERE g.type = 'top' AND d.category_id=? AND d.hash =?",
+          new Object[]{id, hash}, mainMapper);
+    } catch (EmptyResultDataAccessException e) {
+      throw new NoSuchElementException();
+    }
 
     Long dishId = Optional.ofNullable(main)
         .orElseThrow(NoSuchElementException::new)
