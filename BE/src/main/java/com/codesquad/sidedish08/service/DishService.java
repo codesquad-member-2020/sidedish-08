@@ -1,9 +1,9 @@
 package com.codesquad.sidedish08.service;
 
 
-import static com.codesquad.sidedish08.service.MainDishService.Category.MAIN;
-import static com.codesquad.sidedish08.service.MainDishService.Category.SIDE;
-import static com.codesquad.sidedish08.service.MainDishService.Category.SOUP;
+import static com.codesquad.sidedish08.service.DishService.Category.MAIN;
+import static com.codesquad.sidedish08.service.DishService.Category.SIDE;
+import static com.codesquad.sidedish08.service.DishService.Category.SOUP;
 
 import com.codesquad.sidedish08.model.dto.Main;
 import com.codesquad.sidedish08.repository.CategoryRepository;
@@ -12,12 +12,12 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MainDishService {
+public class DishService {
 
   private final CategoryRepository categoryRepository;
   private final JdbcCategoryRepository jdbcCategoryRepository;
 
-  public MainDishService(CategoryRepository categoryRepository,
+  public DishService(CategoryRepository categoryRepository,
       JdbcCategoryRepository jdbcCategoryRepository) {
     this.categoryRepository = categoryRepository;
     this.jdbcCategoryRepository = jdbcCategoryRepository;
@@ -35,9 +35,18 @@ public class MainDishService {
     return jdbcCategoryRepository.findById(SIDE.getId());
   }
 
-  public Main detail(String detailHash) {
-    return jdbcCategoryRepository.findByHash(detailHash);
+  public Main mainDetail(String detailHash) {
+    return jdbcCategoryRepository.findByHash(detailHash, MAIN.getId());
   }
+
+  public Main soupDetail(String detailHash) {
+    return jdbcCategoryRepository.findByHash(detailHash, SOUP.getId());
+  }
+
+  public Main sideDetail(String detailHash) {
+    return jdbcCategoryRepository.findByHash(detailHash, SIDE.getId());
+  }
+
 
   enum Category {
     MAIN(1L),
