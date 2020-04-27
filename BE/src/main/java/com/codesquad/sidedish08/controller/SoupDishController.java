@@ -34,8 +34,8 @@ public class SoupDishController {
   @ApiOperation(value = "", notes = DishMessages.SOUP_DISH_DETAIL)
   @GetMapping("/{hash}")
   public ApiResponse detail(
-      @PathVariable @ApiParam(value = "example : H72C3") String detailHash) {
+      @PathVariable @ApiParam(value = "example : H72C3") String hash) {
     return ApiResponse.ok(
-        SuccessMessages.SUCCESS, getResultMap("data", service.detail(detailHash)));
+        SuccessMessages.SUCCESS, getResultMap("data", service.detail(hash)));
   }
 }

@@ -34,8 +34,8 @@ public class SideDishController {
   @ApiOperation(value = "", notes = DishMessages.SIDE_DISH_DETAIL)
   @GetMapping("/{hash}")
   public ApiResponse detail(
-      @PathVariable @ApiParam(value = "example : HBBCC") String detailHash) {
+      @PathVariable @ApiParam(value = "example : HBBCC") String hash) {
     return ApiResponse.ok(
-        SuccessMessages.SUCCESS, getResultMap("data ", service.detail(detailHash)));
+        SuccessMessages.SUCCESS, getResultMap("data ", service.detail(hash)));
   }
 }
