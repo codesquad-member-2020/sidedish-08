@@ -41,6 +41,6 @@ public class AuthController {
   @GetMapping("/callback")
   public ApiResponse callback(@PathParam("code") String code) {
     return ApiResponse.ok(
-        SuccessMessages.SUCCESS, getResultMap("body", authService.callback(code)));
+        SuccessMessages.SUCCESS, getResultMap("token", authService.callback(code)));
   }
 }
