@@ -14,6 +14,7 @@ INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `cat
 VALUES ('HF778', '[소중한식사] 골뱅이무침 195g', '매콤새콤달콤, 반찬으로도 안주로도 좋은', 7000, 1, 2);
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
 VALUES ('HFB53', '[옹가솜씨] 꽁치간장조림 240g', '생강 향이 산뜻한', 5800, 1, 3);
+
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
 VALUES ('HBBCC', '[마샐미디쉬] 유자소스 연근무침 250g', '향긋한 유자향과 아삭한 연근', 6500, 3, 0);
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
@@ -23,6 +24,12 @@ VALUES ('H8EA5', '[소중한식사] 도라지초무침 150g', '새콤달콤 입�
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
 VALUES ('H602F', '[미노리키친] 일본식 우엉조림(킨피라고보) 80g', '한국식 우엉조림과는 다른 진한 감칠맛', 3300, 3, 3);
 
+INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
+VALUES ('H72C3', '[수하동] 특곰탕 850g', '100% 한우양지로 끓여낸 70년전통의 서울식곰탕', 15000, 2, 0);
+INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
+VALUES ('HA6EE', '[탐나는밥상] 동태탕 1000g', '칼칼한 국물이 속 풀기에 딱 좋은 동태탕', 14000, 2, 1);
+INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
+VALUES ('HE2E9', '[국물닷컴] 치즈부대찌개 600g', '안주용 부대찌개와는 달라 밥말아먹기 딱 좋은', 5500, 2, 2);
 
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
 VALUES ('EARLY_MORNING', 1, 0);
@@ -56,6 +63,19 @@ INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
 VALUES ('EARLY_MORNING', 8, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
 VALUES ('NATIONAL', 8, 1);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('EARLY_MORNING', 9, 0);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('NATIONAL', 9, 1);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('EARLY_MORNING', 10, 0);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('NATIONAL', 10, 1);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('EARLY_MORNING', 11, 0);
+INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
+VALUES ('NATIONAL', 11, 1);
+
 
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('EVENT', 1, 0);
@@ -73,6 +93,11 @@ INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('LAUNCHING', 7, 1);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('EVENT', 8, 0);
+INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
+VALUES ('EVENT', 9, 0);
+INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
+VALUES ('EVENT', 11, 0);
+
 
 
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
@@ -99,6 +124,17 @@ VALUES ('http://public.codesquad.kr/jk/storeapp/data/4cfd1954861ebd18b5b53e558a8
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
 VALUES ('http://public.codesquad.kr/jk/storeapp/data/422befe07f7e2860b9a83a8d7049ec2e.jpg',
         'top', 8, 0);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/d1fccf125f0a78113d0e06cb888f2e74.jpg',
+        'top', 9, 0);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/c069bc32cb37727c59e1f0c2839311a0.jpg',
+        'top', 10, 0);
+INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/6edbb16da52708e8533b85fbf743f882.jpg',
+        'top', 11, 0);
+
+
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
 VALUES ('https://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/4cce011a4a352c22cd399a60271b4921.jpg',
         'thumb', 1, 1);
