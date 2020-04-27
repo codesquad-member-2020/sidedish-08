@@ -3,6 +3,7 @@ package com.codesquad.sidedish08.service;
 
 import static com.codesquad.sidedish08.service.MainDishService.Category.MAIN;
 import static com.codesquad.sidedish08.service.MainDishService.Category.SIDE;
+import static com.codesquad.sidedish08.service.MainDishService.Category.SOUP;
 
 import com.codesquad.sidedish08.model.dto.Main;
 import com.codesquad.sidedish08.repository.CategoryRepository;
@@ -27,6 +28,10 @@ public class MainDishService {
   }
 
   public List<Main> soupDish() {
+    return jdbcCategoryRepository.findById(SOUP.getId());
+  }
+
+  public List<Main> sideDish() {
     return jdbcCategoryRepository.findById(SIDE.getId());
   }
 
@@ -36,7 +41,8 @@ public class MainDishService {
 
   enum Category {
     MAIN(1L),
-    SIDE(2L);
+    SOUP(2L),
+    SIDE(3L);
 
     private long id;
 
