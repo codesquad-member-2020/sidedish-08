@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -48,8 +49,9 @@ public class AuthService {
         .queryParam("scope", "user")
         .build(false);
 
-    return new RestTemplate().exchange(
-        builder.toUriString(), HttpMethod.GET, new HttpEntity<String>(headers), String.class);
+    headers.setLocation(builder.toUri());
+
+    return new ResponseEntity<String>(headers, HttpStatus.SEE_OTHER);
   }
 
   public String callback(String authorizationCode) {
