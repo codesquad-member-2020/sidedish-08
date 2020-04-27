@@ -48,13 +48,13 @@ public class JdbcCategoryRepository {
         .build()).collect(Collectors.toList());
   }
 
-  public Main findByHash(String hash, Long id) {
+  public Main findByHash(Long id, String hash) {
     Main main = jdbcTemplate.queryForObject(
         "SELECT d.id, d.hash, g.url, d.title, d.description, d.price "
             + "FROM DISH d "
             + "LEFT JOIN IMAGE g ON d.id = g.dish_id "
-            + "WHERE g.type = 'top' AND d.hash =? AND d.category_id=?",
-        new Object[]{hash, id}, mainMapper);
+            + "WHERE g.type = 'top' AND d.category_id=? AND d.hash =?",
+        new Object[]{id, hash}, mainMapper);
 
     Long dishId = Optional.ofNullable(main)
         .orElseThrow(NoSuchElementException::new)

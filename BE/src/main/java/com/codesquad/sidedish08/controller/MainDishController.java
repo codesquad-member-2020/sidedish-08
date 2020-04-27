@@ -1,5 +1,6 @@
 package com.codesquad.sidedish08.controller;
 
+import static com.codesquad.sidedish08.message.CategoryId.MAIN;
 import static com.codesquad.sidedish08.util.ResponseUtils.getResultMap;
 
 import com.codesquad.sidedish08.message.DishMessages;
@@ -19,17 +20,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/main")
 public class MainDishController {
 
-  private final DishService service;
+  private final DishService dishService;
 
   public MainDishController(DishService dishService) {
-    this.service = dishService;
+    this.dishService = dishService;
   }
 
   @ApiOperation(value = "", notes = DishMessages.MAIN_DISH)
   @GetMapping
   public ApiResponse dish() {
     return ApiResponse.ok(
-        SuccessMessages.SUCCESS, getResultMap("data", service.mainDish()));
+        SuccessMessages.SUCCESS, getResultMap("data", dishService.dish(MAIN.getId())));
   }
 
   @ApiOperation(value = "", notes = DishMessages.MAIN_DISH_DETAIL)
@@ -37,6 +38,6 @@ public class MainDishController {
   public ApiResponse detail(
       @PathVariable @ApiParam(value = "example : HBDEF") String hash) {
     return ApiResponse.ok(
-        SuccessMessages.SUCCESS, getResultMap("data", service.mainDetail(hash)));
+        SuccessMessages.SUCCESS, getResultMap("data", dishService.detail(MAIN.getId(), hash)));
   }
 }
