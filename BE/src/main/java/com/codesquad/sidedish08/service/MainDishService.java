@@ -26,7 +26,7 @@ public class MainDishService {
     return jdbcCategoryRepository.findById(MAIN.getId());
   }
 
-  public List<Main> sideDish() {
+  public List<Main> soupDish() {
     return jdbcCategoryRepository.findById(SIDE.getId());
   }
 
