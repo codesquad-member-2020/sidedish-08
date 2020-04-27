@@ -40,7 +40,7 @@ public class Detail {
     this.badges = getBadgesString(dish);
   }
 
-  public static Detail getDetailDto(Dish dish) {
+  public static Detail of(Dish dish) {
     return new Detail(dish);
   }
 
