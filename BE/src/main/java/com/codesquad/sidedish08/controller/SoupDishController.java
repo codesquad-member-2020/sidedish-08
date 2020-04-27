@@ -5,7 +5,7 @@ import static com.codesquad.sidedish08.util.ResponseUtils.getResultMap;
 import com.codesquad.sidedish08.message.DishMessages;
 import com.codesquad.sidedish08.message.SuccessMessages;
 import com.codesquad.sidedish08.model.response.ApiResponse;
-import com.codesquad.sidedish08.service.MainDishService;
+import com.codesquad.sidedish08.service.DishService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -19,16 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/soup")
 public class SoupDishController {
 
-  private final MainDishService service;
+  private final DishService service;
 
-  public SoupDishController(MainDishService mainDishService) {
-    this.service = mainDishService;
+  public SoupDishController(DishService dishService) {
+    this.service = dishService;
   }
 
   @ApiOperation(value = "", notes = DishMessages.SOUP_DISH)
   @GetMapping
   public ApiResponse dish() {
-    return ApiResponse.ok(SuccessMessages.SUCCESS, getResultMap("data", service.soupDish()));
+    return ApiResponse.ok(
+        SuccessMessages.SUCCESS, getResultMap("data", service.soupDish()));
   }
 
   @ApiOperation(value = "", notes = DishMessages.SOUP_DISH_DETAIL)
@@ -36,6 +37,6 @@ public class SoupDishController {
   public ApiResponse detail(
       @PathVariable @ApiParam(value = "example : H72C3") String hash) {
     return ApiResponse.ok(
-        SuccessMessages.SUCCESS, getResultMap("data", service.detail(hash)));
+        SuccessMessages.SUCCESS, getResultMap("data", service.soupDetail(hash)));
   }
 }
