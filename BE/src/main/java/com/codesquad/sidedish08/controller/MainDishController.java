@@ -28,7 +28,8 @@ public class MainDishController {
   @ApiOperation(value = "", notes = DishMessages.MAIN_DISH)
   @GetMapping
   public ApiResponse dish() {
-    return ApiResponse.ok(SuccessMessages.SUCCESS, getResultMap("body", mainDishService.dish()));
+    return ApiResponse.ok(
+        SuccessMessages.SUCCESS, getResultMap("data", mainDishService.mainDish()));
   }
 
   @ApiOperation(value = "", notes = DishMessages.MAIN_DISH_DETAIL)
@@ -36,6 +37,6 @@ public class MainDishController {
   public ApiResponse detail(
       @PathVariable @ApiParam(value = "example : HBDEF") String detailHash) {
     return ApiResponse.ok(
-        SuccessMessages.SUCCESS, getResultMap("body", mainDishService.detail(detailHash)));
+        SuccessMessages.SUCCESS, getResultMap("data", mainDishService.detail(detailHash)));
   }
 }
