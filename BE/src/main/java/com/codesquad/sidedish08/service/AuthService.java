@@ -38,7 +38,7 @@ public class AuthService {
     this.authProperties = authProperties;
   }
 
-  public ResponseEntity<String> login() {
+  public HttpHeaders login() {
     HttpHeaders headers = new HttpHeaders();
     headers.setContentType(
         new MediaType("application", "json", StandardCharsets.UTF_8));
@@ -51,7 +51,7 @@ public class AuthService {
 
     headers.setLocation(builder.toUri());
 
-    return new ResponseEntity<String>(headers, HttpStatus.SEE_OTHER);
+    return headers;
   }
 
   public String callback(String authorizationCode) {

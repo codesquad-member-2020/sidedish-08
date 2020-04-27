@@ -34,7 +34,7 @@ public class AuthController {
   @ResponseStatus(HttpStatus.SEE_OTHER)
   @GetMapping("/login")
   public ResponseEntity<String> login() {
-    return authService.login();
+    return new ResponseEntity<>(authService.login(), HttpStatus.SEE_OTHER);
   }
 
   @ApiOperation(value = "", notes = AuthMessages.CALLBACK)
