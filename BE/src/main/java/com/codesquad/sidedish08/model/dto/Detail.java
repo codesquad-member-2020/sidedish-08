@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 public class Detail {
 
   private final String hash;
+  private final String title;
   private final String topImage;
   private final List<String> thumbImages;
   private final List<String> detailImages;
@@ -27,6 +28,7 @@ public class Detail {
 
   private Detail(Dish dish) {
     this.hash = dish.getHash();
+    this.title = dish.getTitle();
     this.normalPrice = dish.getPrice();
     this.description = dish.getDescription();
     this.deliveryInfo = calcDeliveryInfo(dish.getDeliveries());
@@ -110,5 +112,9 @@ public class Detail {
 
   public List<String> getBadges() {
     return badges;
+  }
+
+  public String getTitle() {
+    return title;
   }
 }
