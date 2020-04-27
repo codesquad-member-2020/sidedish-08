@@ -8,6 +8,8 @@ import com.codesquad.sidedish08.model.Dish;
 import com.codesquad.sidedish08.model.dto.Main;
 import com.codesquad.sidedish08.model.dto.Main.Builder;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,8 +32,10 @@ public class JdbcCategoryRepository {
   }
 
   public List<Main> findById(Long id) {
-    List<Dish> dishes = categoryRepository.findById(id).get().getDishes();
-    List<Main> main = dishes.stream().map(dish -> new Builder()
+    List<Dish> dishes = categoryRepository.findById(id)
+        .orElseThrow(NoSuchElementException::new)
+        .getDishes();
+    return dishes.stream().map(dish -> new Builder()
         .hash(dish.getHash())
         .image(dish.getImages().get(0).getUrl())
         .alt(dish.getTitle())
@@ -39,26 +43,30 @@ public class JdbcCategoryRepository {
         .title(dish.getTitle())
         .description(dish.getDescription())
         .normalPrice(dish.getPrice())
-        .specialPrice(getSalePrice(dish.getPrice(), dish.getBadges()))
+        .salePrice(getSalePrice(dish.getPrice(), dish.getBadges()))
         .badge(dish.getBadges())
         .build()).collect(Collectors.toList());
-
-    return main;
   }
 
-  public Main findByHash(String hash) {
+  public Main findByHash(String hash, Long id) {
     Main main = jdbcTemplate.queryForObject(
         "SELECT d.id, d.hash, g.url, d.title, d.description, d.price "
             + "FROM DISH d "
             + "LEFT JOIN IMAGE g ON d.id = g.dish_id "
-            + "WHERE g.type = 'top' AND d.hash =?",
-        new Object[]{hash}, mainMapper);
-    List<Delivery> deliveries = findDeliveryByDishId(main.getId());
-    List<Badge> badges = findBadgeByDishId(main.getId());
+            + "WHERE g.type = 'top' AND d.hash =? AND d.category_id=?",
+        new Object[]{hash, id}, mainMapper);
+
+    Long dishId = Optional.ofNullable(main)
+        .orElseThrow(NoSuchElementException::new)
+        .getId();
+
+    List<Delivery> deliveries = findDeliveryByDishId(dishId);
+    List<Badge> badges = findBadgeByDishId(dishId);
 
     return new Main.Builder(main)
         .deliveryType(deliveries)
         .badge(badges)
+        .salePrice(getSalePrice(main.getNormalPrice(), badges))
         .build();
   }
 
