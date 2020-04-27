@@ -17,8 +17,7 @@ class MainViewDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ItemCell.reuseIdentifier, for: indexPath) as! ItemCell
 
         let dish = dishes[indexPath.row]
-        cell.viewModel = ItemCellViewModel(model: dish)
-        cell.setup()
+        cell.setViewModel(ItemCellViewModel(model: dish))
 
         return cell
     }

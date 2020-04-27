@@ -25,14 +25,9 @@ final class DetailViewController: UIViewController {
 
     private func setupViews(dish: DetailDish?) {
         DispatchQueue.main.async {
-            self.descriptionsView.viewModel = DescriptionViewModel(model: dish)
-            self.descriptionsView.setup()
-
-            self.topImagesView.viewModel = TopImagesViewModel(model: dish)
-            self.topImagesView.setup()
-
-            self.bottomImagesView.viewModel = BottomImagesViewModel(model: dish)
-            self.bottomImagesView.setup()
+            self.descriptionsView.setViewModel(DescriptionViewModel(model: dish))
+            self.topImagesView.setViewModel(TopImagesViewModel(model: dish))
+            self.bottomImagesView.setViewModel(BottomImagesViewModel(model: dish))
         }
     }
 }

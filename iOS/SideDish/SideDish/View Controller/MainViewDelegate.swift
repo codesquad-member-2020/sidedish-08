@@ -11,8 +11,7 @@ class MainViewDelegate: NSObject, UITableViewDelegate {
         let view = tableView.dequeueReusableCell(withIdentifier: HeaderCell.reuseIdentifier) as! HeaderCell
 
         let category = categories[section]
-        view.viewModel = HeaderCellViewModel(model: category)
-        view.setup()
+        view.setViewModel(HeaderCellViewModel(model: category))
 
         return view
     }

@@ -15,8 +15,20 @@ extension UITableViewCell: ReusableView {}
 // MARK: -
 
 protocol Configurable: class {
+    associatedtype ViewModelType
+
+    var viewModel: ViewModelType { get set }
+
     func setup()
     func configure()
+    func setViewModel(_ viewModel: ViewModelType)
+}
+
+extension Configurable {
+    func setViewModel(_ viewModel: ViewModelType) {
+        self.viewModel = viewModel
+        setup()
+    }
 }
 
 // MARK: -

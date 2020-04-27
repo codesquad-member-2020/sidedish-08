@@ -11,9 +11,7 @@ final class HeaderCell: UITableViewCell {
 }
 
 extension HeaderCell: Configurable {
-    func setup() {
-        configure()
-    }
+    func setup() { }
 
     func configure() {
         titleLabel.text = viewModel?.title
