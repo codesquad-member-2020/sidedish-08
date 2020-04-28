@@ -1,11 +1,12 @@
 package com.codesquad.sidedish08.controller;
 
+import static com.codesquad.sidedish08.message.CategoryId.SIDE;
 import static com.codesquad.sidedish08.util.ResponseUtils.getResultMap;
 
 import com.codesquad.sidedish08.message.DishMessages;
 import com.codesquad.sidedish08.message.SuccessMessages;
 import com.codesquad.sidedish08.model.response.ApiResponse;
-import com.codesquad.sidedish08.service.MainDishService;
+import com.codesquad.sidedish08.service.DishService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -19,16 +20,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/side")
 public class SideDishController {
 
-  private final MainDishService service;
+  private final DishService dishService;
 
-  public SideDishController(MainDishService mainDishService) {
-    this.service = mainDishService;
+  public SideDishController(DishService dishService) {
+    this.dishService = dishService;
   }
 
   @ApiOperation(value = "", notes = DishMessages.SIDE_DISH)
   @GetMapping
   public ApiResponse dish() {
-    return ApiResponse.ok(SuccessMessages.SUCCESS, getResultMap("data", service.sideDish()));
+    return ApiResponse.ok(
+        SuccessMessages.SUCCESS, getResultMap("data", dishService.dish(SIDE.getId())));
   }
 
   @ApiOperation(value = "", notes = DishMessages.SIDE_DISH_DETAIL)
@@ -36,6 +38,6 @@ public class SideDishController {
   public ApiResponse detail(
       @PathVariable @ApiParam(value = "example : HBBCC") String hash) {
     return ApiResponse.ok(
-        SuccessMessages.SUCCESS, getResultMap("data ", service.detail(hash)));
+        SuccessMessages.SUCCESS, getResultMap("data ", dishService.detail(SIDE.getId(), hash)));
   }
 }
