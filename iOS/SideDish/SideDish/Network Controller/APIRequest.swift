@@ -14,7 +14,7 @@ protocol JSONRequest: APIRequest where RequestDataType: Encodable, ResponseDataT
 
 extension JSONRequest {
     var baseURL: String {
-        "http://13.125.127.249:8080/sidedish08/api"
+        "http://13.125.127.249/sidedish08/api"
     }
 
     func parseResponse(data: Data) -> ResponseDataType? {

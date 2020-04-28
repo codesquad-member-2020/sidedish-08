@@ -18,28 +18,7 @@ final class MainViewController: UIViewController {
         tableView.dataSource = dataSource
         tableView.delegate = delegate
 
-        loadData()
-    }
-
-    func loadData() {
-        let queue = DispatchQueue(label: "sideDish.network.dishList")
-        queue.async {
-            self.network.loadDishList(with: MainDishRequest()) { result in
-                self.dataSource.mainDishes = result.unwrapped()
-            }
-        }
-
-        self.network.loadDishList(with: SoupDishRequest()) {
-            self.dataSource.soupDishes = $0.unwrapped()
-        }
-
-        self.network.loadDishList(with: SideDishRequest()) {
-            self.dataSource.sideDishes = $0.unwrapped()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-
+        loadDishList()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -52,12 +31,17 @@ final class MainViewController: UIViewController {
         }
     }
 
-    // MARK: - Private
+    private func loadDishList() {
+        network.loadDishList(with: MainDishRequest()) { result in
+            self.dataSource.updateList(self.tableView, list: .main, result: result)
+        }
 
-    private func setupViews(mainDish: BriefDishWrapper) {
-        dataSource.mainDishes = mainDish.unwrapped()
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
+        network.loadDishList(with: SoupDishRequest()) { result in
+            self.dataSource.updateList(self.tableView, list: .soup, result: result)
+        }
+
+        network.loadDishList(with: SideDishRequest()) { result in
+            self.dataSource.updateList(self.tableView, list: .side, result: result)
         }
     }
 

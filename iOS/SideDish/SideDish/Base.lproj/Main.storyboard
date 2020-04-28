@@ -17,6 +17,14 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2eF-WS-5bM">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MoA-ih-FSg">
+                                    <rect key="frame" x="0.0" y="266" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <connections>
+                                        <segue destination="aru-ev-t1b" kind="presentation" id="sNb-CZ-Qj0"/>
+                                    </connections>
+                                </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="80" id="3Rh-Cq-n0p" customClass="HeaderCell" customModule="SideDish" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
@@ -38,7 +46,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.94117647058823528" green="0.97254901960784312" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
                                                 <constraint firstItem="P2a-y6-B3M" firstAttribute="centerX" secondItem="fAY-Py-vHA" secondAttribute="centerX" id="37f-94-taA"/>
                                                 <constraint firstItem="P2a-y6-B3M" firstAttribute="top" secondItem="wHN-wf-D7T" secondAttribute="bottom" constant="10" id="pZ2-KC-zhl"/>
@@ -398,6 +406,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                 <state key="normal" title="주문하기"/>
+                                <connections>
+                                    <segue destination="aru-ev-t1b" kind="presentation" id="a2y-6c-kKK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -441,7 +452,59 @@
             </objects>
             <point key="canvasLocation" x="957" y="-3"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="RJz-zm-rXs">
+            <objects>
+                <viewController id="aru-ev-t1b" customClass="LoginViewController" customModule="SideDish" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5pT-5f-kzl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMe-sS-o5i">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1o-td-Mfl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem id="Abc-Oe-rAm">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="d7f-Je-eF9">
+                                            <connections>
+                                                <action selector="touchDoneButton:" destination="aru-ev-t1b" id="gbn-cx-cYo"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yMe-sS-o5i" firstAttribute="bottom" secondItem="I0f-jI-Nbr" secondAttribute="bottom" id="J9v-fe-yZr"/>
+                            <constraint firstItem="f1o-td-Mfl" firstAttribute="trailing" secondItem="I0f-jI-Nbr" secondAttribute="trailing" id="NBr-5Z-Jya"/>
+                            <constraint firstItem="f1o-td-Mfl" firstAttribute="top" secondItem="I0f-jI-Nbr" secondAttribute="top" id="YrL-ck-f4i"/>
+                            <constraint firstItem="f1o-td-Mfl" firstAttribute="leading" secondItem="I0f-jI-Nbr" secondAttribute="leading" id="nCZ-1d-Dro"/>
+                            <constraint firstItem="yMe-sS-o5i" firstAttribute="top" secondItem="f1o-td-Mfl" secondAttribute="bottom" id="niY-r8-I6t"/>
+                            <constraint firstItem="yMe-sS-o5i" firstAttribute="trailing" secondItem="I0f-jI-Nbr" secondAttribute="trailing" id="pAo-gL-a1R"/>
+                            <constraint firstItem="yMe-sS-o5i" firstAttribute="leading" secondItem="I0f-jI-Nbr" secondAttribute="leading" id="spq-GW-88L"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="I0f-jI-Nbr"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="yMe-sS-o5i" id="vWD-Z3-9P1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TyH-fN-Hvh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744.9275362318842" y="694.41964285714278"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="sNb-CZ-Qj0"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="default-image" width="400" height="300"/>
         <image name="no-image" width="285" height="190"/>

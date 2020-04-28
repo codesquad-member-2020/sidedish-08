@@ -30,9 +30,11 @@
 		8D71CF1124544B5500427572 /* ImagesStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF1024544B5500427572 /* ImagesStackView.swift */; };
 		8D71CF1324544B8600427572 /* DescriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF1224544B8600427572 /* DescriptionsView.swift */; };
 		8D71CF172454591000427572 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF162454591000427572 /* NetworkController.swift */; };
+		8D8FF0B3245816A4008699FE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8FF0B2245816A4008699FE /* LoginViewController.swift */; };
 		8D9E4778245342AA00A25875 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */; };
 		8DC914AA245011C000421B20 /* BriefDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914A9245011C000421B20 /* BriefDish.swift */; };
 		8DC914AC2450271F00421B20 /* APIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914AB2450271F00421B20 /* APIRequestTests.swift */; };
+		8DCA8F2024581E760028765D /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DCA8F1F24581E760028765D /* WebKit.framework */; };
 		8DCFC1F62455B60F0082212B /* BottomImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCFC1F52455B60F0082212B /* BottomImagesViewModel.swift */; };
 		8DD1B1AB2450B27700C9601C /* MainDishRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1AA2450B27700C9601C /* MainDishRequest.swift */; };
 		8DD1B1AD24512D4300C9601C /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1AC24512D4300C9601C /* ReusableView.swift */; };
@@ -94,9 +96,11 @@
 		8D71CF1024544B5500427572 /* ImagesStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesStackView.swift; sourceTree = "<group>"; };
 		8D71CF1224544B8600427572 /* DescriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionsView.swift; sourceTree = "<group>"; };
 		8D71CF162454591000427572 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		8D8FF0B2245816A4008699FE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
 		8DC914A9245011C000421B20 /* BriefDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefDish.swift; sourceTree = "<group>"; };
 		8DC914AB2450271F00421B20 /* APIRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestTests.swift; sourceTree = "<group>"; };
+		8DCA8F1F24581E760028765D /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		8DCFC1F52455B60F0082212B /* BottomImagesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomImagesViewModel.swift; sourceTree = "<group>"; };
 		8DD1B1AA2450B27700C9601C /* MainDishRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDishRequest.swift; sourceTree = "<group>"; };
 		8DD1B1AC24512D4300C9601C /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DCA8F2024581E760028765D /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +159,7 @@
 				8D344A57244D4848004D3962 /* SideDish */,
 				8D344A6E244D484B004D3962 /* SideDishTests */,
 				8D344A56244D4848004D3962 /* Products */,
+				8DCA8F1E24581E750028765D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +207,7 @@
 				8DF0E1FF2455CD9F00132BB1 /* MainViewDataSource.swift */,
 				8DF0E2012455CE5300132BB1 /* MainViewDelegate.swift */,
 				8D344A5C244D4848004D3962 /* DetailViewController.swift */,
+				8D8FF0B2245816A4008699FE /* LoginViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -252,6 +259,14 @@
 				8D20B4C92454C3F800E72C98 /* Detail */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		8DCA8F1E24581E750028765D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DCA8F1F24581E760028765D /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		8DD1B1B0245169DB00C9601C /* Model */ = {
@@ -393,6 +408,7 @@
 				8DF0E2002455CD9F00132BB1 /* MainViewDataSource.swift in Sources */,
 				8DD1B1C2245190D500C9601C /* Common.swift in Sources */,
 				8D4E960F244F340C00197621 /* RequestLoader.swift in Sources */,
+				8D8FF0B3245816A4008699FE /* LoginViewController.swift in Sources */,
 				8D71CF1124544B5500427572 /* ImagesStackView.swift in Sources */,
 				8D344A59244D4848004D3962 /* AppDelegate.swift in Sources */,
 				8D344A5B244D4848004D3962 /* SceneDelegate.swift in Sources */,
