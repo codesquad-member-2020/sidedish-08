@@ -1,16 +1,18 @@
 package com.codesquad.sidedish08.repository;
 
-import static com.codesquad.sidedish08.util.DishUtils.getSalePrice;
-
+import com.codesquad.sidedish08.message.ErrorMessages;
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
 import com.codesquad.sidedish08.model.Dish;
 import com.codesquad.sidedish08.model.dto.Main;
 import com.codesquad.sidedish08.model.dto.Main.Builder;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -29,9 +31,8 @@ public class JdbcCategoryRepository {
     this.categoryRepository = categoryRepository;
   }
 
-  public List<Main> findById(Long id) {
-    List<Dish> dishes = categoryRepository.findById(id).get().getDishes();
-    List<Main> main = dishes.stream().map(dish -> new Builder()
+  private List<Main> getMains(List<Dish> dishes) {
+    return dishes.stream().map(dish -> new Builder()
         .hash(dish.getHash())
         .image(dish.getImages().get(0).getUrl())
         .alt(dish.getTitle())
@@ -39,25 +40,48 @@ public class JdbcCategoryRepository {
         .title(dish.getTitle())
         .description(dish.getDescription())
         .normalPrice(dish.getPrice())
-        .specialPrice(getSalePrice(dish.getPrice(), dish.getBadges()))
+        .salePrice(dish.getPrice(), dish.getBadges())
         .badge(dish.getBadges())
         .build()).collect(Collectors.toList());
-
-    return main;
   }
 
-  public Main findByHash(String hash) {
-    Main main = jdbcTemplate.queryForObject(
-        "SELECT d.id, d.hash, g.url, d.title, d.description, d.price "
-            + "FROM DISH d "
-            + "LEFT JOIN IMAGE g ON d.id = g.dish_id "
-            + "WHERE g.type = 'top' AND d.hash =?",
-        new Object[]{hash}, mainMapper);
-    List<Delivery> deliveries = findDeliveryByDishId(main.getId());
-    List<Badge> badges = findBadgeByDishId(main.getId());
+  public List<Main> findById(Long id) {
+    List<Dish> dishes = categoryRepository.findById(id)
+        .orElseThrow(NoSuchElementException::new)
+        .getDishes();
+    return getMains(dishes);
+  }
+
+  public List<Main> findBestDishByCategoryId(Long categoryId) {
+    List<Dish> dishes = categoryRepository.findBestDishByCategoryId(categoryId);
+    return getMains(dishes);
+  }
+
+
+  public Main findByHash(Long categoryId, String hash) {
+    Main main;
+
+    try {
+      main = jdbcTemplate.queryForObject(
+          "SELECT d.id, d.hash, g.url, d.title, d.description, d.price "
+              + "FROM DISH d "
+              + "LEFT JOIN IMAGE g ON d.id = g.dish_id "
+              + "WHERE g.type = 'top' AND d.category_id=? AND d.hash =?",
+          new Object[]{categoryId, hash}, mainMapper);
+    } catch (EmptyResultDataAccessException e) {
+      throw new NoSuchElementException(ErrorMessages.NO_SUCH_ELEMENT_EXCEPTION);
+    }
+
+    Long dishId = Optional.ofNullable(main)
+        .orElseThrow(NoSuchElementException::new)
+        .getId();
+
+    List<Delivery> deliveries = findDeliveryByDishId(dishId);
+    List<Badge> badges = findBadgeByDishId(dishId);
 
     return new Main.Builder(main)
         .deliveryType(deliveries)
+        .salePrice(main.getNormalPrice(), badges)
         .badge(badges)
         .build();
   }
