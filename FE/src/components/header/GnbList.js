@@ -40,6 +40,7 @@ const Depth = styled.div`
   font-size: 14px;
   color: #fff;
   transition: transform 0.3s ease;
+  z-index: 9999;
 `;
 
 const DepthAnchor = styled.a`

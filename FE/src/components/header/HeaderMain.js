@@ -31,8 +31,8 @@ const HeaderMain = () => {
           <a href="#none"><img src="/images/bmc-logo.png" alt="배민찬" /></a>
         </H1>
         <div>
-          <Anchor href="#none">베스트 반찬</Anchor>
-          <Anchor href="#none">알뜰 쇼핑</Anchor>
+          <Anchor href="#none">베스트</Anchor>
+          <Anchor href="#none">이벤트</Anchor>
         </div>
       </HeaderMidWrap>
       <Gnb />
