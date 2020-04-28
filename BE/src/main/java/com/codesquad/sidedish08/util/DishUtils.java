@@ -11,8 +11,10 @@ import com.codesquad.sidedish08.message.DeliveryPrice;
 import com.codesquad.sidedish08.message.DishMessages;
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
+import com.codesquad.sidedish08.model.Image;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -72,7 +74,12 @@ public class DishUtils {
   }
 
   public static int getSalePrice(int normalPrice, List<Badge> badges) {
-    logger.debug("sale : {}", normalPrice - calcDiscountPrice(badges));
     return normalPrice - calcDiscountPrice(badges);
+  }
+
+  public static Stream<String> getImageUrlStream(List<Image> images, String imageType) {
+    return images.stream()
+        .filter(image -> image.getType().equals(imageType))
+        .map(Image::getUrl);
   }
 }

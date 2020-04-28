@@ -3,10 +3,9 @@ package com.codesquad.sidedish08.model.dto;
 import static com.codesquad.sidedish08.message.BadgePrice.valueOf;
 import static com.codesquad.sidedish08.util.DishUtils.calcDeliveryInfo;
 import static com.codesquad.sidedish08.util.DishUtils.calcPoint;
+import static com.codesquad.sidedish08.util.DishUtils.getImageUrlStream;
 
-import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Dish;
-import com.codesquad.sidedish08.model.Image;
 import com.codesquad.sidedish08.util.DishUtils;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,6 +13,7 @@ import java.util.stream.Collectors;
 public class Detail {
 
   private final String hash;
+  private final String title;
   private final String topImage;
   private final List<String> thumbImages;
   private final List<String> detailImages;
@@ -27,6 +27,7 @@ public class Detail {
 
   private Detail(Dish dish) {
     this.hash = dish.getHash();
+    this.title = dish.getTitle();
     this.normalPrice = dish.getPrice();
     this.description = dish.getDescription();
     this.deliveryInfo = calcDeliveryInfo(dish.getDeliveries());
@@ -39,32 +40,29 @@ public class Detail {
     this.badges = getBadgesString(dish);
   }
 
-  public static Detail getDetailDto(Dish dish) {
+  public static Detail of(Dish dish) {
     return new Detail(dish);
   }
 
   private String getTopImageUrl(Dish dish) {
-    return dish.getImages().get(0).getUrl();
+    return getImageUrlStream(dish.getImages(), "top")
+        .limit(1)
+        .collect(Collectors.joining());
   }
 
   private List<String> getThumbImageUrls(Dish dish) {
-    return dish.getImages().stream()
-        .filter(image -> image.getType().equals("thumb"))
-        .map(Image::getUrl)
+    return getImageUrlStream(dish.getImages(), "thumb")
         .collect(Collectors.toList());
   }
 
   private List<String> getDetailImageUrls(Dish dish) {
-    return dish.getImages().stream()
-        .filter(image -> image.getType().equals("detail"))
-        .map(Image::getUrl)
+    return getImageUrlStream(dish.getImages(), "detail")
         .collect(Collectors.toList());
   }
 
   private List<String> getBadgesString(Dish dish) {
     return dish.getBadges().stream()
-        .map(Badge::getType)
-        .map(badge -> valueOf(badge).getName())
+        .map(badge -> valueOf(badge.getType()).getName())
         .collect(Collectors.toList());
   }
 
@@ -110,5 +108,9 @@ public class Detail {
 
   public List<String> getBadges() {
     return badges;
+  }
+
+  public String getTitle() {
+    return title;
   }
 }
