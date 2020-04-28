@@ -1,5 +1,6 @@
 package com.codesquad.sidedish08.repository;
 
+import com.codesquad.sidedish08.message.ErrorMessages;
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
 import com.codesquad.sidedish08.model.Dish;
@@ -30,10 +31,7 @@ public class JdbcCategoryRepository {
     this.categoryRepository = categoryRepository;
   }
 
-  public List<Main> findById(Long id) {
-    List<Dish> dishes = categoryRepository.findById(id)
-        .orElseThrow(NoSuchElementException::new)
-        .getDishes();
+  private List<Main> getMains(List<Dish> dishes) {
     return dishes.stream().map(dish -> new Builder()
         .hash(dish.getHash())
         .image(dish.getImages().get(0).getUrl())
@@ -47,6 +45,19 @@ public class JdbcCategoryRepository {
         .build()).collect(Collectors.toList());
   }
 
+  public List<Main> findById(Long id) {
+    List<Dish> dishes = categoryRepository.findById(id)
+        .orElseThrow(NoSuchElementException::new)
+        .getDishes();
+    return getMains(dishes);
+  }
+
+  public List<Main> findBestDishByCategoryId(Long categoryId) {
+    List<Dish> dishes = categoryRepository.findBestDishByCategoryId(categoryId);
+    return getMains(dishes);
+  }
+
+
   public Main findByHash(Long categoryId, String hash) {
     Main main;
 
@@ -58,7 +69,7 @@ public class JdbcCategoryRepository {
               + "WHERE g.type = 'top' AND d.category_id=? AND d.hash =?",
           new Object[]{categoryId, hash}, mainMapper);
     } catch (EmptyResultDataAccessException e) {
-      throw new NoSuchElementException();
+      throw new NoSuchElementException(ErrorMessages.NO_SUCH_ELEMENT_EXCEPTION);
     }
 
     Long dishId = Optional.ofNullable(main)
