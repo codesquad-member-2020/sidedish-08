@@ -1,10 +1,6 @@
 package com.codesquad.sidedish08.controller;
 
-import static com.codesquad.sidedish08.util.ResponseUtils.getResultMap;
-
 import com.codesquad.sidedish08.message.AuthMessages;
-import com.codesquad.sidedish08.message.SuccessMessages;
-import com.codesquad.sidedish08.model.response.ApiResponse;
 import com.codesquad.sidedish08.service.AuthService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,8 +35,7 @@ public class AuthController {
 
   @ApiOperation(value = "", notes = AuthMessages.CALLBACK)
   @GetMapping("/callback")
-  public ApiResponse callback(@PathParam("code") String code) {
-    return ApiResponse.ok(
-        SuccessMessages.SUCCESS, getResultMap("token", authService.callback(code)));
+  public ResponseEntity<String> callback(@PathParam("code") String code) {
+    return new ResponseEntity<>(authService.callback(code), HttpStatus.SEE_OTHER);
   }
 }
