@@ -20,6 +20,7 @@ extension ItemCell: Configurable {
         subTitleLabel.text = viewModel?.description
         normalPriceLabel.text = viewModel?.normalPrice
         salePriceLabel.text = viewModel?.salePrice
+        ThumbImageView.image = viewModel?.image
 
         normalPriceLabel.setStrikethrough()
     }
