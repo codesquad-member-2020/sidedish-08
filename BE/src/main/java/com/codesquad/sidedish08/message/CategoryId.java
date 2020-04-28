@@ -5,13 +5,13 @@ public enum CategoryId {
   SOUP(2L),
   SIDE(3L);
 
-  private Long id;
+  private long id;
 
-  CategoryId(Long id) {
+  CategoryId(long id) {
     this.id = id;
   }
 
-  public Long getId() {
+  public long getId() {
     return id;
   }
 }
