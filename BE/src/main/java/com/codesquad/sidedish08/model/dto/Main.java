@@ -4,6 +4,7 @@ import com.codesquad.sidedish08.message.BadgePrice;
 import com.codesquad.sidedish08.message.DeliveryPrice;
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
+import com.codesquad.sidedish08.util.DishUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
@@ -167,8 +168,8 @@ public class Main {
       return this;
     }
 
-    public Builder salePrice(int specialPrice) {
-      this.salePrice = specialPrice;
+    public Builder salePrice(int normalPrice, List<Badge> badges) {
+      this.salePrice = DishUtils.getSalePrice(normalPrice, badges);
       return this;
     }
 

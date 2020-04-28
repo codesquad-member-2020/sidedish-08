@@ -1,7 +1,5 @@
 package com.codesquad.sidedish08.repository;
 
-import static com.codesquad.sidedish08.util.DishUtils.getSalePrice;
-
 import com.codesquad.sidedish08.model.Badge;
 import com.codesquad.sidedish08.model.Delivery;
 import com.codesquad.sidedish08.model.Dish;
@@ -44,7 +42,7 @@ public class JdbcCategoryRepository {
         .title(dish.getTitle())
         .description(dish.getDescription())
         .normalPrice(dish.getPrice())
-        .salePrice(getSalePrice(dish.getPrice(), dish.getBadges()))
+        .salePrice(dish.getPrice(), dish.getBadges())
         .badge(dish.getBadges())
         .build()).collect(Collectors.toList());
   }
@@ -72,7 +70,7 @@ public class JdbcCategoryRepository {
 
     return new Main.Builder(main)
         .deliveryType(deliveries)
-        .salePrice(getSalePrice(main.getNormalPrice(), badges))
+        .salePrice(main.getNormalPrice(), badges)
         .badge(badges)
         .build();
   }
