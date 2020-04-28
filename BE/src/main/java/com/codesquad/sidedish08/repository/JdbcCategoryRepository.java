@@ -49,7 +49,7 @@ public class JdbcCategoryRepository {
         .build()).collect(Collectors.toList());
   }
 
-  public Main findByHash(Long id, String hash) {
+  public Main findByHash(Long categoryId, String hash) {
     Main main;
 
     try {
@@ -58,7 +58,7 @@ public class JdbcCategoryRepository {
               + "FROM DISH d "
               + "LEFT JOIN IMAGE g ON d.id = g.dish_id "
               + "WHERE g.type = 'top' AND d.category_id=? AND d.hash =?",
-          new Object[]{id, hash}, mainMapper);
+          new Object[]{categoryId, hash}, mainMapper);
     } catch (EmptyResultDataAccessException e) {
       throw new NoSuchElementException();
     }
@@ -72,8 +72,8 @@ public class JdbcCategoryRepository {
 
     return new Main.Builder(main)
         .deliveryType(deliveries)
-        .badge(badges)
         .salePrice(getSalePrice(main.getNormalPrice(), badges))
+        .badge(badges)
         .build();
   }
 
