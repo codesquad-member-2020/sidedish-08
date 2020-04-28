@@ -10,7 +10,7 @@ struct ItemCellViewModel {
 }
 
 extension ItemCellViewModel {
-    init(model: MainDish) {
+    init(model: BriefDish) {
         self.imageURL = model.imageURL
         self.title = model.title
         self.description = model.description

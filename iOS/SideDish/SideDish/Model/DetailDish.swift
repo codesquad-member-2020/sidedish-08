@@ -2,12 +2,16 @@ import UIKit
 
 typealias DetailHash = String
 
-struct DetailDishWrapper: Codable {
+struct DetailDishWrapper: Codable, Wrapper {
     let message: String
     let contents: Contents
 
     struct Contents: Codable {
         let data: DetailDish
+    }
+
+    func unwrapped() -> DetailDish {
+        return contents.data
     }
 }
 

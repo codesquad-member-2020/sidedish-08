@@ -2,16 +2,26 @@ import Foundation
 
 // API path: sidedish08/api/main
 
-struct MainDishWrapper: Codable {
+struct BriefDishWrapper: Codable, Wrapper {
     let message: String
     let contents: Contents
 
     struct Contents: Codable {
-        let data: [MainDish]
+        let data: [BriefDish]
+    }
+
+    func unwrapped() -> [BriefDish] {
+        return contents.data
     }
 }
 
-struct MainDish {
+protocol Wrapper {
+    associatedtype Unwrapped
+
+    func unwrapped() -> Unwrapped
+}
+
+struct BriefDish {
     typealias DeliveryType = SingleValue<String>
 
     let hash: DetailHash
@@ -25,7 +35,7 @@ struct MainDish {
     let badges: [Badge]
 }
 
-extension MainDish: Codable {
+extension BriefDish: Codable {
     enum CodingKeys: String, CodingKey {
         case hash
         case imageURL = "image"

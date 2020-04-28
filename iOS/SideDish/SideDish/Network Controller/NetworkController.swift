@@ -4,12 +4,9 @@ import UIKit
 typealias OnFailure = (Error) -> Void
 
 class NetworkController {
-    func loadMainDish(onFailure: OnFailure? = nil, onSuccess: @escaping ([MainDish]) -> Void) {
-        let loader = RequestLoader(networkRequest: MainDishRequest())
-        loader.execute(with: nil, onFailure: onFailure, onSuccess: { result in
-            let mainDishes = result.contents.data
-            onSuccess(mainDishes)
-        })
+    func loadDishList<T>(with request: T, onFailure: OnFailure? = nil, onSuccess: @escaping (T.ResponseDataType) -> Void) where T: DishListRequest {
+        let loader = RequestLoader(networkRequest: request)
+        loader.execute(with: nil, onFailure: onFailure, onSuccess: onSuccess)
     }
 
     func loadDetailDish(at detailHash: DetailHash, onFailure: OnFailure? = nil, onSuccess: @escaping (DetailDish?) -> Void) {
@@ -23,6 +20,7 @@ class NetworkController {
         let loader = RequestLoader(networkRequest: ImageRequest())
         loader.execute(with: url, onFailure: onFailure, onSuccess: onSuccess)
     }
+
 }
 
 // MARK: - 사용하지 않음

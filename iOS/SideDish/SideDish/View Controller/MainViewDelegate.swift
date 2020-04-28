@@ -3,7 +3,7 @@ import UIKit
 class MainViewDelegate: NSObject, UITableViewDelegate {
     var categories: [Category]
 
-    init(categories: [Category]) {
+    init(categories: [Category] = []) {
         self.categories = categories
     }
 

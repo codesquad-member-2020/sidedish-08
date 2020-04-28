@@ -1,11 +1,12 @@
 import Foundation
 
-struct MainDishRequest: JSONRequest {
-    typealias RequestDataType = MainDishWrapper
-    typealias ResponseDataType = MainDishWrapper
+protocol DishListRequest: JSONRequest {
+    var pathURL: String { get }
 
-    let pathURL = "main"
+    func makeRequest(from data: RequestDataType?) -> URLRequest
+}
 
+extension DishListRequest {
     func makeRequest(from data: RequestDataType?) -> URLRequest {
         let string = [baseURL, pathURL].joined(separator: "/")
         let url = URL(string: string)!
@@ -13,3 +14,25 @@ struct MainDishRequest: JSONRequest {
         return URLRequest(url: url)
     }
 }
+
+struct MainDishRequest: DishListRequest {
+    typealias RequestDataType = BriefDishWrapper
+    typealias ResponseDataType = BriefDishWrapper
+
+    let pathURL = "main"
+}
+
+struct SoupDishRequest: DishListRequest {
+    typealias RequestDataType = BriefDishWrapper
+    typealias ResponseDataType = BriefDishWrapper
+
+    let pathURL = "soup"
+}
+
+struct SideDishRequest: DishListRequest {
+    typealias RequestDataType = BriefDishWrapper
+    typealias ResponseDataType = BriefDishWrapper
+
+    let pathURL = "side"
+}
+

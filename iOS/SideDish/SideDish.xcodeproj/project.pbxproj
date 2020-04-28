@@ -31,14 +31,14 @@
 		8D71CF1324544B8600427572 /* DescriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF1224544B8600427572 /* DescriptionsView.swift */; };
 		8D71CF172454591000427572 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71CF162454591000427572 /* NetworkController.swift */; };
 		8D9E4778245342AA00A25875 /* ItemCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */; };
-		8DC914AA245011C000421B20 /* MainDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914A9245011C000421B20 /* MainDish.swift */; };
+		8DC914AA245011C000421B20 /* BriefDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914A9245011C000421B20 /* BriefDish.swift */; };
 		8DC914AC2450271F00421B20 /* APIRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914AB2450271F00421B20 /* APIRequestTests.swift */; };
 		8DCFC1F62455B60F0082212B /* BottomImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCFC1F52455B60F0082212B /* BottomImagesViewModel.swift */; };
 		8DD1B1AB2450B27700C9601C /* MainDishRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1AA2450B27700C9601C /* MainDishRequest.swift */; };
 		8DD1B1AD24512D4300C9601C /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1AC24512D4300C9601C /* ReusableView.swift */; };
 		8DD1B1AF2451698B00C9601C /* DetailDishRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1AE2451698B00C9601C /* DetailDishRequest.swift */; };
 		8DD1B1B2245169F100C9601C /* DetailDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1B1245169F100C9601C /* DetailDish.swift */; };
-		8DD1B1B624518A4300C9601C /* MainDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914A9245011C000421B20 /* MainDish.swift */; };
+		8DD1B1B624518A4300C9601C /* BriefDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC914A9245011C000421B20 /* BriefDish.swift */; };
 		8DD1B1B724518A4500C9601C /* DetailDish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1B1B1245169F100C9601C /* DetailDish.swift */; };
 		8DD1B1B824518A4700C9601C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D344A80244D8E54004D3962 /* MainViewController.swift */; };
 		8DD1B1B924518A4B00C9601C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D344A5C244D4848004D3962 /* DetailViewController.swift */; };
@@ -95,7 +95,7 @@
 		8D71CF1224544B8600427572 /* DescriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionsView.swift; sourceTree = "<group>"; };
 		8D71CF162454591000427572 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		8D9E4777245342AA00A25875 /* ItemCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCellViewModel.swift; sourceTree = "<group>"; };
-		8DC914A9245011C000421B20 /* MainDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDish.swift; sourceTree = "<group>"; };
+		8DC914A9245011C000421B20 /* BriefDish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefDish.swift; sourceTree = "<group>"; };
 		8DC914AB2450271F00421B20 /* APIRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestTests.swift; sourceTree = "<group>"; };
 		8DCFC1F52455B60F0082212B /* BottomImagesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomImagesViewModel.swift; sourceTree = "<group>"; };
 		8DD1B1AA2450B27700C9601C /* MainDishRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDishRequest.swift; sourceTree = "<group>"; };
@@ -259,7 +259,7 @@
 			children = (
 				8DD1B1C1245190D500C9601C /* Common.swift */,
 				8D71CF0C2454438D00427572 /* Category.swift */,
-				8DC914A9245011C000421B20 /* MainDish.swift */,
+				8DC914A9245011C000421B20 /* BriefDish.swift */,
 				8DD1B1B1245169F100C9601C /* DetailDish.swift */,
 			);
 			path = Model;
@@ -376,7 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DC914AA245011C000421B20 /* MainDish.swift in Sources */,
+				8DC914AA245011C000421B20 /* BriefDish.swift in Sources */,
 				8DDC5BED2456FE2700BDE1B3 /* ModelController.swift in Sources */,
 				8D71CF0D2454438D00427572 /* Category.swift in Sources */,
 				8D344A5D244D4848004D3962 /* DetailViewController.swift in Sources */,
@@ -411,7 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DD1B1B624518A4300C9601C /* MainDish.swift in Sources */,
+				8DD1B1B624518A4300C9601C /* BriefDish.swift in Sources */,
 				8DDC5BF02457073500BDE1B3 /* ModelController.swift in Sources */,
 				8D20B4C124545F2000E72C98 /* NetworkController.swift in Sources */,
 				8DD1B1BA24518A4D00C9601C /* APIRequest.swift in Sources */,

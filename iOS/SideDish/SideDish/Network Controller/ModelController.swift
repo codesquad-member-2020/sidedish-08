@@ -1,9 +1,9 @@
 import Foundation
 
 class ModelController {
-    private let mainCategory: Category = .init(title: "언제 먹어도 든든한 반찬", subTitle: "밥과 함께")
-    private let soupCategory: Category = .init(title: "김이 모락모락 국물요리", subTitle: "국・찌개")
-    private let sideCategory: Category = .init(title: "없으면 섭섭한 밑반찬", subTitle: "반찬")
+    private let mainCategory: Category = .init(title: "한그릇 뚝딱 메인 요리", subTitle: "메인반찬")
+    private let soupCategory: Category = .init(title: "김이 모락모락 국・찌개", subTitle: "국・찌개")
+    private let sideCategory: Category = .init(title: "언제 먹어도 든든한 밑반찬", subTitle: "밑반찬")
 
     private(set) var categories: [Category]
 
