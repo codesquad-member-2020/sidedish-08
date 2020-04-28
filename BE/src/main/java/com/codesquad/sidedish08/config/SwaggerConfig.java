@@ -14,6 +14,7 @@ public class SwaggerConfig {
   @Bean
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2)
+        .host("localhost:80")
         .groupName("Api")
         .select()
         .apis(RequestHandlerSelectors.basePackage("com.codesquad.sidedish08"))
