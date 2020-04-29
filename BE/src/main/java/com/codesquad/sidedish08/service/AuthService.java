@@ -5,8 +5,10 @@ import static com.codesquad.sidedish08.message.AuthMessages.AUTHORIZE_URL;
 import static com.codesquad.sidedish08.message.AuthMessages.USER_EMAIL_URL;
 
 import com.codesquad.sidedish08.config.AuthProperties;
+import com.codesquad.sidedish08.message.AuthMessages;
 import com.codesquad.sidedish08.message.ErrorMessages;
 import com.codesquad.sidedish08.util.TokenUtil;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -18,7 +20,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -54,11 +55,23 @@ public class AuthService {
     return headers;
   }
 
-  public String callback(String authorizationCode) {
+  private HttpHeaders index(String token) {
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(
+        new MediaType("application", "json", StandardCharsets.UTF_8));
+
+    headers.add("Authorization", "Bearer " + token);
+    headers.add("Set-Cookie", "token=" + token + "; Path=/");
+    headers.setLocation(URI.create(AuthMessages.REDIRECT_TO_INDEX_URL));
+
+    return headers;
+  }
+
+  public HttpHeaders callback(String authorizationCode) {
     String accessToken = getAccessToken(authorizationCode);
     List<LinkedHashMap<String, String>> emails = getEmails(accessToken);
 
-    return TokenUtil.create(emails.get(0));
+    return index(TokenUtil.create(emails.get(0)));
   }
 
   private String getAccessToken(String authorizationCode) {
