@@ -28,6 +28,7 @@ const Wrap = styled.div`
   top: 50%;
   left: 50%;
   width: 750px;
+  min-height: 400px;
   margin: 0 auto;
   transform: translate(-50%, -50%);
   box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
@@ -72,17 +73,6 @@ const CloseBtn = styled.button`
 const Modal = ({data, isShow}) => {
   const [detail, setDetail] = useState(null);
   const reqUrl = process.env.REACT_APP_DEFAULT;
-  // const getDetailData = async () => {
-  //   const response = await fetch(`${reqUrl}/${data.hash}`);
-  //   const fetchData = await response.json();
-  //   console.log(fetchData)
-  //   setDetail(fetchData.contents.data);
-  //   // setLoading(false);
-  // }
-  // useEffect(() => {
-  //   getDetailData();
-  // }, []);
-
   const loading = useFetch(setDetail, `${reqUrl}/${data.hash}`);
   const deliveryData = [
     {
@@ -114,7 +104,6 @@ const Modal = ({data, isShow}) => {
           salePrice={detail.salePrice}
           deliveryData={deliveryData}
         />}
-        
         <CloseBtn type="button" onClick={isShow}>close</CloseBtn>
       </Wrap>
     </ModalWrap>

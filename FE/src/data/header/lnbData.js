@@ -2,7 +2,7 @@ export const topMenu = [
   {
     key: 'login',
     value: '로그인',
-    link: '#none'
+    link: process.env.REACT_APP_LOGIN
   },
   {
     key: 'join',

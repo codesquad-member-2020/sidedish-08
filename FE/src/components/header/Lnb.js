@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { topMenu } from '../../data/header/lnbData';
 import styled from 'styled-components';
+import getCookie from '../getCookie';
+import JwtDecode from 'jwt-decode';
+import UserInfoWrap from './UserInfoWrap.js';
 
 const LnbWrap = styled.div`
   width: 100%;
@@ -55,7 +58,22 @@ const LnbA = styled.a`
 `;
 
 const Lnb = () => {
-  const lnbMenu = topMenu.map((menu) => <LnbLi key={menu.key}><LnbA href={menu.link}>{menu.value}</LnbA></LnbLi>);
+  const [userName, setUserName] = useState(null);
+
+  const lnbMenu = topMenu.map((menu) => {
+    if(menu.key === 'login' && userName) {
+      return <UserInfoWrap userName={userName} />
+    }
+    return <LnbLi key={menu.key}><LnbA data-key={menu.key} href={menu.link}>{menu.value}</LnbA></LnbLi>
+  });
+
+  useEffect(() => {
+    const token = getCookie('token');
+    if(!token) return;
+    const decoded = JwtDecode(token);
+    setUserName(decoded.email);
+  }, [userName]);
+
   return (
     <LnbWrap className="lnb">
       <LnbBox>
