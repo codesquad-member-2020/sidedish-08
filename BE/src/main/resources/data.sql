@@ -17,58 +17,58 @@ VALUES ('EVENT', 1, 0);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('LAUNCHING', 1, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/2d3f99a9a35601f4e98837bc4d39b2c8.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/2d3f99a9a35601f4e98837bc4d39b2c8.jpg',
         'top', 1, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('https://public.codesquad.kr/jk/storeapp/DATA/detail/HBDEF/4cce011a4a352c22cd399a60271b4921.jpg',
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/4cce011a4a352c22cd399a60271b4921.jpg',
         'thumb', 1, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('https://public.codesquad.kr/jk/storeapp/DATA/detail/HBDEF/6ef14155afc5b47e8c9efd762f7a6096.jpg',
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/6ef14155afc5b47e8c9efd762f7a6096.jpg',
         'thumb', 1, 2);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HBDEF/a8c434715709fe855f3ea1554ec362b6.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/a8c434715709fe855f3ea1554ec362b6.jpg',
         'detail', 1, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HBDEF/b2b3d0d2107ab91b16e0eb804cd84bc9.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/b2b3d0d2107ab91b16e0eb804cd84bc9.jpg',
         'detail', 1, 2);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HBDEF/c0dd6887c9d9368604fc70d7fc3c4598.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/c0dd6887c9d9368604fc70d7fc3c4598.jpg',
         'detail', 1, 3);
 
 
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
 VALUES ('HDF73', '[빅마마의밥친구] 아삭 고소한 연근고기조림 250g', '편식하는 아이도 좋아하는 건강한 연근조림', 5500, 1, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/7674311a02ba7c88675f3186ddaeef9e.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/7674311a02ba7c88675f3186ddaeef9e.jpg',
         'top', 2, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('https://public.codesquad.kr/jk/storeapp/DATA/detail/HBDEF/8744504ff3bc315f901dca1f26fe63a1.jpg',
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/8744504ff3bc315f901dca1f26fe63a1.jpg',
         'thumb', 2, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('https://public.codesquad.kr/jk/storeapp/DATA/detail/HBDEF/e30bd6de9340fc05db3cd1d1329b2c56.jpg',
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/detail/HBDEF/e30bd6de9340fc05db3cd1d1329b2c56.jpg',
         'thumb', 2, 2);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HDF73/d2e3274c95c832bc9bfbcebbd548f61b.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/d2e3274c95c832bc9bfbcebbd548f61b.jpg',
         'detail', 2, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HDF73/d9e4fa00652483d74b46317d38159a2f.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/d9e4fa00652483d74b46317d38159a2f.jpg',
         'detail', 2, 2);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HDF73/d7799b67683128642453f9e2b4c8ce84.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/d7799b67683128642453f9e2b4c8ce84.jpg',
         'detail', 2, 3);
 
 
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
 VALUES ('HF778', '[소중한식사] 골뱅이무침 195g', '매콤새콤달콤, 반찬으로도 안주로도 좋은', 7000, 1, 2);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/cad8eee316cf7151e07638aa57b32a9d.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/cad8eee316cf7151e07638aa57b32a9d.jpg',
         'top', 3, 0);
 
 
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
 VALUES ('HFB53', '[옹가솜씨] 꽁치간장조림 240g', '생강 향이 산뜻한', 5800, 1, 3);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('https://public.codesquad.kr/jk/storeapp/DATA/b6beada6b89af950289003d929936d9c.jpg',
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/b6beada6b89af950289003d929936d9c.jpg',
         'top', 4, 0);
 
 
@@ -79,7 +79,7 @@ VALUES ('EARLY_MORNING', 5, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
 VALUES ('NATIONAL', 5, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/fdb0d5fcfb86e332505785225a6d9ade.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/fdb0d5fcfb86e332505785225a6d9ade.jpg',
         'top', 5, 0);
 
 
@@ -92,7 +92,7 @@ VALUES ('NATIONAL', 6, 1);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('LAUNCHING', 6, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/e5646e5fc09a01a9243979b229e0572b.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/e5646e5fc09a01a9243979b229e0572b.jpg',
         'top', 6, 0);
 
 
@@ -107,7 +107,7 @@ VALUES ('EVENT', 7, 0);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('LAUNCHING', 7, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/4cfd1954861ebd18b5b53e558a8e902e.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/4cfd1954861ebd18b5b53e558a8e902e.jpg',
         'top', 7, 0);
 
 
@@ -120,7 +120,7 @@ VALUES ('NATIONAL', 8, 1);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('EVENT', 8, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/422befe07f7e2860b9a83a8d7049ec2e.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/422befe07f7e2860b9a83a8d7049ec2e.jpg',
         'top', 8, 0);
 
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
@@ -132,7 +132,7 @@ VALUES ('NATIONAL', 9, 1);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('EVENT', 9, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('https://public.codesquad.kr/jk/storeapp/DATA/d1fccf125f0a78113d0e06cb888f2e74.jpg',
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/d1fccf125f0a78113d0e06cb888f2e74.jpg',
         'top', 9, 0);
 
 
@@ -143,7 +143,7 @@ VALUES ('EARLY_MORNING', 10, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
 VALUES ('NATIONAL', 10, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('https://public.codesquad.kr/jk/storeapp/DATA/c069bc32cb37727c59e1f0c2839311a0.jpg',
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/c069bc32cb37727c59e1f0c2839311a0.jpg',
         'top', 10, 0);
 
 
@@ -156,7 +156,7 @@ VALUES ('NATIONAL', 11, 1);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('EVENT', 11, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('https://public.codesquad.kr/jk/storeapp/DATA/6edbb16da52708e8533b85fbf743f882.jpg',
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/6edbb16da52708e8533b85fbf743f882.jpg',
         'top', 11, 0);
 
 
@@ -169,7 +169,7 @@ VALUES ('NATIONAL', 12, 1);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('EVENT', 12, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('https://public.codesquad.kr/jk/storeapp/DATA/892f3e7f043bfa7dbbcd58f88eecac36.jpg',
+VALUES ('https://public.codesquad.kr/jk/storeapp/data/892f3e7f043bfa7dbbcd58f88eecac36.jpg',
         'top', 12., 0);
 
 
@@ -182,19 +182,19 @@ VALUES ('NATIONAL', 13, 1);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('LAUNCHING', 13, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/0221110ead70dfd455e40703bbdd6252.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/0221110ead70dfd455e40703bbdd6252.jpg',
         'top', 13, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/0221110ead70dfd455e40703bbdd6252.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/0221110ead70dfd455e40703bbdd6252.jpg',
         'thumb', 13, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HDF73/2d408898494ac950d7d2cfd6c36d59c2.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/2d408898494ac950d7d2cfd6c36d59c2.jpg',
         'thumb', 13, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HDF73/62c8bb77facfc9c3be81f9bf45b27f2a.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/62c8bb77facfc9c3be81f9bf45b27f2a.jpg',
         'thumb', 13, 2);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HDF73/f6d73afc0ebc1efa71eaea32e9d846f2.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/f6d73afc0ebc1efa71eaea32e9d846f2.jpg',
         'thumb', 13, 3);
 
 
@@ -205,19 +205,19 @@ VALUES ('EARLY_MORNING', 14, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
 VALUES ('NATIONAL', 14, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/385f4106ac26f6e4fe7c640714f405a5.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/385f4106ac26f6e4fe7c640714f405a5.jpg',
         'top', 14, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/385f4106ac26f6e4fe7c640714f405a5.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/385f4106ac26f6e4fe7c640714f405a5.jpg',
         'thumb', 14, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HDF73/2d408898494ac950d7d2cfd6c36d59c2.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/2d408898494ac950d7d2cfd6c36d59c2.jpg',
         'thumb', 14, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HDF73/62c8bb77facfc9c3be81f9bf45b27f2a.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/62c8bb77facfc9c3be81f9bf45b27f2a.jpg',
         'thumb', 14, 2);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/HDF73/f6d73afc0ebc1efa71eaea32e9d846f2.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/HDF73/f6d73afc0ebc1efa71eaea32e9d846f2.jpg',
         'thumb', 14, 3);
 
 
@@ -230,25 +230,25 @@ VALUES ('NATIONAL', 15, 1);
 INSERT INTO `badge` (`type`, `dish_id`, `dish_key`)
 VALUES ('LAUNCHING', 15, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/8fd330b5f5dbccbcbf4f5731e5e9e29b.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/8fd330b5f5dbccbcbf4f5731e5e9e29b.jpg',
         'top', 15, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/H26C7/2ad963a9f63d371826748c852a0025c3.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/H26C7/2ad963a9f63d371826748c852a0025c3.jpg',
         'thumb', 15, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/H26C7/f945d8ac1dccc3f931bcaf35de5de582.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/H26C7/f945d8ac1dccc3f931bcaf35de5de582.jpg',
         'thumb', 15, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/H26C7/bacb0b8186371bfafbd92dbeec718e13.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/H26C7/bacb0b8186371bfafbd92dbeec718e13.jpg',
         'thumb', 15, 2);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/H26C7/3d67aabd2751620367e1d1ac3e3d7ef2.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/H26C7/3d67aabd2751620367e1d1ac3e3d7ef2.jpg',
         'detail', 15, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/H26C7/855b42b4e80162e6930f06aa80bd1272.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/H26C7/855b42b4e80162e6930f06aa80bd1272.jpg',
         'detail', 15, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/H26C7/1966de56cf138639d5d50d4bf2db8e72.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/H26C7/1966de56cf138639d5d50d4bf2db8e72.jpg',
         'detail', 15, 2);
 
 INSERT INTO `dish` (`hash`, `title`, `description`, `price`, `category_id`, `category_key`)
@@ -258,20 +258,20 @@ VALUES ('EARLY_MORNING', 16, 0);
 INSERT INTO `delivery` (`type`, `dish_id`, `dish_key`)
 VALUES ('NATIONAL', 16, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/d0b5d2be962947d9534e2140d1b34b2d.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/d0b5d2be962947d9534e2140d1b34b2d.jpg',
         'top', 16, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/d0b5d2be962947d9534e2140d1b34b2d.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/d0b5d2be962947d9534e2140d1b34b2d.jpg',
         'thumb', 16, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/H602F/edc6bae2e2663f05b4e8eb5a2b95d68f.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/H602F/edc6bae2e2663f05b4e8eb5a2b95d68f.jpg',
         'thumb', 16, 1);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/H602F/c935f5913dc66b11ebceeef85485c438.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/H602F/c935f5913dc66b11ebceeef85485c438.jpg',
         'thumb', 16, 2);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/H602F/670e7deefe1d84a4f4e058655fbd4d7c.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/H602F/670e7deefe1d84a4f4e058655fbd4d7c.jpg',
         'detail', 16, 0);
 INSERT INTO `image` (`url`, `type`, `dish_id`, `dish_key`)
-VALUES ('http://public.codesquad.kr/jk/storeapp/DATA/detail/H602F/1898cda038e92454395b8ffca8cd4393.jpg',
+VALUES ('http://public.codesquad.kr/jk/storeapp/data/detail/H602F/1898cda038e92454395b8ffca8cd4393.jpg',
         'detail', 16, 1);
