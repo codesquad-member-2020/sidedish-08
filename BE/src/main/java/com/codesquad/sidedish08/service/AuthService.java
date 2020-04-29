@@ -61,7 +61,7 @@ public class AuthService {
         new MediaType("application", "json", StandardCharsets.UTF_8));
 
     headers.add("Authorization", "Bearer " + token);
-    headers.add("Set-Cookie", token);
+    headers.add("Set-Cookie", "token=" + token + "; Path=/");
     headers.setLocation(URI.create(AuthMessages.REDIRECT_TO_INDEX_URL));
 
     return headers;
