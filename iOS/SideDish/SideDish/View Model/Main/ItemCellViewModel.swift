@@ -1,11 +1,15 @@
 import UIKit
 
-class ItemCellViewModel {
-    var image: UIImage? = nil
+class ItemCellViewModel: Observable {
+    var observers: [Observer?] = []
 
-    var imageURL: ImageURL {
-        didSet { fetchImage() }
+    var image: UIImage? = nil {
+        didSet {
+            observers.forEach { $0?.updateChanges() }
+        }
     }
+
+    let imageURL: ImageURL
     let title: String
     let description: String
     let normalPrice: String
@@ -19,6 +23,7 @@ class ItemCellViewModel {
         self.normalPrice = "\(model.normalPrice) 원"
         self.salePrice = "\(model.salePrice) 원"
         self.badges = model.badges
+        fetchImage()
     }
 }
 

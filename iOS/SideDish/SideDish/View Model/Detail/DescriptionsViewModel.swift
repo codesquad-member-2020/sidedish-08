@@ -12,7 +12,7 @@ struct DescriptionViewModel {
 
 extension DescriptionViewModel {
     init(model: DetailDish?) {
-        self.title = model?.description ?? ""
+        self.title = model?.title ?? ""
         self.subTitle = model?.description ?? ""
         self.normalPrice = "\(model?.normalPrice.description ?? "-")원"
         self.salePrice = "\(model?.salePrice.description ?? "-")원"

@@ -31,14 +31,12 @@ class MainViewDataSource: NSObject, UITableViewDataSource {
         return dishes.count
     }
 
-    private func getDish(at indexPath: IndexPath) -> BriefDish? {
+    func getDish(at indexPath: IndexPath) -> BriefDish? {
         return dishes[indexPath.section][indexPath.row]
     }
 
-    func updateList<T>(_ tableView: UITableView, list: DishList, result: T) {
-        guard let result = result as? BriefDishWrapper else { return }
-
-        dishes[list.rawValue] = result.unwrapped()
+    func updateList(_ tableView: UITableView, list: DishList, result: [BriefDish]) {
+        dishes[list.rawValue] = result
         DispatchQueue.main.sync {
             tableView.insertRows(at: self.indexPaths(for: list), with: .automatic)
         }

@@ -23,6 +23,7 @@ struct DetailDish: Codable {
     let thumbImages: [ImageURL]
 
     // Descriptions
+    let title: String
     let description: String
     let normalPrice: Price
     let salePrice: Price

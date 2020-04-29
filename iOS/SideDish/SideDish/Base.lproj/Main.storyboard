@@ -126,7 +126,7 @@
                                             <outlet property="salePriceLabel" destination="rky-Go-ODq" id="h0j-WN-Xcb"/>
                                             <outlet property="subTitleLabel" destination="G6C-84-xc4" id="ic3-V2-lRI"/>
                                             <outlet property="titleLabel" destination="ayc-xT-Pnm" id="Kyf-hh-QbA"/>
-                                            <segue destination="unU-K2-R5Q" kind="show" id="K49-jd-Ny4"/>
+                                            <segue destination="unU-K2-R5Q" kind="show" identifier="DetailSegue" id="K49-jd-Ny4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -503,7 +503,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sNb-CZ-Qj0"/>
+        <segue reference="a2y-6c-kKK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="default-image" width="400" height="300"/>

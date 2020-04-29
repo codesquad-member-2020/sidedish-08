@@ -13,15 +13,25 @@ final class ItemCell: UITableViewCell {
 }
 
 extension ItemCell: Configurable {
-    func setup() { }
+    func setup() {
+        viewModel?.addObserver(self)
+    }
 
     func configure() {
-        titleLabel.text = viewModel?.title
-        subTitleLabel.text = viewModel?.description
-        normalPriceLabel.text = viewModel?.normalPrice
-        salePriceLabel.text = viewModel?.salePrice
-        ThumbImageView.image = viewModel?.image
+        DispatchQueue.main.async {
+            self.titleLabel.text = self.viewModel?.title
+            self.subTitleLabel.text = self.viewModel?.description
+            self.normalPriceLabel.text = self.viewModel?.normalPrice
+            self.salePriceLabel.text = self.viewModel?.salePrice
+            self.ThumbImageView.image = self.viewModel?.image
 
-        normalPriceLabel.setStrikethrough()
+            self.normalPriceLabel.setStrikethrough()
+        }
+    }
+}
+
+extension ItemCell: Observer {
+    func updateChanges() {
+        configure()
     }
 }

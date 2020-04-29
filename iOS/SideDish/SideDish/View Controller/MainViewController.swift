@@ -5,6 +5,7 @@ final class MainViewController: UIViewController {
     let modelController: ModelController = .init()
     let dataSource: MainViewDataSource = .init()
     let delegate: MainViewDelegate = .init()
+    let detailSegueIdentifier = "DetailSegue"
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -31,17 +32,26 @@ final class MainViewController: UIViewController {
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == detailSegueIdentifier else { return }
+        guard let destination = segue.destination as? DetailViewController else { return }
+
+        if let indexPath = tableView.indexPathForSelectedRow, let detailDish = dataSource.getDish(at: indexPath) {
+            destination.detailHash = detailDish.hash
+        }
+    }
+
     private func loadDishList() {
         network.loadDishList(with: MainDishRequest()) { result in
-            self.dataSource.updateList(self.tableView, list: .main, result: result)
+            self.dataSource.updateList(self.tableView, list: .main, result: result.unwrapped())
         }
 
         network.loadDishList(with: SoupDishRequest()) { result in
-            self.dataSource.updateList(self.tableView, list: .soup, result: result)
+            self.dataSource.updateList(self.tableView, list: .soup, result: result.unwrapped())
         }
 
         network.loadDishList(with: SideDishRequest()) { result in
-            self.dataSource.updateList(self.tableView, list: .side, result: result)
+            self.dataSource.updateList(self.tableView, list: .side, result: result.unwrapped())
         }
     }
 

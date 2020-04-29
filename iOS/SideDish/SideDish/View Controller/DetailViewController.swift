@@ -6,7 +6,7 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var bottomImagesView: BottomImagesView!
 
     let network: NetworkController = .init()
-    let detailHash: DetailHash = "HBDEF"
+    var detailHash: DetailHash = ""
 
     // MARK: - View Cycle
 
