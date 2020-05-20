@@ -1,2 +1,2 @@
-# sidedish-08
-SIDEDISH 서비스 - 8팀
+## Swagger
+http://13.125.127.249:8080/sidedish08/swagger-ui.html#/
